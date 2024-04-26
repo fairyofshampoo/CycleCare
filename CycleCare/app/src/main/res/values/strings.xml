@@ -8,4 +8,12 @@
     <string name="forgot_password_label"><u>Olvidé mi contraseña</u></string>
     <string name="register_label"><u>Regístrate aquí</u></string>
     <string name="no_account_label">¿No tienes cuenta?</string>
+    <string name="forgot_password_title">Olvidé mi contraseña</string>
+    <string name="restore_access_account">Recupera el acceso a tu cuenta.</string>
+    <string name="restore_password_instruction">Ingresa el correo electrónico asociado a la cuenta que desea recuperar.</string>
+    <string name="email_label">Correo electrónico</string>
+    <string name="btn_send_email">Enviar correo</string>
+    <string name="email_hint">cyclecare@gmail.com</string>
+    <string name="verify_email_title">Verificar correo</string>
+    <string name="check_your_mailbox_instruction">Revisa tu bandeja de entrada</string>
 </resources>

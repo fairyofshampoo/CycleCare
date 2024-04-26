@@ -4,9 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <variable
-            name="loginViewModel"
-            type="com.ikariscraft.cyclecare.viewmodel.LoginViewModel" />
     </data>
 
     <LinearLayout
@@ -59,8 +56,7 @@
                 android:minHeight="48dp"
                 android:textColorHint="#546E7A"
                 android:textSize="15sp"
-                android:layout_marginBottom="20dp"
-                tools:ignore="VisualLintTextFieldSize" />
+                android:layout_marginBottom="20dp"/>
 
             <TextView
                 android:textAllCaps="true"
@@ -79,8 +75,7 @@
                 android:minHeight="48dp"
                 android:textColorHint="#546E7A"
                 android:textSize="15sp"
-                android:layout_marginBottom="5dp"
-                tools:ignore="VisualLintTextFieldSize" />
+                android:layout_marginBottom="5dp"/>
 
             <TextView
                 android:textColor="@color/main_pink"
