@@ -16,4 +16,23 @@
     <string name="email_hint">cyclecare@gmail.com</string>
     <string name="verify_email_title">Verificar correo</string>
     <string name="check_your_mailbox_instruction">Revisa tu bandeja de entrada</string>
+    <string name="register_new_account_title">Registrar nueva cuenta</string>
+    <string name="register_account_instruction">¿Ya te has registrado?</string>
+    <string name="name_register_account_label">* Introduce tu nombre</string>
+    <string name="error_name_register_account_label">El nombre es incorrecto, deben ser solo letras</string>
+    <string name="email_register_account_label">* Ingresa tu correo electrónico</string>
+    <string name="email_error_register_account_label">Debes ingresar un email válido</string>
+    <string name="user_register_account_label">* Introduce tu usuario</string>
+    <string name="error_user_register_account_label">El usuario ya existe</string>
+    <string name="password_register_account_label">* Introduce tu contraseña</string>
+    <string name="error_password_register_account_label">Debe contener ocho caracteres, una minúscula, mayúscula y un caracter especial</string>
+    <string name="birthday_register_account_label">* Introduce tu fecha de nacimiento</string>
+    <string name="error_birthday_register_account_label">Debes seleccionar una fecha válida</string>
+    <string name="register_account_button">Siguiente</string>
+    <string name="birthday_datepicker_message">Seleccionar fecha de nacimiento</string>
+    <string name="cycle_type_title_label">¿Cómo es tu ciclo?</string>
+    <string name="cycle_description_label">El ciclo menstrual es el proceso mensual del cuerpo preparándose para un posible embarazo. Se considera regular cuando la duración entre períodos es constante (aproximadamente 21-35 días). Si hay variaciones significativas, se considera irregular.</string>
+    <string name="regular_cycle_button">Regular</string>
+    <string name="irregular_cycle_button">Irregular</string>
+    <string name="idk_cycle_button">No lo sé</string>
 </resources>
