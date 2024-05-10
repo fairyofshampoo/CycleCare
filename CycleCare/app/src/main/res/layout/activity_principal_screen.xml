@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".MainActivity">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/fragment_container"
+                android:layout_width="match_parent"
+                android:layout_height="600dp" />
+
+        </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="412dp"
+        android:layout_height="131dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:background="@color/strong_pink">
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:src="@drawable/notification_icon"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:scaleType = "fitCenter"
+            android:background="null"/>
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:src="@drawable/calendar_icon"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:scaleType = "fitCenter"
+            android:background="null"/>
+
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:src="@drawable/content_icon"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:scaleType = "fitCenter"
+            android:background="null"/>
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:src="@drawable/chart_icon"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:scaleType = "fitCenter"
+            android:background="null"/>
+
+
+    </LinearLayout>
+
+    </LinearLayout>
+</layout>

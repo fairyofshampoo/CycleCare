@@ -35,4 +35,23 @@
     <string name="regular_cycle_button">Regular</string>
     <string name="irregular_cycle_button">Irregular</string>
     <string name="idk_cycle_button">No lo sé</string>
+    <string name="period_information_tittle">Información sobre tu periodo y ciclo menstrual</string>
+    <string name="period_information_instructions">Esta información nos ayudará a ofrecerte mejores predicciones</string>
+    <string name="period_duration_label">Usualmente, ¿Cuánto dura tu periodo?</string>
+    <string name="cycle_duration_label">Usualmente, ¿Cuánto dura tu ciclo?</string>
+    <string name="last_period_date_label">Fecha del último periodo</string>
+    <string name="register_button">Registrarse</string>
+    <string name="contenido_informativo">Contenido informativo</string>
+    <string name="tittle_label">* Título</string>
+    <string name="multimedia_content_label">* Contenido multimedia</string>
+    <string name="multimedia_content_instructions_label">Agrega una imagen o vídeo, este será la portada del contenido informativo</string>
+    <string name="valid_format_label">Formatos permitidos: MP4, PNG, JPG (max. 50 MB)</string>
+    <string name="description_label">* Descripción</string>
+    <string name="post_button">Publicar</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="post_tittle_label">Título de la publicación</string>
+    <string name="author_content_label">autor de la publicación</string>
+    <string name="publish_date_label">XX/XX/XXXX</string>
+    <string name="content_label">Contenido</string>
 </resources>
