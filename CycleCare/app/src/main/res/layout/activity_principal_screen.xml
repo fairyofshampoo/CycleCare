@@ -25,48 +25,49 @@
         </RelativeLayout>
 
     <LinearLayout
-        android:layout_width="412dp"
-        android:layout_height="131dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:orientation="horizontal"
         android:gravity="center"
         android:background="@color/strong_pink">
 
         <ImageButton
             android:layout_width="wrap_content"
-            android:layout_height="60dp"
+            android:layout_height="50dp"
             android:src="@drawable/notification_icon"
             android:layout_marginBottom="10dp"
             android:layout_marginTop="10dp"
             android:scaleType = "fitCenter"
-            android:background="null"/>
+            android:layout_marginStart="-20dp"
+            android:background="@color/strong_pink"/>
 
         <ImageButton
             android:layout_width="wrap_content"
-            android:layout_height="60dp"
+            android:layout_height="50dp"
             android:src="@drawable/calendar_icon"
             android:layout_marginBottom="10dp"
             android:layout_marginTop="10dp"
             android:scaleType = "fitCenter"
-            android:background="null"/>
+            android:background="@color/strong_pink"/>
 
 
         <ImageButton
             android:layout_width="wrap_content"
-            android:layout_height="60dp"
+            android:layout_height="50dp"
             android:src="@drawable/content_icon"
             android:layout_marginBottom="10dp"
             android:layout_marginTop="10dp"
             android:scaleType = "fitCenter"
-            android:background="null"/>
+            android:background="@color/strong_pink"/>
 
         <ImageButton
             android:layout_width="wrap_content"
-            android:layout_height="60dp"
+            android:layout_height="50dp"
             android:src="@drawable/chart_icon"
             android:layout_marginBottom="10dp"
             android:layout_marginTop="10dp"
             android:scaleType = "fitCenter"
-            android:background="null"/>
+            android:background="@color/strong_pink" />
 
 
     </LinearLayout>

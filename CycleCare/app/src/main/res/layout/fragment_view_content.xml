@@ -9,73 +9,73 @@
 
     <ScrollView
         android:layout_width="410dp"
-        android:layout_height="600dp"
-        android:orientation="vertical"
-        android:layout_marginBottom="40dp">
+        android:layout_height="737dp"
+        android:layout_marginBottom="40dp"
+        android:orientation="vertical">
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".activities.ViewContentFragment">
-
-        <LinearLayout
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-        <!-- TODO: Update blank fragment layout -->
+            android:layout_height="wrap_content"
+            tools:context=".activities.ViewContentFragment">
 
-            <ImageView
-                android:id="@+id/imageView"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:src="@android:drawable/ic_menu_gallery"/>
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <!-- TODO: Update blank fragment layout -->
 
-            <TextView
-                android:textColor="@color/black"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/post_tittle_label"
-                android:textSize="20sp"
-                android:layout_marginTop="30dp"
-                android:textAlignment="center"/>
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:src="@android:drawable/ic_menu_gallery" />
 
-
-            <TextView
-                android:textColor="@color/soft_pink94"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/author_content_label"
-                android:textSize="12sp"
-                android:layout_marginTop="30dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:text="@string/post_tittle_label"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
 
 
-            <TextView
-                android:textColor="@color/soft_pink94"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/publish_date_label"
-                android:textSize="12sp"
-                android:layout_marginTop="5dp"/>
-            
-            <RatingBar
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:numStars="5"
-                android:stepSize="1"
-                android:rating="0"
-                android:layout_gravity="right"
-                android:layout_marginEnd="20sp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:text="@string/author_content_label"
+                    android:textColor="@color/soft_pink94"
+                    android:textSize="12sp" />
 
-            <TextView
-                android:textColor="@color/black"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/content_label"
-                android:textSize="18sp"
-                android:layout_marginTop="30dp"
-                android:layout_marginStart="20sp"/>
 
-        </LinearLayout>
-    </FrameLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/publish_date_label"
+                    android:textColor="@color/soft_pink94"
+                    android:textSize="12sp" />
+
+                <RatingBar
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_marginEnd="20sp"
+                    android:numStars="5"
+                    android:rating="0"
+                    android:stepSize="1" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20sp"
+                    android:layout_marginTop="30dp"
+                    android:text="@string/content_label"
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
+
+            </LinearLayout>
+        </FrameLayout>
     </ScrollView>
 </layout>

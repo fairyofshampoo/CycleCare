@@ -38,13 +38,54 @@
 
         <TextView
             android:layout_marginTop="5dp"
-            android:layout_width="wrap_content"
+            android:layout_width="290dp"
             android:layout_height="wrap_content"
             android:text="@string/restore_password_instruction"
             android:textAlignment="center"
             android:textSize="16sp"
             android:textColor="@color/dark_gray"
             android:layout_marginBottom="30dp"/>
+
+        <TextView
+            android:textAllCaps="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/code_verify_email_label"
+            android:textColor="@color/gray_blue"
+            android:layout_marginStart="20dp"
+            android:textSize="16sp" />
+
+        <EditText
+            style="@style/EditTextStyle"
+            android:layout_width="330dp"
+            android:layout_height="wrap_content"
+            android:autofillHints=""
+            android:inputType="text"
+            android:minHeight="48dp"
+            android:textSize="15sp"
+            android:layout_marginBottom="40dp"/>
+
+        <Button
+            android:id="@+id/btn_login"
+            android:textAllCaps="false"
+            style="@style/ButtonStyle"
+            android:layout_width="240dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:text="@string/confirm_code_button"
+            android:layout_gravity="center"/>
+
+        <TextView
+            android:layout_width="140sp"
+            android:layout_height="wrap_content"
+            android:text="@string/resend_code_label"
+            android:textColor="@color/soft_pink94"
+            android:layout_marginTop="20dp"
+            android:textSize="16sp"
+            android:clickable="true"
+            android:textStyle="italic"
+            android:onClick="onClick"
+            android:layout_gravity="center"/>
 
     </LinearLayout>
 </layout>

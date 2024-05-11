@@ -54,4 +54,16 @@
     <string name="author_content_label">autor de la publicación</string>
     <string name="publish_date_label">XX/XX/XXXX</string>
     <string name="content_label">Contenido</string>
+    <string name="code_verify_email_label">Código</string>
+    <string name="confirm_code_button">Confirmar correo</string>
+    <string name="resend_code_label">Reenviar código</string>
+    <string name="reminder_tittle_label">* Título del recordatorio</string>
+    <string name="reminder_description_label">Descripción del recordatorio</string>
+    <string name="reminder_date_label">* Fecha del recordatorio</string>
+    <string name="reminder_time_label">* Hora del recordatorio</string>
+    <string name="save_reminder_button">Guardar recordatorio</string>
+    <string name="reminder_fragment_tittle">Recordatorio</string>
+    <string name="chart_bar_tittle">Esta semana</string>
+    <string name="sleep_hours_prom_label">Promedio de horas de sueño</string>
+    <string name="sleep_hours_label">XX Horas</string>
 </resources>
