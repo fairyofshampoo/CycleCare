@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".activities.RegisterReminder">
+
+        <LinearLayout
+            android:layout_width="410sp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="410sp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/reminder_fragment_tittle"
+            android:layout_marginStart="130dp"
+            android:layout_marginBottom="30dp"
+            android:textColor="@color/black"
+            android:textSize="20sp"/>
+
+                <com.google.android.material.switchmaterial.SwitchMaterial
+                    android:id="@+id/material_switch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="70dp"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:textAllCaps="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/reminder_tittle_label"
+                android:textColor="@color/gray_blue"
+                android:layout_marginStart="20dp"
+                android:textSize="16sp" />
+
+            <EditText
+                style="@style/EditTextStyle"
+                android:layout_width="330dp"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:textSize="15sp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="20dp"/>
+
+            <TextView
+                android:textAllCaps="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/reminder_description_label"
+                android:textColor="@color/gray_blue"
+                android:layout_marginStart="20dp"
+                android:textSize="16sp" />
+
+            <EditText
+                style="@style/EditTextForDescriptionStyle"
+                android:layout_width="330dp"
+                android:layout_height="150dp"
+                android:inputType="text"
+                android:textSize="15sp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="20dp"/>
+
+            <TextView
+                android:textAllCaps="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/reminder_date_label"
+                android:textColor="@color/gray_blue"
+                android:layout_marginStart="20dp"
+                android:textSize="16sp" />
+
+            <EditText
+                style="@style/EditTextStyle"
+                android:layout_width="330dp"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:textSize="15sp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="20dp"/>
+
+            <TextView
+                android:textAllCaps="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/reminder_time_label"
+                android:textColor="@color/gray_blue"
+                android:layout_marginStart="20dp"
+                android:textSize="16sp" />
+
+            <EditText
+                style="@style/EditTextStyle"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:textSize="15sp"
+                android:layout_gravity="left"
+                android:layout_marginStart="42sp"
+                android:layout_marginBottom="40dp"/>
+
+            <Button
+                android:id="@+id/btn_login"
+                android:textAllCaps="false"
+                style="@style/ButtonStyle"
+                android:layout_width="240dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:text="@string/save_reminder_button"
+                android:layout_gravity="center"/>
+
+        </LinearLayout>
+
+    </FrameLayout>
+</layout>

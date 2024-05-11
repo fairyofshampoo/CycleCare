@@ -18,40 +18,48 @@
             style="@style/TitleTextViewStyle"
             android:layout_width="284dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="10dp"
             android:text="@string/cycle_type_title_label"/>
 
 
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="120dp"
+            android:src="@drawable/cycle_type_image"
+            android:scaleType="centerInside"
+            android:layout_marginBottom="10dp"/>
+
         <GridLayout
-            android:background="@drawable/rounded_background"
-            android:layout_width="360dp"
-            android:layout_height="210dp"
+            android:background="@drawable/rounded_background_grey"
+            android:layout_width="300dp"
+            android:layout_height="220dp"
             android:gravity="center_horizontal"
             android:orientation="vertical">
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="220dp"
+                android:gravity="center"
                 android:text="@string/cycle_description_label"
-                android:textSize="18sp"
-                android:gravity="center"/>
-
+                android:textColor="@color/dark_gray"
+                android:textSize="16sp" />
         </GridLayout>
+
 
         <Button
             android:id="@+id/btn_regular"
             android:textAllCaps="false"
-            style="@style/SecondButtonStyle"
+            style="@style/ButtonStyle"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="25sp"
+            android:layout_marginTop="15sp"
             android:layout_marginBottom="15sp"
             android:text="@string/regular_cycle_button"/>
 
         <Button
             android:id="@+id/btn_irregular"
             android:textAllCaps="false"
-            style="@style/SecondButtonStyle"
+            style="@style/ButtonStyle"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="5sp"
@@ -61,7 +69,7 @@
         <Button
             android:id="@+id/btn_idk"
             android:textAllCaps="false"
-            style="@style/SecondButtonStyle"
+            style="@style/ButtonStyle"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="5sp"

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+
+    <LinearLayout
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/TitleTextViewStyle"
+            android:layout_width="370dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/period_information_tittle"/>
+
+        <TextView
+            android:gravity="center"
+            android:layout_width="360dp"
+            android:layout_height="wrap_content"
+            android:text="@string/period_information_instructions"
+            android:textColor="@color/gray_blue"
+            android:textSize="20sp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="5dp"/>
+
+        <TextView
+            android:textAllCaps="true"
+            android:layout_width="290sp"
+            android:layout_height="wrap_content"
+            android:text="@string/period_duration_label"
+            android:textColor="@color/gray_blue"
+            android:textSize="16sp" />
+
+        <EditText
+            style="@style/EditTextStyle"
+            android:layout_width="330dp"
+            android:layout_height="wrap_content"
+            android:autofillHints=""
+            android:inputType="text"
+            android:minHeight="48dp"
+            android:textColorHint="#546E7A"
+            android:textSize="15sp"
+            android:layout_marginBottom="20dp"/>
+
+        <TextView
+            android:textAllCaps="true"
+            android:layout_width="290sp"
+            android:layout_height="wrap_content"
+            android:text="@string/cycle_duration_label"
+            android:textColor="@color/gray_blue"
+            android:textSize="16sp" />
+
+        <EditText
+            style="@style/EditTextStyle"
+            android:layout_width="330dp"
+            android:layout_height="wrap_content"
+            android:autofillHints=""
+            android:inputType="text"
+            android:minHeight="48dp"
+            android:textColorHint="#546E7A"
+            android:textSize="15sp"
+            android:layout_marginBottom="20dp"/>
+
+        <TextView
+            android:textAllCaps="true"
+            android:layout_width="290sp"
+            android:layout_height="wrap_content"
+            android:text="@string/last_period_date_label"
+            android:textColor="@color/gray_blue"
+            android:textSize="16sp" />
+
+        <EditText
+            style="@style/EditTextStyle"
+            android:layout_width="330dp"
+            android:layout_height="wrap_content"
+            android:textColorHint="#546E7A"
+            android:onClick="showDatePicker"/>
+
+        <Button
+            android:id="@+id/btn_RegisterAccount"
+            android:textAllCaps="false"
+            style="@style/ButtonStyle"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/white"
+            android:text="@string/register_button"/>
+
+    </LinearLayout>
+</layout>
