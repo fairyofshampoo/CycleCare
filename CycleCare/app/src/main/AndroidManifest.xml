@@ -16,17 +16,23 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".activities.RegisterReminder"
+            android:name=".activities.ViewContentByMedic"
             android:exported="false" />
         <activity
-            android:name=".activities.PrincipalScreen"
-            android:exported="true" >
+            android:name=".activities.MyContentActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".activities.RegisterReminder"
+            android:exported="false" />
+        <activity
+            android:name=".activities.PrincipalScreen"
+            android:exported="false" />
         <activity
             android:name=".activities.PublishInformativeContentActivity"
             android:exported="false" />
@@ -35,7 +41,7 @@
             android:exported="false" />
         <activity
             android:name=".activities.CycleTypeActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".activities.RegisterAccountActivity"
             android:exported="false" />

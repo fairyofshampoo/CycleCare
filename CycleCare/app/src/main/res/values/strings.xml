@@ -66,4 +66,8 @@
     <string name="chart_bar_tittle">Esta semana</string>
     <string name="sleep_hours_prom_label">Promedio de horas de sueño</string>
     <string name="sleep_hours_label">XX Horas</string>
+    <string name="my_content_tittle_label">Contenido publicado por mí</string>
+    <string name="content_tittle_label">¿Sabes las diferencias entre un condón masculino y uno femenino?</string>
+    <string name="author_label">Eduardo Carrera Colorado</string>
+    <string name="date_label">XX/XX/XXXX</string>
 </resources>
