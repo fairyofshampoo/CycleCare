@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel;
 
 import com.ikariscraft.cyclecare.api.RequestStatus;
 import com.ikariscraft.cyclecare.api.requests.UserCredentialsBody;
+import com.ikariscraft.cyclecare.repository.AuthenticationRepository;
 import com.ikariscraft.cyclecare.repository.IEmptyProcessListener;
 import com.ikariscraft.cyclecare.repository.ProcessErrorCodes;
 import com.ikariscraft.cyclecare.utilities.PasswordUtilities;
@@ -46,21 +47,21 @@ public class LoginViewModel extends ViewModel {
     public void login(String user, String password){
         loginRequestStatus.setValue(RequestStatus.LOADING);
 
-        new UserCredentialsBody(user, password);
+        new AuthenticationRepository().login(
+                new UserCredentialsBody(user, password),
+                    new IEmptyProcessListener() {
+                        @Override
+                        public void onSuccess() {
+                            loginRequestStatus.setValue(RequestStatus.DONE);
+                        }
 
-        new IEmptyProcessListener() {
-
-            @Override
-            public void onSuccess() {
-                loginRequestStatus.setValue(RequestStatus.DONE);
-            }
-
-            @Override
-            public void onError(ProcessErrorCodes errorCode) {
-                loginErrorCode.setValue(errorCode);
-                loginRequestStatus.setValue(RequestStatus.ERROR);
-            }
-        };
+                        @Override
+                        public void onError(ProcessErrorCodes errorCode) {
+                            loginErrorCode.setValue(errorCode);
+                            loginRequestStatus.setValue(RequestStatus.ERROR);
+                        }
+                    }
+        );
     }
 
 }
