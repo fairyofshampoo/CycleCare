@@ -1,4 +1,4 @@
-package com.ikariscraft.cyclecare.activities;
+package com.ikariscraft.cyclecare.activities.login;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;

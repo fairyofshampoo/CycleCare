@@ -1,4 +1,4 @@
-package com.ikariscraft.cyclecare.activities;
+package com.ikariscraft.cyclecare.activities.viewsleepchart;
 
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;

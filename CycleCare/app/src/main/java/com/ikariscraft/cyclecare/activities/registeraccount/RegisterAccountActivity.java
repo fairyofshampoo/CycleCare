@@ -1,4 +1,4 @@
-package com.ikariscraft.cyclecare.activities;
+package com.ikariscraft.cyclecare.activities.registeraccount;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,11 +6,11 @@ import android.os.Bundle;
 
 import com.ikariscraft.cyclecare.R;
 
-public class PeriodInformationActivity extends AppCompatActivity {
+public class RegisterAccountActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_period_information);
+        setContentView(R.layout.activity_register_account);
     }
 }

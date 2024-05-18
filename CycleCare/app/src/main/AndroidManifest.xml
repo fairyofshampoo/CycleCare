@@ -16,10 +16,10 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".activities.ViewContentByMedic"
+            android:name=".activities.viewcontentbymedic.ViewContentByMedic"
             android:exported="false" />
         <activity
-            android:name=".activities.MyContentActivity"
+            android:name=".activities.mycontent.MyContentActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,31 +28,31 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activities.RegisterReminder"
+            android:name=".activities.registerreminder.RegisterReminder"
             android:exported="false" />
         <activity
-            android:name=".activities.PrincipalScreen"
+            android:name=".activities.principalscreen.PrincipalScreen"
             android:exported="false" />
         <activity
-            android:name=".activities.PublishInformativeContentActivity"
+            android:name=".activities.publishinformationcontent.PublishInformativeContentActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.PeriodInformationActivity"
+            android:name=".activities.periodinformation.PeriodInformationActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.CycleTypeActivity"
+            android:name=".activities.cycletype.CycleTypeActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.RegisterAccountActivity"
+            android:name=".activities.registeraccount.RegisterAccountActivity"
             android:exported="false" />
         <activity
-            android:name=".VerifyEmailActivity"
+            android:name=".activities.verifyemail.VerifyEmailActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.ForgotPasswordActivity"
+            android:name=".activities.forgotpassword.ForgotPasswordActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.LoginActivity"
+            android:name=".activities.login.LoginActivity"
             android:exported="false" />
     </application>
 

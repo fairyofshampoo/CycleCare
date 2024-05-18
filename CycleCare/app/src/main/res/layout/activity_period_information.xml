@@ -70,21 +70,6 @@
             android:textSize="15sp"
             android:layout_marginBottom="20dp"/>
 
-        <TextView
-            android:textAllCaps="true"
-            android:layout_width="290sp"
-            android:layout_height="wrap_content"
-            android:text="@string/last_period_date_label"
-            android:textColor="@color/gray_blue"
-            android:textSize="16sp" />
-
-        <EditText
-            style="@style/EditTextStyle"
-            android:layout_width="330dp"
-            android:layout_height="wrap_content"
-            android:textColorHint="#546E7A"
-            android:onClick="showDatePicker"/>
-
         <Button
             android:id="@+id/btn_RegisterAccount"
             android:textAllCaps="false"

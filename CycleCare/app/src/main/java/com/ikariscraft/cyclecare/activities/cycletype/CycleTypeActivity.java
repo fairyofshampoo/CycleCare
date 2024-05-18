@@ -1,4 +1,4 @@
-package com.ikariscraft.cyclecare.activities;
+package com.ikariscraft.cyclecare.activities.cycletype;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,11 +6,11 @@ import android.os.Bundle;
 
 import com.ikariscraft.cyclecare.R;
 
-public class ViewContentByMedic extends AppCompatActivity {
+public class CycleTypeActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view_content_by_medic);
+        setContentView(R.layout.activity_cycle_type);
     }
 }
