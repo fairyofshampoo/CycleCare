@@ -56,6 +56,7 @@
                 android:layout_marginTop="20dp"/>
 
             <EditText
+                android:id="@+id/nameEditText"
                 style="@style/EditTextStyle"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
@@ -67,11 +68,80 @@
                 android:textSize="15sp" />
 
             <TextView
+                android:id="@+id/errorNameTextView"
                 android:textAllCaps="true"
                 android:textColor="@color/gray_blue"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/error_name_register_account_label"
+                android:textSize="12sp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="5dp"
+                android:visibility="gone"/>
+
+            <TextView
+                android:textAllCaps="true"
+                android:textColor="@color/gray_blue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/first_last_name_label"
+                android:textSize="16sp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"/>
+
+            <EditText
+                android:id="@+id/firstLastNameEditText"
+                style="@style/EditTextStyle"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:autofillHints=""
+                android:inputType="text"
+                android:minHeight="40dp"
+                android:textColorHint="#546E7A"
+                android:layout_marginStart="20dp"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/errorFirstLastNameTextView"
+                android:textAllCaps="true"
+                android:textColor="@color/gray_blue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/error_second_last_name_label"
+                android:textSize="12sp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="5dp"
+                android:visibility="gone"/>
+
+            <TextView
+                android:textAllCaps="true"
+                android:textColor="@color/gray_blue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/second_last_name_label"
+                android:textSize="16sp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"/>
+
+            <EditText
+                android:id="@+id/secondLastNameEditText"
+                style="@style/EditTextStyle"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:autofillHints=""
+                android:inputType="text"
+                android:minHeight="40dp"
+                android:textColorHint="#546E7A"
+                android:layout_marginStart="20dp"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/errorSecondLastNameTextView"
+                android:textAllCaps="true"
+                android:textColor="@color/gray_blue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/error_second_last_name_label"
                 android:textSize="12sp"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="5dp"
@@ -90,6 +160,7 @@
                 android:layout_marginTop="20dp"/>
 
             <EditText
+                android:id="@+id/emailEditText"
                 style="@style/EditTextStyle"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
@@ -101,6 +172,7 @@
                 android:textSize="15sp" />
 
             <TextView
+                android:id="@+id/errorEmailTextView"
                 android:textAllCaps="true"
                 android:textColor="@color/gray_blue"
                 android:layout_width="match_parent"
@@ -124,6 +196,7 @@
                 android:layout_marginTop="20dp"/>
 
             <EditText
+                android:id="@+id/userEditText"
                 style="@style/EditTextStyle"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
@@ -135,6 +208,7 @@
                 android:textSize="15sp" />
 
             <TextView
+                android:id="@+id/errorUserNameTextView"
                 android:textAllCaps="true"
                 android:textColor="@color/gray_blue"
                 android:layout_width="match_parent"
@@ -158,6 +232,7 @@
                 android:layout_marginTop="20dp"/>
 
             <EditText
+                android:id="@+id/passwordEditText"
                 style="@style/EditTextStyle"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
@@ -169,6 +244,7 @@
                 android:textSize="15sp" />
 
             <TextView
+                android:id="@+id/errorPasswordTextView"
                 android:textAllCaps="true"
                 android:textColor="@color/gray_blue"
                 android:layout_width="match_parent"
@@ -179,44 +255,8 @@
                 android:layout_marginTop="5dp"
                 android:visibility="gone"/>
 
-            <!-- Fecha de nacimiento -->
-
-            <TextView
-                android:textAllCaps="true"
-                android:textColor="@color/gray_blue"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/birthday_register_account_label"
-                android:textSize="16sp"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"/>
-
-            <EditText
-                style="@style/EditTextStyle"
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"
-                android:autofillHints=""
-                android:focusable="false"
-                android:inputType="text"
-                android:minHeight="40dp"
-                android:textColorHint="#546E7A"
-                android:layout_marginStart="20dp"
-                android:onClick="showDatePicker"/>
-
-            <TextView
-                android:textAllCaps="true"
-                android:textColor="@color/gray_blue"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/error_birthday_register_account_label"
-                android:textSize="12sp"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="5dp"
-                android:visibility="gone"/>
-
-
             <Button
-                android:id="@+id/btn_login"
+                android:id="@+id/nextBtn"
                 android:textAllCaps="false"
                 style="@style/ButtonStyle"
                 android:layout_marginStart="70dp"

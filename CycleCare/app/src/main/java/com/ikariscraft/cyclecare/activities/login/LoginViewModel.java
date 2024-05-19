@@ -10,6 +10,7 @@ import com.ikariscraft.cyclecare.repository.AuthenticationRepository;
 import com.ikariscraft.cyclecare.repository.IEmptyProcessListener;
 import com.ikariscraft.cyclecare.repository.ProcessErrorCodes;
 import com.ikariscraft.cyclecare.utilities.PasswordUtilities;
+import com.ikariscraft.cyclecare.utilities.Validations;
 
 public class LoginViewModel extends ViewModel {
     private final MutableLiveData<Boolean> isUserValid = new MutableLiveData<>();
@@ -33,13 +34,13 @@ public class LoginViewModel extends ViewModel {
     public LiveData<ProcessErrorCodes> getLoginErrorCode() {return loginErrorCode;}
 
     public void validatePassword(String password){
-        boolean validation = PasswordUtilities.isPasswordValid(password);
+        boolean validation = Validations.isPasswordValid(password);
 
         isPasswordValid.setValue(validation);
     }
 
     public void validateUser (String user) {
-        boolean validation = PasswordUtilities.isPasswordValid(user);
+        boolean validation = Validations.isPasswordValid(user);
 
         isUserValid.setValue(validation);
     }

@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <variable
+            name="registerCycleType"
+            type="com.ikariscraft.cyclecare.api.requests.UserRegisterData" />
     </data>
 
     <LinearLayout

@@ -24,13 +24,4 @@ public class PasswordUtilities {
         return textHashed;
     }
 
-    public static boolean isPasswordValid(String text) {
-        boolean isValidPassword = false;
-
-        if (text != null) {
-            isValidPassword = !text.isEmpty();
-        }
-        return isValidPassword;
-    }
-
 }

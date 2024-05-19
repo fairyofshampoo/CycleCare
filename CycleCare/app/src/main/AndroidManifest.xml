@@ -31,14 +31,20 @@
             android:name=".activities.publishinformationcontent.PublishInformativeContentActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.periodinformation.PeriodInformationActivity"
+            android:name=".activities.registeraccount.PeriodInformationActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.cycletype.CycleTypeActivity"
+            android:name=".activities.registeraccount.CycleTypeActivity"
             android:exported="false" />
         <activity
             android:name=".activities.registeraccount.RegisterAccountActivity"
-            android:exported="false" />
+            android:exported="true">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+    </activity>
         <activity
             android:name=".activities.verifyemail.VerifyEmailActivity"
             android:exported="false" />
@@ -47,13 +53,8 @@
             android:exported="false" />
         <activity
             android:name=".activities.login.LoginActivity"
-            android:exported="true">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+            android:exported="false"/>
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
-    </activity>
     </application>
 
 </manifest>

@@ -37,22 +37,18 @@ public class AuthenticationRepository {
                             Session session = Session.getInstance();
                             session.setToken(body.getToken());
                             session.setPerson(person);
-                            Log.e("Successful", "Exitoso");
                             statusListener.onSuccess();
                         } else {
                             statusListener.onError(ProcessErrorCodes.FATAL_ERROR);
-                            Log.e("Error primer else", "no exitoso");
                         }
                     } else {
                         statusListener.onError(ProcessErrorCodes.FATAL_ERROR);
-                        Log.e("Error segundo else", "no exitoso");
                     }
                 }
 
                 @Override
                 public void onFailure(Call<LoginJSONResponse> call, Throwable t) {
                     statusListener.onError(ProcessErrorCodes.FATAL_ERROR);
-                    Log.e("Error on Failure", "no exitoso");
                 }
             });
     }
