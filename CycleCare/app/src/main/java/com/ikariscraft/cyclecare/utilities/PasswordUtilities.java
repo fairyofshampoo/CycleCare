@@ -23,4 +23,5 @@ public class PasswordUtilities {
 
         return textHashed;
     }
+
 }

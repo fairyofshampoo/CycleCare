@@ -16,7 +16,7 @@
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:context=".activities.ViewContentFragment">
+            tools:context=".activities.viewcontentfragment.ViewContentFragment">
 
             <LinearLayout
                 android:layout_width="match_parent"

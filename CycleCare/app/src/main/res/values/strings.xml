@@ -70,4 +70,9 @@
     <string name="content_tittle_label">¿Sabes las diferencias entre un condón masculino y uno femenino?</string>
     <string name="author_label">Eduardo Carrera Colorado</string>
     <string name="date_label">XX/XX/XXXX</string>
+    <string name="first_last_name_label">* Ingresa tu primer apellido</string>
+    <string name="error_first_last_name_label">Apellido incorrecto</string>
+    <string name="second_last_name_label">* Ingresa tu segundo apellido</string>
+    <string name="error_second_last_name_label">Debes ingresar tu apellido correctamente</string>
+    <string name="error_period_duration_label">La información entroducida es incorrecta</string>
 </resources>

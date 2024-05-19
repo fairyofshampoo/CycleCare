@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <variable
+            name="registerPeriodInformation"
+            type="com.ikariscraft.cyclecare.api.requests.UserRegisterData" />
     </data>
 
 
@@ -41,15 +43,28 @@
             android:textSize="16sp" />
 
         <EditText
+            android:id="@+id/periodDurationEditText"
             style="@style/EditTextStyle"
             android:layout_width="330dp"
             android:layout_height="wrap_content"
             android:autofillHints=""
-            android:inputType="text"
+            android:inputType="number"
             android:minHeight="48dp"
             android:textColorHint="#546E7A"
             android:textSize="15sp"
             android:layout_marginBottom="20dp"/>
+
+        <TextView
+            android:id="@+id/errorPeriodTextView"
+            android:textAllCaps="true"
+            android:textColor="@color/gray_blue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/error_period_duration_label"
+            android:textSize="12sp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="5dp"
+            android:visibility="gone"/>
 
         <TextView
             android:textAllCaps="true"
@@ -60,30 +75,28 @@
             android:textSize="16sp" />
 
         <EditText
+            android:id="@+id/cycleDurationEditText"
             style="@style/EditTextStyle"
             android:layout_width="330dp"
             android:layout_height="wrap_content"
             android:autofillHints=""
-            android:inputType="text"
+            android:inputType="number"
             android:minHeight="48dp"
             android:textColorHint="#546E7A"
             android:textSize="15sp"
             android:layout_marginBottom="20dp"/>
 
         <TextView
+            android:id="@+id/errorCycleTextView"
             android:textAllCaps="true"
-            android:layout_width="290sp"
-            android:layout_height="wrap_content"
-            android:text="@string/last_period_date_label"
             android:textColor="@color/gray_blue"
-            android:textSize="16sp" />
-
-        <EditText
-            style="@style/EditTextStyle"
-            android:layout_width="330dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColorHint="#546E7A"
-            android:onClick="showDatePicker"/>
+            android:text="@string/error_period_duration_label"
+            android:textSize="12sp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="5dp"
+            android:visibility="gone"/>
 
         <Button
             android:id="@+id/btn_RegisterAccount"
