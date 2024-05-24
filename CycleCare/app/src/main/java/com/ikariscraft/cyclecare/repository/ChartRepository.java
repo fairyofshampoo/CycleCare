@@ -30,7 +30,7 @@ public class ChartRepository {
 
             @Override
             public void onFailure(Call<List<SleepHoursInformation>> call, Throwable t) {
-
+                listener.onError(ProcessErrorCodes.FATAL_ERROR);
             }
         });
 

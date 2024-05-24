@@ -19,7 +19,7 @@
             android:name=".activities.viewcontentbymedic.ViewContentByMedic"
             android:exported="false" />
         <activity
-            android:name=".activities.mycontent.MyContentActivity"
+            android:name=".activities.viewcontentbymedic.MyContentActivity"
             android:exported="false"/>
         <activity
             android:name=".activities.registerreminder.RegisterReminder"
@@ -34,7 +34,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activities.publishinformationcontent.PublishInformativeContentActivity"
+            android:name=".activities.viewcontentbymedic.PublishInformativeContentActivity"
             android:exported="false" />
         <activity
             android:name=".activities.registeraccount.PeriodInformationActivity"
