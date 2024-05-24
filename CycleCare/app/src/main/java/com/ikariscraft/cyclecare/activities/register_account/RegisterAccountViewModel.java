@@ -1,10 +1,9 @@
-package com.ikariscraft.cyclecare.activities.registeraccount;
+package com.ikariscraft.cyclecare.activities.register_account;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.ikariscraft.cyclecare.utilities.PasswordUtilities;
 import com.ikariscraft.cyclecare.utilities.Validations;
 
 public class RegisterAccountViewModel extends ViewModel {

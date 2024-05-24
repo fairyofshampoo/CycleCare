@@ -1,4 +1,4 @@
-package com.ikariscraft.cyclecare.activities.registeraccount;
+package com.ikariscraft.cyclecare.activities.register_account;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

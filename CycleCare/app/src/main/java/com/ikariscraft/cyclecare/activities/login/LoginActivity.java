@@ -1,16 +1,14 @@
 package com.ikariscraft.cyclecare.activities.login;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Toast;
 
-import com.ikariscraft.cyclecare.activities.principalscreen.PrincipalScreen;
+import com.ikariscraft.cyclecare.activities.main_screen.PrincipalScreen;
 import com.ikariscraft.cyclecare.api.RequestStatus;
 import com.ikariscraft.cyclecare.databinding.ActivityLoginBinding;
 

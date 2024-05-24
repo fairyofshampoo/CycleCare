@@ -1,18 +1,15 @@
-package com.ikariscraft.cyclecare.activities.registeraccount;
+package com.ikariscraft.cyclecare.activities.register_account;
 
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.os.Bundle;
 import android.view.View;
 
-import com.ikariscraft.cyclecare.R;
 import com.ikariscraft.cyclecare.api.RequestStatus;
 import com.ikariscraft.cyclecare.api.requests.UserRegisterData;
 import com.ikariscraft.cyclecare.databinding.ActivityPeriodInformationBinding;
-import com.ikariscraft.cyclecare.model.*;
 
 public class PeriodInformationActivity extends AppCompatActivity {
 

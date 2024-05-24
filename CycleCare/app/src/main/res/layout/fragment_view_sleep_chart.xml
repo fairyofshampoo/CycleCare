@@ -9,7 +9,7 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".activities.viewsleepchart.ViewSleepChart">
+        tools:context=".activities.view_sleep_chart.ViewSleepChart">
 
         <LinearLayout
             android:layout_width="412dp"

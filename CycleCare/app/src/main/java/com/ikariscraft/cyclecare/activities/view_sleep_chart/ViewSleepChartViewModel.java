@@ -1,19 +1,15 @@
-package com.ikariscraft.cyclecare.activities.viewsleepchart;
+package com.ikariscraft.cyclecare.activities.view_sleep_chart;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.ikariscraft.cyclecare.api.RequestStatus;
-import com.ikariscraft.cyclecare.api.responses.SleepChartJSONResponse;
 import com.ikariscraft.cyclecare.model.SleepHoursInformation;
 import com.ikariscraft.cyclecare.repository.ChartRepository;
-import com.ikariscraft.cyclecare.repository.IEmptyProcessListener;
 import com.ikariscraft.cyclecare.repository.IProcessStatusListener;
 import com.ikariscraft.cyclecare.repository.ProcessErrorCodes;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class ViewSleepChartViewModel extends ViewModel {

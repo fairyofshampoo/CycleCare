@@ -1,6 +1,4 @@
-package com.ikariscraft.cyclecare.activities.viewcontentfragmentbyuser;
-
-import android.mtp.MtpConstants;
+package com.ikariscraft.cyclecare.activities.view_content_user_pov;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

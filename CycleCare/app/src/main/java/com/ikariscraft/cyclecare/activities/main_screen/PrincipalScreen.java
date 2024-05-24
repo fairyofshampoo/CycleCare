@@ -1,10 +1,10 @@
-package com.ikariscraft.cyclecare.activities.principalscreen;
+package com.ikariscraft.cyclecare.activities.main_screen;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-import com.ikariscraft.cyclecare.activities.viewsleepchart.ViewSleepChart;
+import com.ikariscraft.cyclecare.activities.view_sleep_chart.ViewSleepChart;
 import com.ikariscraft.cyclecare.databinding.ActivityPrincipalScreenBinding;
 
 public class PrincipalScreen extends AppCompatActivity {

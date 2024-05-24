@@ -1,4 +1,4 @@
-package com.ikariscraft.cyclecare.activities.registerreminder;
+package com.ikariscraft.cyclecare.activities.register_reminder;
 
 import android.os.Bundle;
 

@@ -1,10 +1,9 @@
-package com.ikariscraft.cyclecare.activities.viewsleepchart;
+package com.ikariscraft.cyclecare.activities.view_sleep_chart;
 
 import android.graphics.Color;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.util.Log;
@@ -19,7 +18,6 @@ import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.utils.ColorTemplate;
 import com.ikariscraft.cyclecare.R;
 import com.ikariscraft.cyclecare.api.RequestStatus;
-import com.ikariscraft.cyclecare.api.responses.SleepChartJSONResponse;
 import com.ikariscraft.cyclecare.databinding.FragmentViewSleepChartBinding;
 import com.ikariscraft.cyclecare.model.MyValueFormatter;
 import com.ikariscraft.cyclecare.model.SleepHoursInformation;
