@@ -14,9 +14,9 @@ public class CycleTypeActivity extends AppCompatActivity {
 
     public static final String REGISTER = "register_key";
 
-    private int REGULAR = 1;
+    private final int REGULAR = 1;
 
-    private int IRREGULAR = 0;
+    private final int IRREGULAR = 0;
 
     public UserRegisterData registerCycleType;
 
@@ -34,8 +34,8 @@ public class CycleTypeActivity extends AppCompatActivity {
 
     private void setupOptionButtons(){
         binding.btnIrregular.setOnClickListener(v -> {
-            System.out.print("Datos de la pantalla anterior: ");
-            System.out.print("Nombre: " + registerCycleType.getName());
+            registerCycleType.setIsRegular(IRREGULAR);
+            startPeriodInformation();
         });
 
         binding.btnRegular.setOnClickListener(v -> {
@@ -43,7 +43,7 @@ public class CycleTypeActivity extends AppCompatActivity {
             startPeriodInformation();
         });
 
-        binding.btnIdk.setOnClickListener(v -> {
+        binding.btnDontKnow.setOnClickListener(v -> {
             registerCycleType.setIsRegular(IRREGULAR);
             startPeriodInformation();
         });

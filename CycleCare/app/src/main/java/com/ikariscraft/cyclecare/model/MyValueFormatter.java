@@ -13,6 +13,6 @@ public class MyValueFormatter extends ValueFormatter {
     @Override
     public String getBarLabel(BarEntry barEntry) {
         int index = (int) barEntry.getX();
-        return labels[index - 1]; // Ajuste necesario si index comienza desde 1
+        return labels[index - 1];
     }
 }

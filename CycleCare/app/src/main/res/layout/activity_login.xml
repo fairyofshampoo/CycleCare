@@ -60,6 +60,18 @@
                 android:layout_marginBottom="20dp"/>
 
             <TextView
+                android:id="@+id/errorUserNameTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="5dp"
+                android:text="@string/username_error_login"
+                android:textAllCaps="false"
+                android:textColor="@color/strong_pink"
+                android:textSize="12sp"
+                android:visibility="gone" />
+
+            <TextView
                 android:textAllCaps="true"
                 android:textColor="@color/gray_blue"
                 android:layout_width="match_parent"
@@ -78,6 +90,18 @@
                 android:textColorHint="#546E7A"
                 android:textSize="15sp"
                 android:layout_marginBottom="5dp"/>
+
+            <TextView
+                android:id="@+id/errorPasswordTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="5dp"
+                android:text="@string/password_error_login"
+                android:textAllCaps="false"
+                android:textColor="@color/strong_pink"
+                android:textSize="12sp"
+                android:visibility="gone" />
 
             <TextView
                 android:textColor="@color/main_pink"

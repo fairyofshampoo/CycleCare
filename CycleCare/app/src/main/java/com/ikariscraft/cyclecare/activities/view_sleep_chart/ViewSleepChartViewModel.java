@@ -25,10 +25,10 @@ public class ViewSleepChartViewModel extends ViewModel {
 
     public LiveData<List<SleepHoursInformation>> getSleepHours() {return sleepHoursLiveData;}
 
-    public void sleepHoursChart(String token){
+    public void getSleepHoursChart(String token){
         sleepChartRequestStatus.setValue(RequestStatus.LOADING);
 
-       new ChartRepository().ObtainSleppStadistics(
+       new ChartRepository().GetSleepStadistics(
                token,
                new IProcessStatusListener() {
                    @Override

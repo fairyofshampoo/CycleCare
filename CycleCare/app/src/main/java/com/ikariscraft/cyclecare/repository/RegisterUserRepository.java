@@ -1,7 +1,7 @@
 package com.ikariscraft.cyclecare.repository;
 
 import com.ikariscraft.cyclecare.api.ApiClient;
-import com.ikariscraft.cyclecare.api.Interfaces.IUserService;
+import com.ikariscraft.cyclecare.api.interfaces.IUserService;
 import com.ikariscraft.cyclecare.api.requests.UserRegisterData;
 import com.ikariscraft.cyclecare.api.responses.RegisterUserJSONResponse;
 

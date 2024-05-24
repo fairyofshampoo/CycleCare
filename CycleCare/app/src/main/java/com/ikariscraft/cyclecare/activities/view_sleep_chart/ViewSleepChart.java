@@ -21,7 +21,7 @@ import com.ikariscraft.cyclecare.api.RequestStatus;
 import com.ikariscraft.cyclecare.databinding.FragmentViewSleepChartBinding;
 import com.ikariscraft.cyclecare.model.MyValueFormatter;
 import com.ikariscraft.cyclecare.model.SleepHoursInformation;
-import com.ikariscraft.cyclecare.utilities.Session;
+import com.ikariscraft.cyclecare.utilities.SessionSingleton;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -67,8 +67,8 @@ public class ViewSleepChart extends Fragment {
         BarChart barChart = view.findViewById(R.id.barChart);
 
         if(viewModel.getSleepChartRequestStatus().getValue() != RequestStatus.LOADING) {
-            Session session = Session.getInstance();
-            viewModel.sleepHoursChart("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImZhaXJ5MGZTaGFtcG9vIiwiaWF0IjoxNzE2NTAyNTYyLCJleHAiOjE3MTY1MDYxNjJ9.jn--f6jysjwAkwA8pXNBfZuN7qifBj80BOFgaJe4mRo");
+            SessionSingleton sessionSingleton = SessionSingleton.getInstance();
+            viewModel.getSleepHoursChart("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImZhaXJ5MGZTaGFtcG9vIiwiaWF0IjoxNzE2NTAyNTYyLCJleHAiOjE3MTY1MDYxNjJ9.jn--f6jysjwAkwA8pXNBfZuN7qifBj80BOFgaJe4mRo");
         }
         viewModel.getSleepHours().observe(getViewLifecycleOwner(), new Observer<List<SleepHoursInformation>>() {
             @Override

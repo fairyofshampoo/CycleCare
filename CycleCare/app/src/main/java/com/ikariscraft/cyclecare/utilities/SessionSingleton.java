@@ -2,23 +2,23 @@ package com.ikariscraft.cyclecare.utilities;
 
 import com.ikariscraft.cyclecare.model.Person;
 
-public class Session {
-    private static Session instance;
+public class SessionSingleton {
+    private static SessionSingleton instance;
     private String token;
     private Person person;
 
-    private Session() {
+    private SessionSingleton() {
     }
 
-    public static Session getInstance() {
+    public static SessionSingleton getInstance() {
         if (instance == null) {
-            instance = new Session();
+            instance = new SessionSingleton();
         }
         return instance;
     }
 
-    public static void setInstance(Session instance) {
-        Session.instance = instance;
+    public static void setInstance(SessionSingleton instance) {
+        SessionSingleton.instance = instance;
     }
 
     public String getToken() {

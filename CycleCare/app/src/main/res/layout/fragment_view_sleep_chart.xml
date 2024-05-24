@@ -12,8 +12,8 @@
         tools:context=".activities.view_sleep_chart.ViewSleepChart">
 
         <LinearLayout
-            android:layout_width="412dp"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="630dp"
             android:orientation="vertical">
 
             <TextView
@@ -51,8 +51,6 @@
                 android:layout_width="350dp"
                 android:layout_height="400dp"
                 android:layout_marginStart="30dp"/>
-
-
 
         </LinearLayout>
     </FrameLayout>

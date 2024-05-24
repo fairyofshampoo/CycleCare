@@ -1,10 +1,8 @@
 package com.ikariscraft.cyclecare.repository;
 
 import com.ikariscraft.cyclecare.api.ApiClient;
-import com.ikariscraft.cyclecare.api.Interfaces.IContentService;
+import com.ikariscraft.cyclecare.api.interfaces.IContentService;
 import com.ikariscraft.cyclecare.api.responses.RateContentJSONResponse;
-
-import java.sql.ClientInfoStatus;
 
 import retrofit2.Call;
 import retrofit2.Callback;

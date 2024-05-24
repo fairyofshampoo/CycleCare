@@ -6,7 +6,7 @@ public class Validations {
         boolean isValidPassword = false;
 
         if (password != null) {
-            isValidPassword = !password.isEmpty();
+            isValidPassword = !password.isEmpty() && password.matches("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,20}$\n");
         }
         return isValidPassword;
     }

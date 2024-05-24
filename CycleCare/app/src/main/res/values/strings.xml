@@ -75,4 +75,9 @@
     <string name="second_last_name_label">* Ingresa tu segundo apellido</string>
     <string name="error_second_last_name_label">Debes ingresar tu apellido correctamente</string>
     <string name="error_period_duration_label">La información entroducida es incorrecta</string>
+    <string name="username_error_login">El nombre de usuario es incorrecto</string>
+    <string name="password_error_login">Formato de contraseña inválido</string>
+    <string name="login_invalid_credentials_message">Usuario o contraseña incorrectos. Revisa tus credenciales.</string>
+    <string name="login_server_error_message">Error en el servidor. Inténtalo más tarde.</string>
+    <string name="login_fatal_error_message">Error inesperado. Inténtalo más tarde.</string>
 </resources>

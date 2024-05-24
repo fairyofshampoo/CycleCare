@@ -1,15 +1,12 @@
 package com.ikariscraft.cyclecare.repository;
 
-import android.util.Log;
-
 import com.ikariscraft.cyclecare.api.ApiClient;
-import com.ikariscraft.cyclecare.api.Interfaces.IUserService;
+import com.ikariscraft.cyclecare.api.interfaces.IUserService;
 import com.ikariscraft.cyclecare.api.requests.UserCredentialsBody;
 import com.ikariscraft.cyclecare.api.responses.LoginJSONResponse;
 import com.ikariscraft.cyclecare.model.Person;
-import com.ikariscraft.cyclecare.utilities.Session;
+import com.ikariscraft.cyclecare.utilities.SessionSingleton;
 
-import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -34,15 +31,25 @@ public class AuthenticationRepository {
                                     body.getRole()
                             );
 
-                            Session session = Session.getInstance();
-                            session.setToken(body.getToken());
-                            session.setPerson(person);
+                            SessionSingleton sessionSingleton = SessionSingleton.getInstance();
+                            sessionSingleton.setToken(body.getToken());
+                            sessionSingleton.setPerson(person);
                             statusListener.onSuccess();
                         } else {
                             statusListener.onError(ProcessErrorCodes.FATAL_ERROR);
                         }
                     } else {
-                        statusListener.onError(ProcessErrorCodes.FATAL_ERROR);
+                        switch (response.code()){
+                            case 400:
+                                statusListener.onError(ProcessErrorCodes.REQUEST_FORMAT_ERROR);
+                                break;
+                            case 500:
+                                statusListener.onError(ProcessErrorCodes.SERVICE_NOT_AVAILABLE_ERROR);
+                                break;
+                            default:
+                                statusListener.onError(ProcessErrorCodes.FATAL_ERROR);
+                                break;
+                        }
                     }
                 }
 
