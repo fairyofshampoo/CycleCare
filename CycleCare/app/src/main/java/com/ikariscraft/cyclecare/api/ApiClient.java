@@ -1,5 +1,6 @@
 package com.ikariscraft.cyclecare.api;
 
+import com.ikariscraft.cyclecare.api.Interfaces.IChartService;
 import com.ikariscraft.cyclecare.api.Interfaces.IUserService;
 
 import retrofit2.Retrofit;
@@ -13,6 +14,8 @@ public class ApiClient {
     private final Retrofit retrofit;
 
     private IUserService userService;
+
+    private IChartService chartService;
 
 
     public static  ApiClient getInstance(){
@@ -31,6 +34,13 @@ public class ApiClient {
             userService = retrofit.create(IUserService.class);
         }
         return userService;
+    }
+
+    public IChartService getChartService(){
+        if(chartService == null){
+            chartService = retrofit.create(IChartService.class);
+        }
+        return chartService;
     }
 
 }

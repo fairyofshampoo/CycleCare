@@ -1,7 +1,13 @@
 package com.ikariscraft.cyclecare.activities.viewsleepchart;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModel;
+import androidx.lifecycle.ViewModelProvider;
+
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,35 +18,26 @@ import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.utils.ColorTemplate;
 import com.ikariscraft.cyclecare.R;
+import com.ikariscraft.cyclecare.api.RequestStatus;
+import com.ikariscraft.cyclecare.api.responses.SleepChartJSONResponse;
+import com.ikariscraft.cyclecare.databinding.FragmentViewSleepChartBinding;
+import com.ikariscraft.cyclecare.model.MyValueFormatter;
+import com.ikariscraft.cyclecare.model.SleepHoursInformation;
+import com.ikariscraft.cyclecare.utilities.Session;
 
 import java.util.ArrayList;
+import java.util.List;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link ViewSleepChart#newInstance} factory method to
- * create an instance of this fragment.
- *
- */
+
 public class ViewSleepChart extends Fragment {
-
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+    private FragmentViewSleepChartBinding binding;
+    private ViewSleepChartViewModel viewModel;
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment ViewSleepChart.
-     */
-    // TODO: Rename and change types and number of parameters
     public static ViewSleepChart newInstance(String param1, String param2) {
         ViewSleepChart fragment = new ViewSleepChart();
         Bundle args = new Bundle();
@@ -53,6 +50,12 @@ public class ViewSleepChart extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        binding = FragmentViewSleepChartBinding.inflate(getLayoutInflater());
+        viewModel = new ViewModelProvider(this).get(ViewSleepChartViewModel.class);
+        Log.e("Creación de la pantalla", "Se ha creado el fragmento");
+
+
+
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
@@ -60,33 +63,51 @@ public class ViewSleepChart extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
         View view = inflater.inflate(R.layout.fragment_view_sleep_chart, container, false);
         BarChart barChart = view.findViewById(R.id.barChart);
 
-        ArrayList<BarEntry> visitors = new ArrayList<>();
-        visitors.add(new BarEntry(1, 10));
-        visitors.add(new BarEntry(2, 8));
-        visitors.add(new BarEntry(3, 5));
-        visitors.add(new BarEntry(4, 9));
-        visitors.add(new BarEntry(5, 10));
-        visitors.add(new BarEntry(6, 12));
-        visitors.add(new BarEntry(7, 3));
+        if(viewModel.getSleepChartRequestStatus().getValue() != RequestStatus.LOADING) {
+            Session session = Session.getInstance();
+            viewModel.sleepHoursChart("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImZhaXJ5MGZTaGFtcG9vIiwiaWF0IjoxNzE2NTAyNTYyLCJleHAiOjE3MTY1MDYxNjJ9.jn--f6jysjwAkwA8pXNBfZuN7qifBj80BOFgaJe4mRo");
+        }
+        viewModel.getSleepHours().observe(getViewLifecycleOwner(), new Observer<List<SleepHoursInformation>>() {
+            @Override
+            public void onChanged(List<SleepHoursInformation> sleepHoursInformations) {
+                if (sleepHoursInformations != null) {
+                    ArrayList<BarEntry> sleepHoursChart = new ArrayList<>();
+                    int index = 1;
+                    for (SleepHoursInformation hours: sleepHoursInformations) {
+                        sleepHoursChart.add(new BarEntry(index, hours.getTotalSleepHours()));
+                        index++;
+                    }
+                    BarDataSet barDataSet = new BarDataSet(sleepHoursChart, "Horas de sueño");
+                    barDataSet.setColors(ColorTemplate.MATERIAL_COLORS);
+                    barDataSet.setValueTextColor(Color.BLACK);
+                    barDataSet.setValueTextSize(16F);
 
-        BarDataSet barDataSet = new BarDataSet(visitors, "Visitors");
-        barDataSet.setColors(ColorTemplate.PASTEL_COLORS);
-        barDataSet.setValueTextColor(android.R.color.black);
-        barDataSet.setValueTextSize(16f);
+                    String[] labels = new String[sleepHoursInformations.size()];
 
-        BarData barData = new BarData(barDataSet);
+                    for (int i = 0; i < sleepHoursInformations.size(); i++) {
+                        labels[i] = sleepHoursInformations.get(i).getDayOfWeek(); // Reemplaza con tus etiquetas reales
+                    }
 
-        barChart.setFitBars(true);
-        barChart.setData(barData);
-        barChart.getDescription().setText("Bar chart example");
-        barChart.animateY(2000);
+                    MyValueFormatter formatter = new MyValueFormatter(labels);
+                    barDataSet.setValueFormatter(formatter);
+
+                    BarData barData = new BarData(barDataSet);
+                    barChart.setFitBars(true);
+                    barChart.setData(barData);
+                    barChart.animateY(2000);
+                }else {
+                    Log.e("Error nulo", "La lista está vacía");
+                }
+            }
+        });
 
 
+        Log.e("Creación de la tabla", "Se debió haber creado la estadística");
         return view;
     }
 }
