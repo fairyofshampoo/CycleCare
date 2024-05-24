@@ -1,4 +1,4 @@
-package com.ikariscraft.cyclecare.activities.mycontent;
+package com.ikariscraft.cyclecare.activities.viewcontentbymedic;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,11 +6,11 @@ import android.os.Bundle;
 
 import com.ikariscraft.cyclecare.R;
 
-public class MyContentActivity extends AppCompatActivity {
+public class PublishInformativeContentActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_my_content);
+        setContentView(R.layout.activity_publish_informative_content);
     }
 }

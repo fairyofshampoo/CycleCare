@@ -14,5 +14,4 @@ import retrofit2.http.Query;
 public interface IChartService {
     @GET("chart/obtain-sleep-hours")
     Call<List<SleepHoursInformation>> getHoursChart(@Header("token") String token);
-
 }

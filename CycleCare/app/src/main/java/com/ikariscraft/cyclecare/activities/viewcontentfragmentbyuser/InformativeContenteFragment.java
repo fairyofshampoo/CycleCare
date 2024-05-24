@@ -1,4 +1,4 @@
-package com.ikariscraft.cyclecare.activities.informatviecontent;
+package com.ikariscraft.cyclecare.activities.viewcontentfragmentbyuser;
 
 import android.os.Bundle;
 

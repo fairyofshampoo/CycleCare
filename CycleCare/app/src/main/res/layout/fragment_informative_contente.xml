@@ -9,7 +9,7 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".activities.informatviecontent.InformativeContenteFragment">
+        tools:context=".activities.viewcontentfragmentbyuser.InformativeContenteFragment">
 
         <LinearLayout
             android:layout_width="match_parent"
