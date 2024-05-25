@@ -15,6 +15,8 @@ import com.ikariscraft.cyclecare.api.RequestStatus;
 import com.ikariscraft.cyclecare.databinding.ActivityLoginBinding;
 import com.ikariscraft.cyclecare.repository.ProcessErrorCodes;
 import com.ikariscraft.cyclecare.utilities.PasswordUtilities;
+import com.ikariscraft.cyclecare.utilities.Role;
+import com.ikariscraft.cyclecare.utilities.SessionSingleton;
 
 public class    LoginActivity extends AppCompatActivity {
     private ActivityLoginBinding binding;
@@ -116,9 +118,23 @@ public class    LoginActivity extends AppCompatActivity {
         Snackbar.make(binding.getRoot(), message, Snackbar.LENGTH_LONG).show();
     }
 
-    private void startMainMenu () {
-        Intent intent = new Intent(this, PrincipalScreen.class);
-        startActivity(intent);
+    private void startMainMenu() {
+        Role role = Role.valueOf(SessionSingleton.getInstance().getPerson().getRole());
+
+        switch (role) {
+            case USER: {
+                Intent intent = new Intent(this, PrincipalScreen.class);
+                startActivity(intent);
+                break;
+            }
+            case MEDIC: {
+                Toast.makeText(this, "Pantalla de médico", Toast.LENGTH_SHORT).show();
+                break;
+            }
+            default: {
+                Toast.makeText(this, R.string.role_not_supported, Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 
 }

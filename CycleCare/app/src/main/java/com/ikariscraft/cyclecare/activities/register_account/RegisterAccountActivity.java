@@ -9,6 +9,7 @@ import android.view.View;
 
 import com.ikariscraft.cyclecare.api.requests.UserRegisterData;
 import com.ikariscraft.cyclecare.databinding.ActivityRegisterAccountBinding;
+import com.ikariscraft.cyclecare.utilities.Role;
 
 public class RegisterAccountActivity extends AppCompatActivity {
 
@@ -114,7 +115,7 @@ public class RegisterAccountActivity extends AppCompatActivity {
         registerData.setFirstLastName(binding.firstLastNameEditText.getText().toString().trim());
         registerData.setSecondLastName(binding.secondLastNameEditText.getText().toString().trim());
         registerData.setEmail(binding.emailEditText.getText().toString().trim());
-        registerData.setRole("Menstruante");
+        registerData.setRole(Role.USER.name());
         registerData.setUsername(binding.userEditText.getText().toString().trim());
         registerData.setPassword(binding.passwordEditText.getText().toString().trim());
         return registerData;
