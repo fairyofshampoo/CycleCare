@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <!-- Puedes declarar variables de enlace aquí si es necesario -->
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".activities.cycle_log.CycleLogActivity">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Botones de cancelar y guardar con el título -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingBottom="16dp">
+
+                <ImageButton
+                    android:id="@+id/btnCancel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="@string/cancel_register"
+                    android:src="@drawable/ic_cancel" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/tvTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Registro"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:id="@+id/tvDate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="23 May 2024"
+                        android:textSize="14sp"
+                        android:gravity="center"/>
+                </LinearLayout>
+
+                <ImageButton
+                    android:id="@+id/btnSave"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/ic_save_background"
+                    android:src="@drawable/ic_check"
+                    android:layout_alignParentEnd="true"
+                    android:contentDescription="@string/save_log" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/darker_gray"
+                android:layout_marginBottom="5dp"/>
+
+            <!-- Sección de flujo menstrual -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Flujo Menstrual"
+                android:textAllCaps="true"
+                android:textColor="@color/gray_blue"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <!-- Opciones de flujo menstrual -->
+                <LinearLayout
+                    android:layout_width="100dp"
+                    android:layout_height="90dp"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:background="@drawable/flow_option_background"
+                    android:layout_marginEnd="8dp">
+
+                    <ImageView
+                        android:layout_width="60dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/ic_flow_light" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Ligero"
+                        android:gravity="center"
+                        android:textSize="14sp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:background="@drawable/flow_option_background"
+                    android:layout_marginEnd="8dp">
+
+                    <ImageView
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:src="@drawable/ic_flow_medium" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Moderado"
+                        android:gravity="center"
+                        android:textSize="14sp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:background="@drawable/flow_option_background">
+
+                    <ImageView
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:src="@drawable/ic_flow_heavy" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Abundante"
+                        android:gravity="center"
+                        android:textSize="14sp"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Sección para añadir una nota -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_note"/>
+
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="Añade una nota"
+                    android:background="@null"
+                    android:padding="8dp"
+                    android:textColor="@color/dark_gray"
+                    android:inputType="textMultiLine" />
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_edit"/>
+            </LinearLayout>
+
+            <!-- Sección de síntomas -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Síntomas"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textAllCaps="true"
+                android:textColor="@color/gray_blue"
+                android:layout_marginBottom="8dp"/>
+
+            <!-- Layout para los síntomas -->
+            <com.google.android.flexbox.FlexboxLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:flexWrap="wrap"
+                android:justifyContent="space_between">
+
+                <!-- Añadir elementos de síntomas aquí -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Dolor abdominal"
+                    android:padding="8dp"
+                    android:background="@drawable/symptom_background"
+                    android:layout_margin="4dp"
+                    android:gravity="center"
+                    android:textColor="@color/dark_gray" />
+
+                <!-- Repetir para otros síntomas -->
+            </com.google.android.flexbox.FlexboxLayout>
+
+            <!-- Sección de actividad sexual -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Actividad Sexual"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textAllCaps="true"
+                android:textColor="@color/gray_blue"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="8dp"/>
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <RadioButton
+                    android:id="@+id/rbProtectedSex"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sexo con protección"
+                    android:buttonTint="@color/light_gray" />
+
+                <RadioButton
+                    android:id="@+id/rbUnprotectedSex"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sexo sin protección"
+                    android:buttonTint="@color/light_gray" />
+            </RadioGroup>
+
+            <!-- Sección de flujo vaginal -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Flujo Vaginal"
+                android:textAllCaps="true"
+                android:textColor="@color/gray_blue"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="8dp"/>
+
+            <!-- Carrusel de opciones de flujo vaginal -->
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <!-- Opciones de flujo vaginal -->
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:background="@drawable/flow_option_background"
+                        android:layout_marginEnd="8dp">
+
+                        <ImageView
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:src="@drawable/ic_flow_dry" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Seco"
+                            android:gravity="center"
+                            android:textSize="14sp"/>
+                    </LinearLayout>
+
+                    <!-- Repetir para otras opciones de flujo -->
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <!-- Repite el mismo patrón para las secciones de estado de ánimo, medicación, píldora anticonceptiva, horas de sueño y birth control -->
+
+        </LinearLayout>
+
+    </ScrollView>
+</layout>

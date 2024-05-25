@@ -80,4 +80,10 @@
     <string name="login_invalid_credentials_message">Usuario o contraseña incorrectos. Revisa tus credenciales.</string>
     <string name="login_server_error_message">Error en el servidor. Inténtalo más tarde.</string>
     <string name="login_fatal_error_message">Error inesperado. Inténtalo más tarde.</string>
+    <string name="next_month">Siguiente mes</string>
+    <string name="prev_month">Mes anterior\n</string>
+    <string name="new_register_btn">Nuevo registro</string>
+    <string name="days_for_next_label">Días para tu próximo período</string>
+    <string name="cancel_register">Cancelar registro</string>
+    <string name="save_log">Guardar registro\n</string>
 </resources>
