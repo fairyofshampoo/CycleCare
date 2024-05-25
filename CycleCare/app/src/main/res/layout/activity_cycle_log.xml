@@ -89,7 +89,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:gravity="center">
+                android:layout_marginStart="20dp">
 
                 <!-- Opciones de flujo menstrual -->
                 <LinearLayout
@@ -203,8 +203,7 @@
             <com.google.android.flexbox.FlexboxLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:flexWrap="wrap"
-                android:justifyContent="space_between">
+                app:flexWrap="wrap">
 
                 <!-- Añadir elementos de síntomas aquí -->
                 <TextView
@@ -216,11 +215,124 @@
                     android:layout_margin="4dp"
                     android:gravity="center"
                     android:textColor="@color/dark_gray" />
-
-                <!-- Repetir para otros síntomas -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sensibilidad en los senos"
+                    android:padding="8dp"
+                    android:background="@drawable/symptom_background"
+                    android:layout_margin="4dp"
+                    android:gravity="center"
+                    android:textColor="@color/dark_gray" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Acné"
+                    android:padding="8dp"
+                    android:background="@drawable/symptom_background"
+                    android:layout_margin="4dp"
+                    android:gravity="center"
+                    android:textColor="@color/dark_gray" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Hinchazón abdominal"
+                    android:padding="8dp"
+                    android:background="@drawable/symptom_background"
+                    android:layout_margin="4dp"
+                    android:gravity="center"
+                    android:textColor="@color/dark_gray" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Fatiga"
+                    android:padding="8dp"
+                    android:background="@drawable/symptom_background"
+                    android:layout_margin="4dp"
+                    android:gravity="center"
+                    android:textColor="@color/dark_gray" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Dolor de cabeza"
+                    android:padding="8dp"
+                    android:background="@drawable/symptom_background"
+                    android:layout_margin="4dp"
+                    android:gravity="center"
+                    android:textColor="@color/dark_gray" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Náuseas"
+                    android:padding="8dp"
+                    android:background="@drawable/symptom_background"
+                    android:layout_margin="4dp"
+                    android:gravity="center"
+                    android:textColor="@color/dark_gray" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Mareos"
+                    android:padding="8dp"
+                    android:background="@drawable/symptom_background"
+                    android:layout_margin="4dp"
+                    android:gravity="center"
+                    android:textColor="@color/dark_gray" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Antojos"
+                    android:padding="8dp"
+                    android:background="@drawable/symptom_background"
+                    android:layout_margin="4dp"
+                    android:gravity="center"
+                    android:textColor="@color/dark_gray" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Estreñimiento"
+                    android:padding="8dp"
+                    android:background="@drawable/symptom_background"
+                    android:layout_margin="4dp"
+                    android:gravity="center"
+                    android:textColor="@color/dark_gray" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Diarrea"
+                    android:padding="8dp"
+                    android:background="@drawable/symptom_background"
+                    android:layout_margin="4dp"
+                    android:gravity="center"
+                    android:textColor="@color/dark_gray" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Insomnio"
+                    android:padding="8dp"
+                    android:background="@drawable/symptom_background"
+                    android:layout_margin="4dp"
+                    android:gravity="center"
+                    android:textColor="@color/dark_gray" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Picazón vaginal"
+                    android:padding="8dp"
+                    android:background="@drawable/symptom_background"
+                    android:layout_margin="4dp"
+                    android:gravity="center"
+                    android:textColor="@color/dark_gray" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Dolor en vulva"
+                    android:padding="8dp"
+                    android:background="@drawable/symptom_background"
+                    android:layout_margin="4dp"
+                    android:gravity="center"
+                    android:textColor="@color/dark_gray" />
             </com.google.android.flexbox.FlexboxLayout>
-
-            <!-- Sección de actividad sexual -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -229,14 +341,13 @@
                 android:textStyle="bold"
                 android:textAllCaps="true"
                 android:textColor="@color/gray_blue"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="8dp"/>
+                android:layout_marginTop="16dp"/>
 
             <RadioGroup
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:gravity="center">
+                android:layout_marginStart="20dp">
 
                 <RadioButton
                     android:id="@+id/rbProtectedSex"
@@ -262,8 +373,7 @@
                 android:textColor="@color/gray_blue"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="8dp"/>
+                android:layout_marginTop="16dp"/>
 
             <!-- Carrusel de opciones de flujo vaginal -->
             <HorizontalScrollView
@@ -278,8 +388,8 @@
 
                     <!-- Opciones de flujo vaginal -->
                     <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="100dp"
+                        android:layout_height="90dp"
                         android:orientation="vertical"
                         android:gravity="center"
                         android:padding="8dp"
@@ -287,8 +397,8 @@
                         android:layout_marginEnd="8dp">
 
                         <ImageView
-                            android:layout_width="48dp"
-                            android:layout_height="48dp"
+                            android:layout_width="60dp"
+                            android:layout_height="50dp"
                             android:src="@drawable/ic_flow_dry" />
 
                         <TextView
@@ -299,10 +409,329 @@
                             android:textSize="14sp"/>
                     </LinearLayout>
 
-                    <!-- Repetir para otras opciones de flujo -->
+                    <LinearLayout
+                        android:layout_width="100dp"
+                        android:layout_height="90dp"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:background="@drawable/flow_option_background"
+                        android:layout_marginEnd="8dp">
+
+                        <ImageView
+                            android:layout_width="60dp"
+                            android:layout_height="50dp"
+                            android:src="@drawable/ic_flow_sticky" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Pegajoso"
+                            android:gravity="center"
+                            android:textSize="14sp"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="100dp"
+                        android:layout_height="90dp"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:background="@drawable/flow_option_background"
+                        android:layout_marginEnd="8dp">
+
+                        <ImageView
+                            android:layout_width="60dp"
+                            android:layout_height="50dp"
+                            android:src="@drawable/ic_flow_cream" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Cremoso"
+                            android:gravity="center"
+                            android:textSize="14sp"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="100dp"
+                        android:layout_height="90dp"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:background="@drawable/flow_option_background"
+                        android:layout_marginEnd="8dp">
+
+                        <ImageView
+                            android:layout_width="60dp"
+                            android:layout_height="50dp"
+                            android:src="@drawable/ic_flow_aqueous" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Acuoso"
+                            android:gravity="center"
+                            android:textSize="14sp"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="100dp"
+                        android:layout_height="90dp"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:background="@drawable/flow_option_background"
+                        android:layout_marginEnd="8dp">
+
+                        <ImageView
+                            android:layout_width="60dp"
+                            android:layout_height="50dp"
+                            android:src="@drawable/ic_flow_elastic" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Elástico"
+                            android:gravity="center"
+                            android:textSize="14sp"/>
+                    </LinearLayout>
                 </LinearLayout>
             </HorizontalScrollView>
 
+            <!-- Sección de estado de ánimo -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Estado de ánimo"
+                android:textAllCaps="true"
+                android:textColor="@color/gray_blue"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginTop="16dp"/>
+
+            <!-- Carrusel de opciones de estados de ánimo -->
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <LinearLayout
+                        android:layout_width="100dp"
+                        android:layout_height="90dp"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:background="@drawable/flow_option_background"
+                        android:layout_marginEnd="8dp">
+
+                        <ImageView
+                            android:layout_width="60dp"
+                            android:layout_height="50dp"
+                            android:src="@drawable/ic_happy" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Feliz"
+                            android:gravity="center"
+                            android:textSize="14sp"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="100dp"
+                        android:layout_height="90dp"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:background="@drawable/flow_option_background"
+                        android:layout_marginEnd="8dp">
+
+                        <ImageView
+                            android:layout_width="60dp"
+                            android:layout_height="50dp"
+                            android:src="@drawable/ic_sad" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Triste"
+                            android:gravity="center"
+                            android:textSize="14sp"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="100dp"
+                        android:layout_height="90dp"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:background="@drawable/flow_option_background"
+                        android:layout_marginEnd="8dp">
+
+                        <ImageView
+                            android:layout_width="60dp"
+                            android:layout_height="50dp"
+                            android:src="@drawable/ic_anxious" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Ansiosa"
+                            android:gravity="center"
+                            android:textSize="14sp"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="100dp"
+                        android:layout_height="90dp"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:background="@drawable/flow_option_background"
+                        android:layout_marginEnd="8dp">
+
+                        <ImageView
+                            android:layout_width="60dp"
+                            android:layout_height="50dp"
+                            android:src="@drawable/ic_angry" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Enojada"
+                            android:gravity="center"
+                            android:textSize="14sp"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="100dp"
+                        android:layout_height="90dp"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:background="@drawable/flow_option_background"
+                        android:layout_marginEnd="8dp">
+
+                        <ImageView
+                            android:layout_width="60dp"
+                            android:layout_height="50dp"
+                            android:src="@drawable/ic_angry" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Cansada"
+                            android:gravity="center"
+                            android:textSize="14sp"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="100dp"
+                        android:layout_height="90dp"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:background="@drawable/flow_option_background"
+                        android:layout_marginEnd="8dp">
+
+                        <ImageView
+                            android:layout_width="60dp"
+                            android:layout_height="50dp"
+                            android:src="@drawable/ic_flow_elastic" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Energética"
+                            android:gravity="center"
+                            android:textSize="14sp"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="100dp"
+                        android:layout_height="90dp"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:background="@drawable/flow_option_background"
+                        android:layout_marginEnd="8dp">
+
+                        <ImageView
+                            android:layout_width="60dp"
+                            android:layout_height="50dp"
+                            android:src="@drawable/ic_flow_elastic" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Relajada"
+                            android:gravity="center"
+                            android:textSize="14sp"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="100dp"
+                        android:layout_height="90dp"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:background="@drawable/flow_option_background"
+                        android:layout_marginEnd="8dp">
+
+                        <ImageView
+                            android:layout_width="60dp"
+                            android:layout_height="50dp"
+                            android:src="@drawable/ic_flow_elastic" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Concentrada"
+                            android:gravity="center"
+                            android:textSize="14sp"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="100dp"
+                        android:layout_height="90dp"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:background="@drawable/flow_option_background"
+                        android:layout_marginEnd="8dp">
+
+                        <ImageView
+                            android:layout_width="60dp"
+                            android:layout_height="50dp"
+                            android:src="@drawable/ic_flow_elastic" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Estresada"
+                            android:gravity="center"
+                            android:textSize="14sp"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="100dp"
+                        android:layout_height="90dp"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:background="@drawable/flow_option_background"
+                        android:layout_marginEnd="8dp">
+
+                        <ImageView
+                            android:layout_width="60dp"
+                            android:layout_height="50dp"
+                            android:src="@drawable/ic_flow_elastic" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Irritada"
+                            android:gravity="center"
+                            android:textSize="14sp"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </HorizontalScrollView>
             <!-- Repite el mismo patrón para las secciones de estado de ánimo, medicación, píldora anticonceptiva, horas de sueño y birth control -->
 
         </LinearLayout>
