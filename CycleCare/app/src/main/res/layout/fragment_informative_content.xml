@@ -9,7 +9,7 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".activities.view_content_user_pov.InformativeContenteFragment">
+        tools:context=".activities.view_content_user_pov.InformativeContentFragment">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -21,7 +21,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 tools:itemCount="5"
-                tools:listitem="@layout/eq_list_item" />
+                tools:listitem="@layout/content_list_item" />
 
         </LinearLayout>
 

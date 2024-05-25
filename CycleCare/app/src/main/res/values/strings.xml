@@ -86,4 +86,5 @@
     <string name="days_for_next_label">Días para tu próximo período</string>
     <string name="cancel_register">Cancelar registro</string>
     <string name="save_log">Guardar registro\n</string>
+    <string name="delete_reminder">Borrar recordatorio\n</string>
 </resources>

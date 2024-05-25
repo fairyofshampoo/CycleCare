@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <!-- Puedes declarar variables de enlace aquí si es necesario -->
     </data>
 
     <ScrollView
@@ -205,7 +204,6 @@
                 android:layout_height="wrap_content"
                 app:flexWrap="wrap">
 
-                <!-- Añadir elementos de síntomas aquí -->
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -333,6 +331,7 @@
                     android:gravity="center"
                     android:textColor="@color/dark_gray" />
             </com.google.android.flexbox.FlexboxLayout>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -616,7 +615,7 @@
                         <ImageView
                             android:layout_width="60dp"
                             android:layout_height="50dp"
-                            android:src="@drawable/ic_angry" />
+                            android:src="@drawable/ic_tired" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -637,7 +636,7 @@
                         <ImageView
                             android:layout_width="60dp"
                             android:layout_height="50dp"
-                            android:src="@drawable/ic_flow_elastic" />
+                            android:src="@drawable/ic_energetic" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -658,7 +657,7 @@
                         <ImageView
                             android:layout_width="60dp"
                             android:layout_height="50dp"
-                            android:src="@drawable/ic_flow_elastic" />
+                            android:src="@drawable/ic_relaxed" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -679,7 +678,7 @@
                         <ImageView
                             android:layout_width="60dp"
                             android:layout_height="50dp"
-                            android:src="@drawable/ic_flow_elastic" />
+                            android:src="@drawable/ic_focused" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -700,7 +699,7 @@
                         <ImageView
                             android:layout_width="60dp"
                             android:layout_height="50dp"
-                            android:src="@drawable/ic_flow_elastic" />
+                            android:src="@drawable/ic_stressed" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -721,7 +720,7 @@
                         <ImageView
                             android:layout_width="60dp"
                             android:layout_height="50dp"
-                            android:src="@drawable/ic_flow_elastic" />
+                            android:src="@drawable/ic_irritable" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -732,9 +731,229 @@
                     </LinearLayout>
                 </LinearLayout>
             </HorizontalScrollView>
-            <!-- Repite el mismo patrón para las secciones de estado de ánimo, medicación, píldora anticonceptiva, horas de sueño y birth control -->
+            <!-- Sección de medicación -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Medicación"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textAllCaps="true"
+                android:textColor="@color/gray_blue"
+                android:layout_marginTop="10dp"/>
+
+            <com.google.android.flexbox.FlexboxLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:flexWrap="wrap">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Terapía hormonal"
+                    android:padding="8dp"
+                    android:background="@drawable/symptom_background"
+                    android:layout_margin="4dp"
+                    android:gravity="center"
+                    android:textColor="@color/dark_gray" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pastilla de emergencia"
+                    android:padding="8dp"
+                    android:background="@drawable/symptom_background"
+                    android:layout_margin="4dp"
+                    android:gravity="center"
+                    android:textColor="@color/dark_gray" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Analgésicos"
+                    android:padding="8dp"
+                    android:background="@drawable/symptom_background"
+                    android:layout_margin="4dp"
+                    android:gravity="center"
+                    android:textColor="@color/dark_gray" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Antidepresivos"
+                    android:padding="8dp"
+                    android:background="@drawable/symptom_background"
+                    android:layout_margin="4dp"
+                    android:gravity="center"
+                    android:textColor="@color/dark_gray" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Antibióticos"
+                    android:padding="8dp"
+                    android:background="@drawable/symptom_background"
+                    android:layout_margin="4dp"
+                    android:gravity="center"
+                    android:textColor="@color/dark_gray" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Antihistamínicos"
+                    android:padding="8dp"
+                    android:background="@drawable/symptom_background"
+                    android:layout_margin="4dp"
+                    android:gravity="center"
+                    android:textColor="@color/dark_gray" />
+            </com.google.android.flexbox.FlexboxLayout>
+            <!-- Sección de Píldora anticonceptiva -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Píldora anticonceptiva"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textAllCaps="true"
+                android:textColor="@color/gray_blue"
+                android:layout_marginTop="10dp"/>
+
+            <com.google.android.flexbox.FlexboxLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:flexWrap="wrap">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tomada"
+                    android:padding="8dp"
+                    android:background="@drawable/symptom_background"
+                    android:layout_margin="4dp"
+                    android:gravity="center"
+                    android:textColor="@color/dark_gray" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Olvidada"
+                    android:padding="8dp"
+                    android:background="@drawable/symptom_background"
+                    android:layout_margin="4dp"
+                    android:gravity="center"
+                    android:textColor="@color/dark_gray" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Dosis doble"
+                    android:padding="8dp"
+                    android:background="@drawable/symptom_background"
+                    android:layout_margin="4dp"
+                    android:gravity="center"
+                    android:textColor="@color/dark_gray" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sin dosis"
+                    android:padding="8dp"
+                    android:background="@drawable/symptom_background"
+                    android:layout_margin="4dp"
+                    android:gravity="center"
+                    android:textColor="@color/dark_gray" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tarde"
+                    android:padding="8dp"
+                    android:background="@drawable/symptom_background"
+                    android:layout_margin="4dp"
+                    android:gravity="center"
+                    android:textColor="@color/dark_gray" />
+            </com.google.android.flexbox.FlexboxLayout>
+
+            <!-- Sección de Horas de Sueño -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Horas de sueño"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textAllCaps="true"
+                    android:textColor="@color/gray_blue"
+                    android:layout_marginTop="10dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:layout_marginTop="8dp">
+
+                    <NumberPicker
+                        android:id="@+id/np_hours"
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp"
+                        android:background="@drawable/selector_background"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=":"
+                        android:textSize="24sp"
+                        android:textColor="@android:color/black"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="8dp"/>
+
+                    <NumberPicker
+                        android:id="@+id/np_minutes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp"
+                        android:background="@drawable/selector_background"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Sección de Control de Nacimiento -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="BirthControl"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textAllCaps="true"
+                    android:textColor="@color/gray_blue"
+                    android:layout_marginTop="10dp"/>
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:layout_marginTop="8dp">
+
+                    <RadioButton
+                        android:id="@+id/rb_inserted"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Insertado"
+                        android:padding="8dp"
+                        android:gravity="center"/>
+
+                    <RadioButton
+                        android:id="@+id/rb_removed"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Removido"
+                        android:padding="8dp"
+                        android:gravity="center"/>
+                </RadioGroup>
+            </LinearLayout>
+
 
         </LinearLayout>
-
     </ScrollView>
 </layout>
