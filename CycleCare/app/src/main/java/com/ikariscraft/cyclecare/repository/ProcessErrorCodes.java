@@ -7,6 +7,8 @@ public enum ProcessErrorCodes {
     REQUEST_FORMAT_ERROR,
     //responses 401 or 403
     AUTH_ERROR,
+    //404 responses
+    NOT_FOUND_ERROR,
     //500 responses
     SERVICE_NOT_AVAILABLE_ERROR
 }

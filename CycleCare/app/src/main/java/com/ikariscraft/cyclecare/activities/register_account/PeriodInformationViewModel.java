@@ -8,7 +8,7 @@ import com.ikariscraft.cyclecare.api.RequestStatus;
 import com.ikariscraft.cyclecare.api.requests.UserRegisterData;
 import com.ikariscraft.cyclecare.repository.IEmptyProcessListener;
 import com.ikariscraft.cyclecare.repository.ProcessErrorCodes;
-import com.ikariscraft.cyclecare.repository.RegisterUserRepository;
+import com.ikariscraft.cyclecare.repository.UserRepository;
 import com.ikariscraft.cyclecare.utilities.Validations;
 
 public class PeriodInformationViewModel extends ViewModel {
@@ -48,7 +48,7 @@ public class PeriodInformationViewModel extends ViewModel {
     public void registerNewAccount(UserRegisterData data){
         registerUserRequestStatus.setValue(RequestStatus.LOADING);
 
-        new RegisterUserRepository().registerUser(
+        new UserRepository().registerUser(
                 data,
                 new IEmptyProcessListener() {
                     @Override

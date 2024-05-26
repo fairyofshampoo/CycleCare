@@ -10,6 +10,7 @@ public class RegisterAccountViewModel extends ViewModel {
     private final MutableLiveData<Boolean> isNameValid = new MutableLiveData<>();
     private final MutableLiveData<Boolean> isFirstLastNameValid = new MutableLiveData<>();
     private final MutableLiveData<Boolean> isSecondLastNameValid = new MutableLiveData<>();
+    private final MutableLiveData<Boolean> isEmailValid = new MutableLiveData<>();
     private final MutableLiveData<Boolean> isUserValid = new MutableLiveData<>();
     private final MutableLiveData<Boolean> isPasswordValid = new MutableLiveData<>();
 
@@ -20,6 +21,7 @@ public class RegisterAccountViewModel extends ViewModel {
     public LiveData<Boolean> isNameValid() {return isNameValid;}
     public LiveData<Boolean> isFirstLastNameValid(){return isFirstLastNameValid;}
     public LiveData<Boolean> isSecondLastNameValid (){return isSecondLastNameValid;}
+    public LiveData<Boolean> isEmailValid() {return isEmailValid;}
     public LiveData<Boolean> isUserValid () {return isUserValid;}
     public LiveData<Boolean> isPasswordValid() {return isPasswordValid;}
 
@@ -51,6 +53,12 @@ public class RegisterAccountViewModel extends ViewModel {
         boolean validation = Validations.isPasswordValid(password);
 
         isPasswordValid.setValue(validation);
+    }
+
+    public void ValidateEmail(String email) {
+        boolean validation = Validations.isValidEmail(email);
+
+        isEmailValid.setValue(validation);
     }
 
 }

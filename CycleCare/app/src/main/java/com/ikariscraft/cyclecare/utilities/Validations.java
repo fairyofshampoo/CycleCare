@@ -1,5 +1,8 @@
 package com.ikariscraft.cyclecare.utilities;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class Validations {
 
     public static boolean isPasswordValid(String password) {
@@ -38,6 +41,21 @@ public class Validations {
             isNotEmpty = !data.isEmpty();
         }
         return isNotEmpty;
+    }
+
+    public static boolean isValidEmail(String text) {
+        boolean isValidEmail = false;
+
+        if (text != null) {
+            String emailPattern = "^[A-Za-z0-9+_.-]{1,64}@[A-Za-z0-9.-]{1,63}$";
+
+            Pattern pattern = Pattern.compile(emailPattern);
+            Matcher matcher = pattern.matcher(text);
+
+            isValidEmail = matcher.matches();
+        }
+
+        return isValidEmail;
     }
 
 }

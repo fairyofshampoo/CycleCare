@@ -2,11 +2,9 @@ package com.ikariscraft.cyclecare.activities.register_account;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-
 import com.ikariscraft.cyclecare.api.requests.UserRegisterData;
 import com.ikariscraft.cyclecare.databinding.ActivityRegisterAccountBinding;
 import com.ikariscraft.cyclecare.utilities.Role;
@@ -81,6 +79,14 @@ public class RegisterAccountActivity extends AppCompatActivity {
                 binding.errorSecondLastNameTextView.setVisibility(View.GONE);
             } else {
                 binding.errorSecondLastNameTextView.setVisibility(View.VISIBLE);
+            }
+        });
+
+        viewModel.isEmailValid().observe(this, isEmailValid -> {
+            if(isEmailValid) {
+                binding.errorEmailTextView.setVisibility(View.GONE);
+            } else {
+                binding.errorEmailTextView.setVisibility(View.VISIBLE);
             }
         });
 

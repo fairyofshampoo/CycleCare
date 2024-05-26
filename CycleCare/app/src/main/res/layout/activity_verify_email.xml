@@ -56,6 +56,7 @@
             android:textSize="16sp" />
 
         <EditText
+            android:id="@+id/codeEditText"
             style="@style/EditTextStyle"
             android:layout_width="330dp"
             android:layout_height="wrap_content"
@@ -66,7 +67,7 @@
             android:layout_marginBottom="40dp"/>
 
         <Button
-            android:id="@+id/btn_login"
+            android:id="@+id/btn_confirm_email"
             android:textAllCaps="false"
             style="@style/ButtonStyle"
             android:layout_width="240dp"
