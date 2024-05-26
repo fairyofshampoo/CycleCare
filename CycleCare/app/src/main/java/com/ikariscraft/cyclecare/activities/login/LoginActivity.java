@@ -73,7 +73,6 @@ public class    LoginActivity extends AppCompatActivity {
     }
 
     private void login() {
-
         if (viewModel.getLoginRequestStatus().getValue() != RequestStatus.LOADING) {
             String user = binding.userEditText.getText().toString().trim();
             String password = binding.passwordEditText.getText().toString().trim();
@@ -107,9 +106,6 @@ public class    LoginActivity extends AppCompatActivity {
                 break;
             case SERVICE_NOT_AVAILABLE_ERROR:
                 message = getString(R.string.login_server_error_message);
-                break;
-            case FATAL_ERROR:
-                message = getString(R.string.login_fatal_error_message);
                 break;
             default:
                 message = getString(R.string.login_fatal_error_message);

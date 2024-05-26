@@ -40,12 +40,14 @@ public class RegisterAccountActivity extends AppCompatActivity {
         String name = binding.nameEditText.getText().toString().trim();
         String firstLastName = binding.firstLastNameEditText.getText().toString().trim();
         String secondLastName = binding.secondLastNameEditText.getText().toString().trim();
+        String email = binding.emailEditText.getText().toString().trim();
         String user = binding.userEditText.getText().toString().trim();
         String password = binding.passwordEditText.getText().toString().trim();
 
         viewModel.ValidateName(name);
         viewModel.ValidateFirstLastName(firstLastName);
         viewModel.ValidateSecondLastName(secondLastName);
+        viewModel.ValidateEmail(email);
         viewModel.ValidateUsername(user);
         viewModel.ValidatePassword(password);
 
