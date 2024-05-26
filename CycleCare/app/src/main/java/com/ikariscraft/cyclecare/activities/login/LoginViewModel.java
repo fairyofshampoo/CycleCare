@@ -40,7 +40,7 @@ public class LoginViewModel extends ViewModel {
     }
 
     public void validateUser (String user) {
-        boolean validation = Validations.isPasswordValid(user);
+        boolean validation = Validations.isUsernameValid(user);
 
         isUserValid.setValue(validation);
     }

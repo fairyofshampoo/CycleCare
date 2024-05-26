@@ -9,6 +9,9 @@ public class Person {
     private String secondLastName;
     private String role;
 
+    public Person(){
+
+    }
     public Person(String email, String name, String firstLastName, String secondLastName, String role) {
         this.email = email;
         this.name = name;

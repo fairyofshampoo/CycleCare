@@ -9,7 +9,7 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:context=".activities.registerreminder.RegisterReminder">
+        tools:context=".activities.register_reminder.RegisterReminder">
 
         <LinearLayout
             android:layout_width="410sp"

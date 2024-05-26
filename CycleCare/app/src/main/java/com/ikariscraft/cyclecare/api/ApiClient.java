@@ -1,12 +1,11 @@
 package com.ikariscraft.cyclecare.api;
 
-import com.ikariscraft.cyclecare.api.Interfaces.IChartService;
-import com.ikariscraft.cyclecare.api.Interfaces.IContentService;
-import com.ikariscraft.cyclecare.api.Interfaces.IUserService;
+import com.ikariscraft.cyclecare.api.interfaces.IChartService;
+import com.ikariscraft.cyclecare.api.interfaces.IContentService;
+import com.ikariscraft.cyclecare.api.interfaces.IUserService;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.moshi.MoshiConverterFactory;
-import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 
 public class ApiClient {

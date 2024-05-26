@@ -16,16 +16,28 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".activities.viewcontentbymedic.ViewContentByMedic"
+            android:name=".activities.forgot_password.NewPasswordActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.viewcontentbymedic.MyContentActivity"
-            android:exported="false"/>
-        <activity
-            android:name=".activities.registerreminder.RegisterReminder"
+            android:name=".activities.register_reminder.RemindersActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.principalscreen.PrincipalScreen"
+            android:name=".activities.cycle_log.CycleLogActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.cycle_log.CalendarFragment"
+            android:exported="false" />
+        <activity
+            android:name=".activities.view_content_medic_pov.ViewContentByMedic"
+            android:exported="false" />
+        <activity
+            android:name=".activities.view_content_medic_pov.MyContentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.register_reminder.RegisterReminder"
+            android:exported="false" />
+        <activity
+            android:name=".activities.main_screen.PrincipalScreen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -34,27 +46,26 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activities.viewcontentbymedic.PublishInformativeContentActivity"
+            android:name=".activities.view_content_medic_pov.PublishInformativeContentActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.registeraccount.PeriodInformationActivity"
+            android:name=".activities.register_account.PeriodInformationActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.registeraccount.CycleTypeActivity"
+            android:name=".activities.register_account.CycleTypeActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.registeraccount.RegisterAccountActivity"
-            android:exported="false"/>
-        <activity
-            android:name=".activities.verifyemail.VerifyEmailActivity"
+            android:name=".activities.register_account.RegisterAccountActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.forgotpassword.ForgotPasswordActivity"
+            android:name=".activities.forgot_password.VerifyEmailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.forgot_password.ForgotPasswordActivity"
             android:exported="false" />
         <activity
             android:name=".activities.login.LoginActivity"
-            android:exported="false"/>
-
+            android:exported="false" />
     </application>
 
 </manifest>

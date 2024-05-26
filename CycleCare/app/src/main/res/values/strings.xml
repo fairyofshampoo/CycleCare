@@ -48,15 +48,13 @@
     <string name="valid_format_label">Formatos permitidos: MP4, PNG, JPG (max. 50 MB)</string>
     <string name="description_label">* Descripción</string>
     <string name="post_button">Publicar</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="post_tittle_label">Título de la publicación</string>
     <string name="author_content_label">autor de la publicación</string>
     <string name="publish_date_label">XX/XX/XXXX</string>
     <string name="content_label">Contenido</string>
     <string name="code_verify_email_label">Código</string>
     <string name="confirm_code_button">Confirmar correo</string>
-    <string name="resend_code_label">Reenviar código</string>
+    <string name="resend_code_label"><u>Reenviar código</u></string>
     <string name="reminder_tittle_label">* Título del recordatorio</string>
     <string name="reminder_description_label">Descripción del recordatorio</string>
     <string name="reminder_date_label">* Fecha del recordatorio</string>
@@ -75,4 +73,23 @@
     <string name="second_last_name_label">* Ingresa tu segundo apellido</string>
     <string name="error_second_last_name_label">Debes ingresar tu apellido correctamente</string>
     <string name="error_period_duration_label">La información entroducida es incorrecta</string>
+    <string name="username_error_login">El nombre de usuario es incorrecto</string>
+    <string name="password_error_login">Formato de contraseña inválido</string>
+    <string name="login_invalid_credentials_message">Usuario o contraseña incorrectos. Revisa tus credenciales.</string>
+    <string name="login_server_error_message">Error en el servidor. Inténtalo más tarde.</string>
+    <string name="login_fatal_error_message">Error inesperado. Inténtalo más tarde.</string>
+    <string name="next_month">Siguiente mes</string>
+    <string name="prev_month">Mes anterior\n</string>
+    <string name="new_register_btn">Nuevo registro</string>
+    <string name="days_for_next_label">Días para tu próximo período</string>
+    <string name="cancel_register">Cancelar registro</string>
+    <string name="save_log">Guardar registro\n</string>
+    <string name="delete_reminder">Borrar recordatorio\n</string>
+    <string name="role_not_supported">Rol no soportado</string>
+    <string name="passwords_match_text_error">Las contraseñas deben coincidir</string>
+    <string name="btn_change_password">Cambiar contraseña</string>
+    <string name="lbl_confirm_password">CONFIRMAR CONTRASEÑA</string>
+    <string name="lbl_new_password">Nueva contraseña</string>
+    <string name="new_password_description">La contraseña debe tener al menos 8 caracteres e incluir al menos una mayúscula, una minúscula, un número y un carácter especial.</string>
+    <string name="email_not_found">No se encontró el email ingresado. Intenta nuevamente</string>
 </resources>

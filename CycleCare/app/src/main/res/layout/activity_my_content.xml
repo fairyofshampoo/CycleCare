@@ -44,11 +44,11 @@
 
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/eq_recycler"
+            android:id="@+id/content_recycler"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:itemCount="5"
-            tools:listitem="@layout/eq_list_item" />
+            tools:listitem="@layout/content_list_item" />
 
     </LinearLayout>
 </layout>
