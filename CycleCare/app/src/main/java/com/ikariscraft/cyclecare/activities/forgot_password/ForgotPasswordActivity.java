@@ -3,6 +3,7 @@ package com.ikariscraft.cyclecare.activities.forgot_password;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -59,6 +60,8 @@ public class ForgotPasswordActivity extends AppCompatActivity {
     }
 
     private void startVerifyEmailActivity() {
+        Intent intent = new Intent(this, VerifyEmailActivity.class);
+        startActivity(intent);
     }
 
     private void setupFieldsValidation() {
