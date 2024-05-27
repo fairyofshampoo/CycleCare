@@ -1,4 +1,4 @@
-package com.ikariscraft.cyclecare.api.interfaces;
+package com.ikariscraft.cyclecare.api.Interfaces;
 
 import com.ikariscraft.cyclecare.api.requests.PasswordResetRequest;
 import com.ikariscraft.cyclecare.api.requests.UserCredentialsBody;

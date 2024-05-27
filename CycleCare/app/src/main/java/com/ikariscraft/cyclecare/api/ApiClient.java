@@ -1,8 +1,8 @@
 package com.ikariscraft.cyclecare.api;
 
-import com.ikariscraft.cyclecare.api.interfaces.IChartService;
-import com.ikariscraft.cyclecare.api.interfaces.IContentService;
-import com.ikariscraft.cyclecare.api.interfaces.IUserService;
+import com.ikariscraft.cyclecare.api.Interfaces.IChartService;
+import com.ikariscraft.cyclecare.api.Interfaces.IContentService;
+import com.ikariscraft.cyclecare.api.Interfaces.IUserService;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.moshi.MoshiConverterFactory;
@@ -26,7 +26,7 @@ public class ApiClient {
 
     private ApiClient(){
         retrofit = new Retrofit.Builder()
-                .baseUrl("http://10.0.2.2:8085/apicyclecare/")
+                .baseUrl("http://192.168.100.152:8085/apicyclecare/")
                 .addConverterFactory(MoshiConverterFactory.create())
                 .build();
     }

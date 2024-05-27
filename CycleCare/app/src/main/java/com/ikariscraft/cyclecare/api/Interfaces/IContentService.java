@@ -1,5 +1,6 @@
-package com.ikariscraft.cyclecare.api.interfaces;
+package com.ikariscraft.cyclecare.api.Interfaces;
 
+import com.ikariscraft.cyclecare.api.requests.RegisterContentRequest;
 import com.ikariscraft.cyclecare.api.responses.RateContentJSONResponse;
 
 import retrofit2.Call;
@@ -15,6 +16,12 @@ public interface IContentService {
             @Header("toke") String token,
             @Path("id") int contentId,
             @Body int rating
+    );
+
+    @POST("/content/publish-article")
+    Call<Void> publishArticle(
+            @Header("token") String token,
+            @Body RegisterContentRequest article
     );
 
 }

@@ -1,5 +1,10 @@
 package com.ikariscraft.cyclecare.utilities;
 
+import android.database.Cursor;
+import android.net.Uri;
+import android.service.autofill.FieldClassification;
+import androidx.appcompat.app.AppCompatActivity;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -56,6 +61,35 @@ public class Validations {
         }
 
         return isValidEmail;
+    }
+
+    public static boolean isValidTitle(String text) {
+        boolean isValidTitle = false;
+
+        if(text != null) {
+            String titlePattern = "^(?! )[^\\s].{1,60}$";
+
+            Pattern pattern = Pattern.compile(titlePattern);
+            Matcher matcher = pattern.matcher(text);
+
+            isValidTitle = matcher.matches();
+        }
+        return isValidTitle;
+    }
+
+    public static boolean isDescriptionValid(String text) {
+        boolean isDescriptionValid = false;
+
+        if(text != null) {
+            String descriptionPattern = "^(?!\\s)[\\s\\S]{1,198}$";
+            Pattern pattern = Pattern.compile(descriptionPattern);
+            Matcher matcher = pattern.matcher(text);
+
+            isDescriptionValid = matcher.matches();
+        }
+
+
+        return isDescriptionValid;
     }
 
 }
