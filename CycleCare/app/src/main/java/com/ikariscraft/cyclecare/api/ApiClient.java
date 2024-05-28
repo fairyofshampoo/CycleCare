@@ -26,7 +26,7 @@ public class ApiClient {
 
     private ApiClient(){
         retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.100.152:8085/apicyclecare/")
+                .baseUrl("http://192.168.48.238:8085/apicyclecare/")
                 .addConverterFactory(MoshiConverterFactory.create())
                 .build();
     }

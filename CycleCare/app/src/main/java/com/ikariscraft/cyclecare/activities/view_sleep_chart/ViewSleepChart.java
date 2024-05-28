@@ -68,7 +68,7 @@ public class ViewSleepChart extends Fragment {
 
         if(viewModel.getSleepChartRequestStatus().getValue() != RequestStatus.LOADING) {
             SessionSingleton sessionSingleton = SessionSingleton.getInstance();
-            viewModel.getSleepHoursChart("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImZhaXJ5MGZTaGFtcG9vIiwiaWF0IjoxNzE2NTAyNTYyLCJleHAiOjE3MTY1MDYxNjJ9.jn--f6jysjwAkwA8pXNBfZuN7qifBj80BOFgaJe4mRo");
+            viewModel.getSleepHoursChart(sessionSingleton.getToken());
         }
         viewModel.getSleepHours().observe(getViewLifecycleOwner(), new Observer<List<SleepHoursInformation>>() {
             @Override
