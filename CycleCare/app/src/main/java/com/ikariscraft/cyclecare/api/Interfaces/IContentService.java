@@ -11,15 +11,15 @@ import retrofit2.http.Path;
 
 public interface IContentService {
 
-    @POST("/content/create-rating/{id}")
+    @POST("content/create-rating/{id}")
     Call<RateContentJSONResponse> rateInformativeContent(
             @Header("toke") String token,
             @Path("id") int contentId,
             @Body int rating
     );
 
-    @POST("/content/publish-article")
-    Call<Void> publishArticle(
+    @POST("content/publish-article")
+    Call<RateContentJSONResponse> publishArticle(
             @Header("token") String token,
             @Body RegisterContentRequest article
     );

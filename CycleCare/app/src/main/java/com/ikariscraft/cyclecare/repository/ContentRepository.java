@@ -1,5 +1,7 @@
 package com.ikariscraft.cyclecare.repository;
 
+import android.util.Log;
+
 import com.ikariscraft.cyclecare.api.ApiClient;
 import com.ikariscraft.cyclecare.api.Interfaces.IContentService;
 import com.ikariscraft.cyclecare.api.requests.RegisterContentRequest;
@@ -40,11 +42,15 @@ public class ContentRepository {
 
     public void publishNewArticle(String toke, RegisterContentRequest article, IEmptyProcessListener statusListener) {
 
+        Log.e("Repository", "publishNewArticle: se ha entrado al método del repository ");
         IContentService contentService = ApiClient.getInstance().getContentService();
 
-        contentService.publishArticle(toke, article).enqueue(new Callback<Void>() {
+        contentService.publishArticle(toke, article).enqueue(new Callback<RateContentJSONResponse>() {
+
+
             @Override
-            public void onResponse(Call<Void> call, Response<Void> response) {
+            public void onResponse(Call<RateContentJSONResponse> call, Response<RateContentJSONResponse> response) {
+                Log.e("OnResponse", "Ha respondido el API");
                 if(response.isSuccessful()){
                     statusListener.onSuccess();
                 }else{
@@ -63,8 +69,9 @@ public class ContentRepository {
             }
 
             @Override
-            public void onFailure(Call<Void> call, Throwable t) {
+            public void onFailure(Call<RateContentJSONResponse> call, Throwable t) {
                 statusListener.onError(ProcessErrorCodes.FATAL_ERROR);
+                Log.e("Error", "Ocurrio un error al llamar el método");
             }
         });
     }

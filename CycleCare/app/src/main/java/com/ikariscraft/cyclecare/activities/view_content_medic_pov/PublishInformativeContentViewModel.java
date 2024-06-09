@@ -1,5 +1,7 @@
 package com.ikariscraft.cyclecare.activities.view_content_medic_pov;
 
+import android.util.Log;
+
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
@@ -39,18 +41,17 @@ public class PublishInformativeContentViewModel extends ViewModel {
 
     public void ValidateTitle(String title) {
         boolean validation  = Validations.isValidTitle(title);
-
         isTitleValid.setValue(validation);
     }
 
     public void ValidateDescription(String description){
         boolean validation = Validations.isDescriptionValid(description);
-
         isDescriptionValid.setValue(validation);
     }
 
     public void publishArticle (String token, RegisterContentRequest article){
         publishArticleRequestStatus.setValue(RequestStatus.LOADING);
+        Log.e("Cargando publishArticlee", "se ha llamado el método publishArticle");
 
         new ContentRepository().publishNewArticle(
                 token,

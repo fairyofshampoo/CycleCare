@@ -12,6 +12,7 @@ import android.widget.Toast;
 import com.google.android.material.snackbar.Snackbar;
 import com.ikariscraft.cyclecare.R;
 import com.ikariscraft.cyclecare.activities.main_screen.PrincipalScreen;
+import com.ikariscraft.cyclecare.activities.view_content_medic_pov.PublishInformativeContentActivity;
 import com.ikariscraft.cyclecare.api.RequestStatus;
 import com.ikariscraft.cyclecare.databinding.ActivityLoginBinding;
 import com.ikariscraft.cyclecare.repository.ProcessErrorCodes;
@@ -126,7 +127,8 @@ public class    LoginActivity extends AppCompatActivity {
                 break;
             }
             case MEDIC: {
-                Toast.makeText(this, "Pantalla de médico", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(this, PublishInformativeContentActivity.class);
+                startActivity(intent);
                 break;
             }
             default: {

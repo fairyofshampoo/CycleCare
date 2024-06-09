@@ -7,12 +7,12 @@ import java.util.Date;
 public class RegisterContentRequest {
     private String title;
     private String description;
-    private Date creationDate;
-    private Bitmap image;
+    private String creationDate;
+    private String image;
 
     public RegisterContentRequest() { }
 
-    public RegisterContentRequest(String title, String description, Date creationDate, Bitmap image) {
+    public RegisterContentRequest(String title, String description, String creationDate, String image) {
         this.title = title;
         this.description = description;
         this.creationDate = creationDate;
@@ -35,19 +35,19 @@ public class RegisterContentRequest {
         this.description = description;
     }
 
-    public Date getCreationDate() {
+    public String getCreationDate() {
         return creationDate;
     }
 
-    public void setCreationDate(Date creationDate) {
+    public void setCreationDate(String creationDate) {
         this.creationDate = creationDate;
     }
 
-    public Bitmap getImage() {
+    public String getImage() {
         return image;
     }
 
-    public void setImage(Bitmap image) {
+    public void setImage(String image) {
         this.image = image;
     }
 }
