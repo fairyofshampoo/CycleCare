@@ -30,7 +30,6 @@ public class AuthenticationRepository {
                                     body.getSecondLastName(),
                                     body.getRole()
                             );
-
                             SessionSingleton sessionSingleton = SessionSingleton.getInstance();
                             sessionSingleton.setToken(body.getToken());
                             sessionSingleton.setPerson(person);

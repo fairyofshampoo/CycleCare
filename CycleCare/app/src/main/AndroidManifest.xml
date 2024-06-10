@@ -35,7 +35,12 @@
             android:exported="false" />
         <activity
             android:name=".activities.view_content_medic_pov.MyContentActivity"
-            android:exported="false" />
+            android:exported="true">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+    </activity>
         <activity
             android:name=".activities.register_reminder.RegisterReminder"
             android:exported="false" />
@@ -44,12 +49,7 @@
             android:exported="false"/>
         <activity
             android:name=".activities.view_content_medic_pov.PublishInformativeContentActivity"
-            android:exported="true">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
-    </activity>
+            android:exported="false"/>
         <activity
             android:name=".activities.register_account.PeriodInformationActivity"
             android:exported="false" />

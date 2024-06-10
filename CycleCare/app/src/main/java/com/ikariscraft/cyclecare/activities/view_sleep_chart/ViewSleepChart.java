@@ -50,8 +50,6 @@ public class ViewSleepChart extends Fragment {
         super.onCreate(savedInstanceState);
         binding = FragmentViewSleepChartBinding.inflate(getLayoutInflater());
         viewModel = new ViewModelProvider(this).get(ViewSleepChartViewModel.class);
-        Log.e("Creación de la pantalla", "Se ha creado el fragmento");
-
 
 
         if (getArguments() != null) {
@@ -88,7 +86,7 @@ public class ViewSleepChart extends Fragment {
                     String[] labels = new String[sleepHoursInformations.size()];
 
                     for (int i = 0; i < sleepHoursInformations.size(); i++) {
-                        labels[i] = sleepHoursInformations.get(i).getDayOfWeek(); // Reemplaza con tus etiquetas reales
+                        labels[i] = sleepHoursInformations.get(i).getDayOfWeek();
                     }
 
                     MyValueFormatter formatter = new MyValueFormatter(labels);

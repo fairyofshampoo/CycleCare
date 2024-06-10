@@ -10,15 +10,10 @@ import retrofit2.converter.moshi.MoshiConverterFactory;
 
 public class ApiClient {
     private static final ApiClient apiClient = new ApiClient();
-
     private final Retrofit retrofit;
-
     private IUserService userService;
-
     private IChartService chartService;
-
     private IContentService contentService;
-
 
     public static  ApiClient getInstance(){
         return apiClient;
