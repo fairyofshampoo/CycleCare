@@ -12,6 +12,7 @@ import com.ikariscraft.cyclecare.utilities.Validations;
 
 public class ForgotPasswordViewModel extends ViewModel {
     private final MutableLiveData<Boolean> isEmailValid = new MutableLiveData<>();
+    private final MutableLiveData<Boolean> isCodeValid = new MutableLiveData<>();
     private final MutableLiveData<ProcessErrorCodes> forgotPasswordErrorCode = new MutableLiveData<>();
     private final MutableLiveData<RequestStatus> forgotPasswordRequestStatus = new MutableLiveData<>();
 
@@ -20,6 +21,7 @@ public class ForgotPasswordViewModel extends ViewModel {
     }
 
     public LiveData<Boolean> isEmailValid() {return isEmailValid;}
+    public LiveData<Boolean> isCodeValid() {return isCodeValid;}
     public LiveData<ProcessErrorCodes> getForgotPasswordErrorCode() {return forgotPasswordErrorCode;}
     public LiveData<RequestStatus> getForgotPasswordRequestStatus() {return forgotPasswordRequestStatus;}
 
@@ -27,6 +29,11 @@ public class ForgotPasswordViewModel extends ViewModel {
         boolean validation = Validations.isValidEmail(email);
 
         isEmailValid.setValue(validation);
+    }
+
+    public void ValidateCode(String code){
+        boolean validation = Validations.isValidCode(code);
+        isCodeValid.setValue(validation);
     }
 
     public void sendEmail(String email) {

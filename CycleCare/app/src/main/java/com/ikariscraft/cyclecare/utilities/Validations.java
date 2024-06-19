@@ -97,4 +97,17 @@ public class Validations {
         return isDescriptionValid;
     }
 
+    public static boolean isValidCode(String code) {
+        boolean isValidCode = false;
+
+        if (code != null) {
+            String codePattern = "^[a-fA-F0-9]{8}$";
+            Pattern pattern = Pattern.compile(codePattern);
+            Matcher matcher = pattern.matcher(code);
+
+            isValidCode = matcher.matches();
+        }
+
+        return isValidCode;
+    }
 }

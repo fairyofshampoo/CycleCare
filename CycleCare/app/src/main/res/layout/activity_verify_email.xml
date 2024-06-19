@@ -66,6 +66,14 @@
             android:textSize="15sp"
             android:layout_marginBottom="40dp"/>
 
+        <TextView
+            android:id="@+id/errorCodeTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:text="@string/code_error_label"
+            android:textColor="@color/strong_pink" />
+
         <Button
             android:id="@+id/btn_confirm_email"
             android:textAllCaps="false"
