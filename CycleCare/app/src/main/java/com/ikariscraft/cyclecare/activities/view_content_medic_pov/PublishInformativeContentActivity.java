@@ -19,6 +19,8 @@ import com.ikariscraft.cyclecare.api.RequestStatus;
 import com.ikariscraft.cyclecare.api.requests.RegisterContentRequest;
 import com.ikariscraft.cyclecare.databinding.ActivityPublishInformativeContentBinding;
 import com.ikariscraft.cyclecare.repository.ProcessErrorCodes;
+import com.ikariscraft.cyclecare.utilities.SessionSingleton;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.text.DateFormat;
@@ -65,7 +67,8 @@ public class PublishInformativeContentActivity extends AppCompatActivity {
         if(viewModel.getPublishArticleRequestStatus().getValue() != RequestStatus.LOADING){
             try {
                 RegisterContentRequest contentRequest = createRequest();
-                String token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImZhaXJ5MGZTaGFtcG9vIiwiaWF0IjoxNzE3OTYwODA2LCJleHAiOjE3MTc5NjQ0MDZ9.9QizLmtxqkfun20abnVgcYr8l0fR3bFvpwnKwot9NTY";
+                SessionSingleton session = SessionSingleton.getInstance();
+                String token = session.getToken();
                 viewModel.publishArticle(token, contentRequest);
             } catch (IOException e) {
                 Toast.makeText(PublishInformativeContentActivity.this, "Error al procesar la imagen", Toast.LENGTH_SHORT).show();

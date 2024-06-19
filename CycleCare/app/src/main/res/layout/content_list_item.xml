@@ -13,7 +13,7 @@
 
         <LinearLayout
             android:background="@color/white"
-            android:layout_width="match_parent"
+            android:layout_width="400dp"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:orientation="vertical"
@@ -22,12 +22,12 @@
         <ImageView
             android:id="@+id/image_content"
             android:layout_width="match_parent"
-            android:layout_height="122dp"
+            android:layout_height="match_parent"
             android:src="@android:drawable/ic_menu_gallery" />
 
         <TextView
             android:id="@+id/content_title_label"
-            android:layout_width="wrap_content"
+            android:layout_width="270dp"
             android:layout_height="wrap_content"
             android:text="@string/content_tittle_label"
             android:textColor="@color/gray_blue"

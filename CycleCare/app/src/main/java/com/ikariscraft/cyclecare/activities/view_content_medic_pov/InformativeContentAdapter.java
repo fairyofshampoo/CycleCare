@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.ikariscraft.cyclecare.R;
+import com.ikariscraft.cyclecare.api.ApiClient;
 import com.ikariscraft.cyclecare.api.responses.InformativeContentJSONResponse;
 import com.ikariscraft.cyclecare.databinding.ActivityMyContentBinding;
 import com.ikariscraft.cyclecare.databinding.ContentListItemBinding;
@@ -77,11 +78,11 @@ public class InformativeContentAdapter extends ListAdapter<InformativeContentJSO
         }
 
         public void bind(InformativeContentJSONResponse informativeContet){
-            Log.e("No es error", "Se están seteando los datos");
             binding.contentTitleLabel.setText(informativeContet.getTitle());
             binding.dateLabel.setText(informativeContet.getCreationDate());
-            Log.e("No es error", "El nombre de la imagen: " + informativeContet.getImage());
-            Picasso.get().load("http://192.168.1.69:8085/images/"+ informativeContet.getImage()).into(binding.imageContent);
+            ApiClient apiClient = ApiClient.getInstance();
+            String baseIP = apiClient.getBaseIp();
+            Picasso.get().load(baseIP + "/images/"+ informativeContet.getImage()).into(binding.imageContent);
         }
 
     }

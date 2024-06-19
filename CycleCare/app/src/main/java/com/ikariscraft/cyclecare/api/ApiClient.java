@@ -15,13 +15,15 @@ public class ApiClient {
     private IChartService chartService;
     private IContentService contentService;
 
+    private String baseIp = "http://192.168.100.152:8085";
+
     public static  ApiClient getInstance(){
         return apiClient;
     }
 
     private ApiClient(){
         retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.1.69:8085/apicyclecare/")
+                .baseUrl(baseIp+"/apicyclecare/")
                 .addConverterFactory(MoshiConverterFactory.create())
                 .build();
     }
@@ -45,6 +47,10 @@ public class ApiClient {
             contentService = retrofit.create(IContentService.class);
         }
         return contentService;
+    }
+
+    public String getBaseIp(){
+        return baseIp;
     }
 
 }

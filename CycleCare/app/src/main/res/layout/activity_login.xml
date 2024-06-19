@@ -104,12 +104,15 @@
                 android:visibility="gone" />
 
             <TextView
+                android:id="@+id/forgotPasswordTextView"
                 android:textColor="@color/main_pink"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/forgot_password_label"
                 android:textSize="16sp"
-                android:layout_marginBottom="20dp"/>
+                android:layout_marginBottom="20dp"
+                android:clickable="true"
+                android:focusable="true"/>
 
             <Button
                 android:id="@+id/btn_login"
@@ -133,12 +136,15 @@
                 android:layout_marginTop="20dp"/>
 
             <TextView
+                android:id="@+id/creatAccountTextView"
                 android:gravity="center_horizontal"
                 android:textColor="@color/main_pink"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/register_label"
-                android:textSize="16sp"/>
+                android:textSize="16sp"
+                android:clickable="true"
+                android:focusable="true"/>
 
         </LinearLayout>
 

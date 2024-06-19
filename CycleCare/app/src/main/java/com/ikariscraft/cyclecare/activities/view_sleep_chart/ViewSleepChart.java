@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.data.BarData;
@@ -97,13 +98,10 @@ public class ViewSleepChart extends Fragment {
                     barChart.setData(barData);
                     barChart.animateY(2000);
                 }else {
-                    Log.e("Error nulo", "La lista está vacía");
+                    
                 }
             }
         });
-
-
-        Log.e("Creación de la tabla", "Se debió haber creado la estadística");
         return view;
     }
 }

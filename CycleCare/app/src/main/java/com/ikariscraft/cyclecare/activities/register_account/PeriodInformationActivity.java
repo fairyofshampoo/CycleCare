@@ -6,10 +6,14 @@ import androidx.lifecycle.ViewModelProvider;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
+import com.google.android.material.snackbar.Snackbar;
+import com.ikariscraft.cyclecare.R;
 import com.ikariscraft.cyclecare.api.RequestStatus;
 import com.ikariscraft.cyclecare.api.requests.UserRegisterData;
 import com.ikariscraft.cyclecare.databinding.ActivityPeriodInformationBinding;
+import com.ikariscraft.cyclecare.repository.ProcessErrorCodes;
 
 public class PeriodInformationActivity extends AppCompatActivity {
 
@@ -34,6 +38,7 @@ public class PeriodInformationActivity extends AppCompatActivity {
 
         setupRegisterButton();
         setupFieldsValidation();
+        setUpOperationStatusListener();
     }
 
     private void setupRegisterButton(){
@@ -83,4 +88,37 @@ public class PeriodInformationActivity extends AppCompatActivity {
         registerPeriodInformation.setAproxPeriodDuration(periodDuration);
         registerPeriodInformation.setAproxCycleDuration(cycleDuration);
     }
+
+    private void setUpOperationStatusListener() {
+        viewModel.getRegisterRequestStatus().observe(this, requestStatus -> {
+            if(requestStatus == RequestStatus.DONE) {
+                Toast.makeText(this, "Se ha registrado la cuenta", Toast.LENGTH_SHORT).show();
+            }
+
+            if(requestStatus == RequestStatus.ERROR){
+                ProcessErrorCodes errorCodes = viewModel.getRegisterErrorCode().getValue();
+                if(errorCodes != null){
+                    showRegisterAccountError(errorCodes);
+                }
+            }
+        } );
+    }
+
+    private void showRegisterAccountError(ProcessErrorCodes errorCode) {
+        String message = "";
+
+        switch (errorCode){
+            case REQUEST_FORMAT_ERROR:
+                message = getString(R.string.login_invalid_credentials_message);
+                break;
+            case SERVICE_NOT_AVAILABLE_ERROR:
+                message = getString(R.string.login_server_error_message);
+                break;
+            default:
+                message = getString(R.string.login_fatal_error_message);
+        }
+
+        Snackbar.make(binding.getRoot(), message, Snackbar.LENGTH_LONG).show();
+    }
+
 }

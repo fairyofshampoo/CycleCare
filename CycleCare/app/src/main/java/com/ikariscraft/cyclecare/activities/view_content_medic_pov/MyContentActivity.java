@@ -6,12 +6,14 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
 import com.ikariscraft.cyclecare.api.RequestStatus;
 import com.ikariscraft.cyclecare.api.responses.InformativeContentJSONResponse;
 import com.ikariscraft.cyclecare.databinding.ActivityMyContentBinding;
+import com.ikariscraft.cyclecare.utilities.SessionSingleton;
 
 import java.util.List;
 
@@ -28,14 +30,15 @@ public class MyContentActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
         viewModel = new ViewModelProvider(this).get(MyContentViewModel.class);
         binding.contentRecycler.setLayoutManager(new LinearLayoutManager(this));
-
-
         showMyContent();
+        setUpUploadArticleButton();
+        //setUpUploadVideoButton();
     }
 
     private void showMyContent(){
         if(viewModel.getMyContentRequestStatus().getValue() != RequestStatus.LOADING){
-            String token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImZhaXJ5MGZTaGFtcG9vIiwiaWF0IjoxNzE4MDQ1MjY5LCJleHAiOjE3MTgwNDg4Njl9.BAsASF1Sav6SOldZdGJb3oUD9W4U-w8iJ0IZX5-ZAEQ";
+            SessionSingleton session = SessionSingleton.getInstance();
+            String token = session.getToken();
             viewModel.getMyContent(token);
             viewModel.getMyInformativeContent().observe(this, new Observer<List<InformativeContentJSONResponse>>() {
                 @Override
@@ -52,4 +55,12 @@ public class MyContentActivity extends AppCompatActivity {
             });
         }
     }
+
+    private void setUpUploadArticleButton(){
+        binding.btnUploadArticle.setOnClickListener(v -> {
+            Intent intent = new Intent(this, PublishInformativeContentActivity.class);
+            startActivity(intent);
+        });
+    }
+
 }
