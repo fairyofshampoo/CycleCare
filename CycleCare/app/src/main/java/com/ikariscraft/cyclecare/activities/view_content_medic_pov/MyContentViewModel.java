@@ -46,8 +46,8 @@ public class MyContentViewModel extends ViewModel {
                     @Override
                     public void onError(ProcessErrorCodes errorCode) {
                         myInformativeContent.setValue(null);
-                        myContentRequestStatus.setValue(RequestStatus.ERROR);
                         myContentErrorCode.setValue(errorCode);
+                        myContentRequestStatus.setValue(RequestStatus.ERROR);
                     }
                 }
         );
