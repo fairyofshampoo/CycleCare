@@ -204,7 +204,7 @@
                 android:layout_height="wrap_content"
                 app:flexWrap="wrap">
 
-                <TextView
+                <CheckBox
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Dolor abdominal"
@@ -213,7 +213,7 @@
                     android:layout_margin="4dp"
                     android:gravity="center"
                     android:textColor="@color/dark_gray" />
-                <TextView
+                <CheckBox
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Sensibilidad en los senos"
@@ -222,7 +222,7 @@
                     android:layout_margin="4dp"
                     android:gravity="center"
                     android:textColor="@color/dark_gray" />
-                <TextView
+                <CheckBox
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Acné"
@@ -231,7 +231,7 @@
                     android:layout_margin="4dp"
                     android:gravity="center"
                     android:textColor="@color/dark_gray" />
-                <TextView
+                <CheckBox
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Hinchazón abdominal"
@@ -240,7 +240,7 @@
                     android:layout_margin="4dp"
                     android:gravity="center"
                     android:textColor="@color/dark_gray" />
-                <TextView
+                <CheckBox
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Fatiga"
@@ -249,7 +249,7 @@
                     android:layout_margin="4dp"
                     android:gravity="center"
                     android:textColor="@color/dark_gray" />
-                <TextView
+                <CheckBox
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Dolor de cabeza"
@@ -258,7 +258,7 @@
                     android:layout_margin="4dp"
                     android:gravity="center"
                     android:textColor="@color/dark_gray" />
-                <TextView
+                <CheckBox
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Náuseas"
@@ -267,7 +267,7 @@
                     android:layout_margin="4dp"
                     android:gravity="center"
                     android:textColor="@color/dark_gray" />
-                <TextView
+                <CheckBox
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Mareos"
@@ -276,7 +276,7 @@
                     android:layout_margin="4dp"
                     android:gravity="center"
                     android:textColor="@color/dark_gray" />
-                <TextView
+                <CheckBox
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Antojos"
@@ -285,7 +285,7 @@
                     android:layout_margin="4dp"
                     android:gravity="center"
                     android:textColor="@color/dark_gray" />
-                <TextView
+                <CheckBox
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Estreñimiento"
@@ -294,7 +294,7 @@
                     android:layout_margin="4dp"
                     android:gravity="center"
                     android:textColor="@color/dark_gray" />
-                <TextView
+                <CheckBox
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Diarrea"
@@ -303,7 +303,7 @@
                     android:layout_margin="4dp"
                     android:gravity="center"
                     android:textColor="@color/dark_gray" />
-                <TextView
+                <CheckBox
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Insomnio"
@@ -312,7 +312,7 @@
                     android:layout_margin="4dp"
                     android:gravity="center"
                     android:textColor="@color/dark_gray" />
-                <TextView
+                <CheckBox
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Picazón vaginal"
@@ -321,7 +321,7 @@
                     android:layout_margin="4dp"
                     android:gravity="center"
                     android:textColor="@color/dark_gray" />
-                <TextView
+                <CheckBox
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Dolor en vulva"
@@ -331,37 +331,6 @@
                     android:gravity="center"
                     android:textColor="@color/dark_gray" />
             </com.google.android.flexbox.FlexboxLayout>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Actividad Sexual"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:textAllCaps="true"
-                android:textColor="@color/gray_blue"
-                android:layout_marginTop="16dp"/>
-
-            <RadioGroup
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginStart="20dp">
-
-                <RadioButton
-                    android:id="@+id/rbProtectedSex"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Sexo con protección"
-                    android:buttonTint="@color/light_gray" />
-
-                <RadioButton
-                    android:id="@+id/rbUnprotectedSex"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Sexo sin protección"
-                    android:buttonTint="@color/light_gray" />
-            </RadioGroup>
 
             <!-- Sección de flujo vaginal -->
             <TextView
@@ -747,7 +716,7 @@
                 android:layout_height="wrap_content"
                 app:flexWrap="wrap">
 
-                <TextView
+                <CheckBox
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Terapía hormonal"
@@ -756,7 +725,7 @@
                     android:layout_margin="4dp"
                     android:gravity="center"
                     android:textColor="@color/dark_gray" />
-                <TextView
+                <CheckBox
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Pastilla de emergencia"
@@ -765,7 +734,7 @@
                     android:layout_margin="4dp"
                     android:gravity="center"
                     android:textColor="@color/dark_gray" />
-                <TextView
+                <CheckBox
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Analgésicos"
@@ -774,7 +743,7 @@
                     android:layout_margin="4dp"
                     android:gravity="center"
                     android:textColor="@color/dark_gray" />
-                <TextView
+                <CheckBox
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Antidepresivos"
@@ -783,7 +752,7 @@
                     android:layout_margin="4dp"
                     android:gravity="center"
                     android:textColor="@color/dark_gray" />
-                <TextView
+                <CheckBox
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Antibióticos"
@@ -792,7 +761,7 @@
                     android:layout_margin="4dp"
                     android:gravity="center"
                     android:textColor="@color/dark_gray" />
-                <TextView
+                <CheckBox
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Antihistamínicos"
@@ -818,7 +787,7 @@
                 android:layout_height="wrap_content"
                 app:flexWrap="wrap">
 
-                <TextView
+                <CheckBox
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Tomada"
@@ -827,7 +796,7 @@
                     android:layout_margin="4dp"
                     android:gravity="center"
                     android:textColor="@color/dark_gray" />
-                <TextView
+                <CheckBox
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Olvidada"
@@ -836,7 +805,7 @@
                     android:layout_margin="4dp"
                     android:gravity="center"
                     android:textColor="@color/dark_gray" />
-                <TextView
+                <CheckBox
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Dosis doble"
@@ -845,7 +814,7 @@
                     android:layout_margin="4dp"
                     android:gravity="center"
                     android:textColor="@color/dark_gray" />
-                <TextView
+                <CheckBox
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Sin dosis"
@@ -854,7 +823,7 @@
                     android:layout_margin="4dp"
                     android:gravity="center"
                     android:textColor="@color/dark_gray" />
-                <TextView
+                <CheckBox
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Tarde"
@@ -890,21 +859,6 @@
 
                     <NumberPicker
                         android:id="@+id/np_hours"
-                        android:layout_width="wrap_content"
-                        android:layout_height="50dp"
-                        android:background="@drawable/selector_background"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text=":"
-                        android:textSize="24sp"
-                        android:textColor="@android:color/black"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginEnd="8dp"/>
-
-                    <NumberPicker
-                        android:id="@+id/np_minutes"
                         android:layout_width="wrap_content"
                         android:layout_height="50dp"
                         android:background="@drawable/selector_background"/>
