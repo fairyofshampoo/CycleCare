@@ -2,6 +2,7 @@ package com.ikariscraft.cyclecare.repository;
 
 import com.ikariscraft.cyclecare.api.ApiClient;
 import com.ikariscraft.cyclecare.api.interfaces.ICycleService;
+import com.ikariscraft.cyclecare.api.requests.NewCycleLogBody;
 import com.ikariscraft.cyclecare.api.responses.CalendarJSONResponse;
 import com.ikariscraft.cyclecare.api.responses.PredictionJSONResponse;
 import com.ikariscraft.cyclecare.model.CycleLog;
@@ -131,6 +132,33 @@ public class CycleLogRepository {
 
             @Override
             public void onFailure(Call<PredictionJSONResponse> call, Throwable t) {
+                listener.onError(ProcessErrorCodes.FATAL_ERROR);
+            }
+        });
+    }
+
+    public void createNewCycleLog(String token, NewCycleLogBody newCycleLog, IEmptyProcessListener listener){
+        ICycleService cycleService = ApiClient.getInstance().getCycleService();
+
+        cycleService.createCycleLog(token, newCycleLog).enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(Call<Void> call, Response<Void> response) {
+                if(response.isSuccessful()){
+                    listener.onSuccess();
+                } else {
+                    switch (response.code()) {
+                        case 500:
+                            listener.onError(ProcessErrorCodes.SERVICE_NOT_AVAILABLE_ERROR);
+                            break;
+                        default:
+                            listener.onError(ProcessErrorCodes.FATAL_ERROR);
+                            break;
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Void> call, Throwable t) {
                 listener.onError(ProcessErrorCodes.FATAL_ERROR);
             }
         });

@@ -329,6 +329,7 @@ public class CalendarFragment extends Fragment {
 
     private void startNewCycleLogActivity() {
         Intent intent = new Intent(requireActivity(), CycleLogActivity.class);
+        //intent.putExtra("date", selectedDate);
         startActivity(intent);
     }
 
