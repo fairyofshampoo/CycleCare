@@ -25,14 +25,14 @@
                     android:layout_height="wrap_content">
 
                     <Button
+                        android:id="@+id/previousMonthBtn"
                         android:layout_width="10dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:background="@android:color/transparent"
-                        android:text="<"
+                        android:text="@string/previous_month"
                         android:textColor="@color/dark_gray"
                         android:textStyle="bold"
-                        android:onClick="previousMonthAction"
                         android:textSize="20sp"/>
 
                     <TextView
@@ -46,14 +46,14 @@
                         android:textColor="@color/black"/>
 
                     <Button
+                        android:id="@+id/nextMonthBtn"
                         android:layout_width="10dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text=">"
+                        android:text="@string/next_month_arrow"
                         android:textColor="@color/dark_gray"
                         android:background="@android:color/transparent"
                         android:textStyle="bold"
-                        android:onClick="nextMonthAction"
                         android:textSize="20sp"/>
                 </LinearLayout>
                 <LinearLayout

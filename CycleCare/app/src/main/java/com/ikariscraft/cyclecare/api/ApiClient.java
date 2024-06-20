@@ -3,6 +3,7 @@ package com.ikariscraft.cyclecare.api;
 import com.ikariscraft.cyclecare.api.Interfaces.IChartService;
 import com.ikariscraft.cyclecare.api.Interfaces.IContentService;
 import com.ikariscraft.cyclecare.api.Interfaces.IUserService;
+import com.ikariscraft.cyclecare.api.interfaces.ICycleService;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.moshi.MoshiConverterFactory;
@@ -14,6 +15,7 @@ public class ApiClient {
     private IUserService userService;
     private IChartService chartService;
     private IContentService contentService;
+    private ICycleService cycleService;
 
     private String baseIp = "http://192.168.100.152:8085";
 
@@ -47,6 +49,13 @@ public class ApiClient {
             contentService = retrofit.create(IContentService.class);
         }
         return contentService;
+    }
+
+    public ICycleService getCycleService(){
+        if(cycleService == null){
+            cycleService = retrofit.create(ICycleService.class);
+        }
+        return cycleService;
     }
 
     public String getBaseIp(){
