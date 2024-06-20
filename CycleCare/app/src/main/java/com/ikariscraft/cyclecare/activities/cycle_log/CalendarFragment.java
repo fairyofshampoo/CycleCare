@@ -134,7 +134,7 @@ public class CalendarFragment extends Fragment {
 
     private void showPrediction() {
         int daysToPeriod = 0;
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSSX");
 
         if(predictionResponse != null){
             LocalDate nextPeriodStartDate = LocalDate.parse(predictionResponse.getNextPeriodStartDate(), formatter);
@@ -162,6 +162,8 @@ public class CalendarFragment extends Fragment {
             binding.tvPhaseTitle.setText(R.string.luteal_phase);
             binding.tvPhaseDescription.setText(R.string.luteal_phase_description);
         }
+
+        binding.tvDaysToPeriod.setText(String.valueOf(daysToPeriod));
     }
 
     private void setUpCalendarRequestStatusListener() {

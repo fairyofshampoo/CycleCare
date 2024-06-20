@@ -7,9 +7,11 @@
     </data>
 
     <FrameLayout
+        android:id="@+id/cellDayContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="8dp">
+        android:padding="8dp"
+        android:background="@drawable/calendar_item_bg">
 
         <TextView
             android:id="@+id/cellDayText"
@@ -17,8 +19,7 @@
             android:layout_height="match_parent"
             android:gravity="center"
             android:textSize="16sp"
-            android:textColor="@android:color/black"
-            android:background="@drawable/calendar_item_bg" /> <!-- Fondo con bordes -->
+            android:textColor="@android:color/black"/>
 
     </FrameLayout>
 </layout>
