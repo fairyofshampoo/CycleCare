@@ -8,10 +8,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
-import android.se.omapi.Session;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -71,12 +68,12 @@ public class InformativeContentFragment extends Fragment {
         viewModel = new ViewModelProvider(this).get(ViewContentViewModel.class);
         binding.contentRecycler.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        SetUpListChanges();
-        GetInformativeContent();
+        setUpListChanges();
+        getInformativeContent();
     }
 
 
-    public void GetInformativeContent(){
+    public void getInformativeContent(){
         if(viewModel.getInformativeContentRequestStatus().getValue() != RequestStatus.LOADING) {
             SessionSingleton session = SessionSingleton.getInstance();
             String token = session.getToken();
@@ -84,7 +81,7 @@ public class InformativeContentFragment extends Fragment {
         }
     }
 
-    public void SetUpListChanges(){
+    public void setUpListChanges(){
         viewModel.getInformativeContentList().observe(getViewLifecycleOwner(), new Observer<List<InformativeContentJSONResponse>>(){
             @Override
             public void onChanged(List<InformativeContentJSONResponse> informativeContentJSONResponses) {
@@ -93,7 +90,7 @@ public class InformativeContentFragment extends Fragment {
 
                     binding.contentRecycler.setAdapter(adapter);
                     adapter.setOnItemClickListener(informativeContent -> {
-                        ShowInformativeContetData(informativeContent);
+                        ShowInformativeContentData(informativeContent);
                     });
 
                     adapter.submitList(informativeContentJSONResponses);
@@ -104,7 +101,7 @@ public class InformativeContentFragment extends Fragment {
         });
     }
 
-    public void ShowInformativeContetData(InformativeContentJSONResponse informativeContentJSONResponse){
+    public void ShowInformativeContentData(InformativeContentJSONResponse informativeContentJSONResponse){
         Bundle bundle = new Bundle();
         bundle.putInt("id", informativeContentJSONResponse.getContentId());
         bundle.putString("title", informativeContentJSONResponse.getTitle());
@@ -116,7 +113,6 @@ public class InformativeContentFragment extends Fragment {
 
         ViewContentFragment detailFragment = new ViewContentFragment();
         detailFragment.setArguments(bundle);
-
         getParentFragmentManager().beginTransaction()
                         .replace(R.id.fragment_container, detailFragment)
                         .addToBackStack(null)

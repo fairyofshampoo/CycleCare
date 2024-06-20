@@ -20,6 +20,9 @@ public class CycleLog {
     public CycleLog() {
     }
 
+    public CycleLog(int cycleLogId, String creationDate, List<BirthControl> birthControl, List<Medication> medications, List<Symptom> symptoms, List<Mood> moods, Integer menstrualFlowId, String note, List<Pill> pills, int sleepHours, String username, Integer vaginalFlowId) {
+    }
+
     public int getCycleLogId() {
         return cycleLogId;
     }

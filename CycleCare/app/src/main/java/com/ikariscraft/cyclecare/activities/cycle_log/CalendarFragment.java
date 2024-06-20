@@ -16,11 +16,14 @@ import android.widget.Toast;
 
 import com.ikariscraft.cyclecare.R;
 import com.ikariscraft.cyclecare.databinding.FragmentCalendarBinding;
+import com.ikariscraft.cyclecare.repository.ProcessErrorCodes;
+import com.ikariscraft.cyclecare.utilities.SessionSingleton;
 
 import java.time.LocalDate;
 import java.time.YearMonth;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class CalendarFragment extends Fragment {
     private static final String TAG = "CalendarFragment"; // Add this for logging
@@ -75,6 +78,7 @@ public class CalendarFragment extends Fragment {
         calendarRecyclerView = binding.calendarRecyclerView;
         setUpButtons();
         setMonthView();
+        setUpGetCycleByDayStatusListener();
     }
 
     private void setUpButtons() {
@@ -110,8 +114,18 @@ public class CalendarFragment extends Fragment {
 
     private void openCycleLog(String dayText) {
         if (!dayText.isEmpty()) {
-            Toast.makeText(getContext(), "Day: " + dayText, Toast.LENGTH_SHORT).show();
+            showCycleLog(dayText);
         }
+    }
+
+    private void showCycleLog(String dayText) {
+        int day = Integer.parseInt(dayText);
+        int month = selectedDate.getMonthValue();
+        int year = selectedDate.getYear();
+
+        SessionSingleton session = SessionSingleton.getInstance();
+        String token = session.getToken();
+        viewModel.getCycleLogByDay(token, year, month, day);
     }
 
     private ArrayList<String> daysInMonthArray(LocalDate date) {
@@ -149,5 +163,42 @@ public class CalendarFragment extends Fragment {
     {
         selectedDate = selectedDate.plusMonths(1);
         setMonthView();
+    }
+
+    private void setUpGetCycleByDayStatusListener(){
+        viewModel.getGetCycleLogByDayStatus().observe(this, requestStatus -> {
+            switch (requestStatus){
+                case DONE:
+                    startUpdateCycleLogActivity();
+                    break;
+                case ERROR:
+                    ProcessErrorCodes errorCode = viewModel.getCycleLogErrorCode().getValue();
+                    if(errorCode != null){
+                        showCycleLogError(errorCode);
+                    }
+                    break;
+            }
+        });
+    }
+
+    private void showCycleLogError(ProcessErrorCodes errorCode) {
+        String message = "";
+        switch (errorCode){
+            case NOT_FOUND_ERROR:
+                startNewCycleLogActivity();
+                break;
+            default:
+                message = getString(R.string.login_fatal_error_message);
+        }
+        Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
+    }
+
+    private void startNewCycleLogActivity() {
+        Intent intent = new Intent(requireActivity(), CycleLogActivity.class);
+        startActivity(intent);
+    }
+
+    private void startUpdateCycleLogActivity() {
+
     }
 }
