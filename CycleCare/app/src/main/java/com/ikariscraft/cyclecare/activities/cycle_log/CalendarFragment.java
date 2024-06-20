@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.ikariscraft.cyclecare.R;
+import com.ikariscraft.cyclecare.activities.forgot_password.NewPasswordActivity;
 import com.ikariscraft.cyclecare.api.RequestStatus;
 import com.ikariscraft.cyclecare.api.responses.PredictionJSONResponse;
 import com.ikariscraft.cyclecare.databinding.FragmentCalendarBinding;
@@ -329,7 +330,7 @@ public class CalendarFragment extends Fragment {
 
     private void startNewCycleLogActivity() {
         Intent intent = new Intent(requireActivity(), CycleLogActivity.class);
-        //intent.putExtra("date", selectedDate);
+        intent.putExtra(CycleLogActivity.SELECTED_DATE_KEY, selectedDate.toString());
         startActivity(intent);
     }
 

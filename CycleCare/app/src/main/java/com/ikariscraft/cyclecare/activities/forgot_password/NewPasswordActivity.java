@@ -45,7 +45,6 @@ public class NewPasswordActivity extends AppCompatActivity {
             if (requestStatus == RequestStatus.DONE) {
                 Toast.makeText(this, "Se ha cambiado la contraseña", Toast.LENGTH_SHORT).show();
                 startLoginActivity();
-
             }
 
             if (requestStatus == RequestStatus.ERROR) {

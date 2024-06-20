@@ -92,6 +92,7 @@
 
                 <!-- Opciones de flujo menstrual -->
                 <LinearLayout
+                    android:id="@+id/lightFlow"
                     android:layout_width="100dp"
                     android:layout_height="90dp"
                     android:orientation="vertical"
@@ -114,6 +115,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/mediumFlow"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
@@ -136,6 +138,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/heavyFlow"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
@@ -172,6 +175,7 @@
                     android:src="@drawable/ic_note"/>
 
                 <EditText
+                    android:id="@+id/noteEditText"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -356,6 +360,7 @@
 
                     <!-- Opciones de flujo vaginal -->
                     <LinearLayout
+                        android:id="@+id/dryFlow"
                         android:layout_width="100dp"
                         android:layout_height="90dp"
                         android:orientation="vertical"
@@ -378,6 +383,7 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/stickyFlow"
                         android:layout_width="100dp"
                         android:layout_height="90dp"
                         android:orientation="vertical"
@@ -400,6 +406,7 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/creamyFlow"
                         android:layout_width="100dp"
                         android:layout_height="90dp"
                         android:orientation="vertical"
@@ -421,6 +428,7 @@
                             android:textSize="14sp"/>
                     </LinearLayout>
                     <LinearLayout
+                        android:id="@+id/aqueousFlow"
                         android:layout_width="100dp"
                         android:layout_height="90dp"
                         android:orientation="vertical"
@@ -442,6 +450,7 @@
                             android:textSize="14sp"/>
                     </LinearLayout>
                     <LinearLayout
+                        android:id="@+id/elasticFlow"
                         android:layout_width="100dp"
                         android:layout_height="90dp"
                         android:orientation="vertical"
@@ -487,6 +496,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
                     <LinearLayout
+                        android:id="@+id/happyMood"
                         android:layout_width="100dp"
                         android:layout_height="90dp"
                         android:orientation="vertical"
@@ -509,6 +519,7 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/sadMood"
                         android:layout_width="100dp"
                         android:layout_height="90dp"
                         android:orientation="vertical"
@@ -531,6 +542,7 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/anxiousMood"
                         android:layout_width="100dp"
                         android:layout_height="90dp"
                         android:orientation="vertical"
@@ -552,6 +564,7 @@
                             android:textSize="14sp"/>
                     </LinearLayout>
                     <LinearLayout
+                        android:id="@+id/angryMood"
                         android:layout_width="100dp"
                         android:layout_height="90dp"
                         android:orientation="vertical"
@@ -573,6 +586,7 @@
                             android:textSize="14sp"/>
                     </LinearLayout>
                     <LinearLayout
+                        android:id="@+id/tiredMood"
                         android:layout_width="100dp"
                         android:layout_height="90dp"
                         android:orientation="vertical"
@@ -594,6 +608,7 @@
                             android:textSize="14sp"/>
                     </LinearLayout>
                     <LinearLayout
+                        android:id="@+id/energeticMood"
                         android:layout_width="100dp"
                         android:layout_height="90dp"
                         android:orientation="vertical"
@@ -615,6 +630,7 @@
                             android:textSize="14sp"/>
                     </LinearLayout>
                     <LinearLayout
+                        android:id="@+id/relaxedMood"
                         android:layout_width="100dp"
                         android:layout_height="90dp"
                         android:orientation="vertical"
@@ -636,6 +652,7 @@
                             android:textSize="14sp"/>
                     </LinearLayout>
                     <LinearLayout
+                        android:id="@+id/focusedMood"
                         android:layout_width="100dp"
                         android:layout_height="90dp"
                         android:orientation="vertical"
@@ -657,6 +674,7 @@
                             android:textSize="14sp"/>
                     </LinearLayout>
                     <LinearLayout
+                        android:id="@+id/stressedMood"
                         android:layout_width="100dp"
                         android:layout_height="90dp"
                         android:orientation="vertical"
@@ -678,6 +696,7 @@
                             android:textSize="14sp"/>
                     </LinearLayout>
                     <LinearLayout
+                        android:id="@+id/irritableMood"
                         android:layout_width="100dp"
                         android:layout_height="90dp"
                         android:orientation="vertical"
@@ -857,9 +876,10 @@
                     android:gravity="center"
                     android:layout_marginTop="8dp">
 
-                    <NumberPicker
-                        android:id="@+id/np_hours"
-                        android:layout_width="wrap_content"
+                    <EditText
+                        android:id="@+id/sleep_hours"
+                        android:inputType="number"
+                        android:layout_width="70dp"
                         android:layout_height="50dp"
                         android:background="@drawable/selector_background"/>
                 </LinearLayout>
