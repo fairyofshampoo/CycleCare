@@ -17,6 +17,8 @@
             android:layout_height="match_parent"
             android:gravity="center"
             android:textSize="16sp"
-            android:textColor="@android:color/black" />
+            android:textColor="@android:color/black"
+            android:background="@drawable/calendar_item_bg" /> <!-- Fondo con bordes -->
+
     </FrameLayout>
 </layout>

@@ -110,9 +110,7 @@ public class CalendarFragment extends Fragment {
 
     private void openCycleLog(String dayText) {
         if (!dayText.isEmpty()) {
-            Intent intent = new Intent(this, CycleLogActivity.class);
-            intent.putExtra("selected_date", selectedDate);
-            startActivity(intent);
+            Toast.makeText(getContext(), "Day: " + dayText, Toast.LENGTH_SHORT).show();
         }
     }
 
