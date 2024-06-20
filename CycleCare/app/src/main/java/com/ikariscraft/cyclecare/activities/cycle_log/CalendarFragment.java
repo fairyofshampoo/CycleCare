@@ -4,26 +4,26 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.ikariscraft.cyclecare.R;
+import com.ikariscraft.cyclecare.api.RequestStatus;
+import com.ikariscraft.cyclecare.api.responses.PredictionJSONResponse;
 import com.ikariscraft.cyclecare.databinding.FragmentCalendarBinding;
+import com.ikariscraft.cyclecare.model.CycleLog;
 import com.ikariscraft.cyclecare.repository.ProcessErrorCodes;
 import com.ikariscraft.cyclecare.utilities.SessionSingleton;
-
 import java.time.LocalDate;
 import java.time.YearMonth;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Date;
+import java.util.List;
+import java.util.Objects;
 
 public class CalendarFragment extends Fragment {
     private static final String TAG = "CalendarFragment"; // Add this for logging
@@ -32,6 +32,8 @@ public class CalendarFragment extends Fragment {
     private TextView monthYearText;
     private RecyclerView calendarRecyclerView;
     private LocalDate selectedDate;
+    private List<CycleLog> cycleLogs = new ArrayList<>();
+    private PredictionJSONResponse predictionResponse;
 
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
@@ -76,9 +78,130 @@ public class CalendarFragment extends Fragment {
 
         monthYearText = binding.monthYearTV;
         calendarRecyclerView = binding.calendarRecyclerView;
+        viewModel = new ViewModelProvider(this).get(CalendarViewModel.class);
         setUpButtons();
-        setMonthView();
+        setUpPredictionRequestStatusListener();
+        setPrediction();
+        setUpCalendarRequestStatusListener();
+        getCycleLogs();
         setUpGetCycleByDayStatusListener();
+    }
+
+    private void setPrediction() {
+        SessionSingleton session = SessionSingleton.getInstance();
+        String token = session.getToken();
+        viewModel.getCyclePrediction(token);
+    }
+
+    private void setUpPredictionRequestStatusListener() {
+        viewModel.getPredictedCycleStatus().observe(getViewLifecycleOwner(), requestStatus -> {
+            switch (requestStatus) {
+                case DONE:
+                    predictionResponse = viewModel.getPredictionResponse().getValue();
+                    showPrediction();
+                    break;
+                case ERROR:
+                    ProcessErrorCodes errorCode = viewModel.getPredictionErrorCode().getValue();
+                    if (errorCode != null) {
+                        showPredictionError(errorCode);
+                    }
+                    break;
+            }
+        });
+    }
+
+    private void showPredictionError(ProcessErrorCodes errorCode) {
+        String message = "";
+        switch (errorCode){
+            case NOT_FOUND_ERROR:
+                showEmptyPrediction();
+                break;
+            case SERVICE_NOT_AVAILABLE_ERROR:
+                message = getString(R.string.login_server_error_message);
+                Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
+                break;
+            default:
+                message = getString(R.string.login_fatal_error_message);
+                Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void showEmptyPrediction() {
+        binding.tvPhaseTitle.setText(getString(R.string.cycle_log_no_prediction));
+        binding.tvPhaseDescription.setText(getString(R.string.cycle_log_no_prediction_description));
+    }
+
+    private void showPrediction() {
+        int daysToPeriod = 0;
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss");
+
+        if(predictionResponse != null){
+            LocalDate nextPeriodStartDate = LocalDate.parse(predictionResponse.getNextPeriodStartDate(), formatter);
+            LocalDate currentDate = LocalDate.now();
+
+            if(currentDate.isBefore(nextPeriodStartDate)){
+                daysToPeriod = (int) currentDate.until(nextPeriodStartDate).getDays();
+            }
+        }
+        
+        showDaysToPeriod(daysToPeriod);
+    }
+
+    private void showDaysToPeriod(int daysToPeriod) {
+        if (daysToPeriod <= 0) {
+            binding.tvPhaseTitle.setText(R.string.menstrual_phase);
+            binding.tvPhaseDescription.setText(R.string.menstrual_phase_description);
+        } else if (daysToPeriod <= 4) {
+            binding.tvPhaseTitle.setText(R.string.follicular_phase);
+            binding.tvPhaseDescription.setText(R.string.follicular_phase_description);
+        } else if (daysToPeriod <= 14) {
+            binding.tvPhaseTitle.setText(R.string.ovulation_phase);
+            binding.tvPhaseDescription.setText(R.string.ovulation_phase_description);
+        } else {
+            binding.tvPhaseTitle.setText(R.string.luteal_phase);
+            binding.tvPhaseDescription.setText(R.string.luteal_phase_description);
+        }
+    }
+
+    private void setUpCalendarRequestStatusListener() {
+        viewModel.getCalendarRequestStatus().observe(getViewLifecycleOwner(), requestStatus -> {
+            switch (requestStatus) {
+                case DONE:
+                    cycleLogs = Objects.requireNonNull(viewModel.getCalendarResponse().getValue()).getCycleLogs();
+                    setMonthView();
+                    break;
+                case ERROR:
+                    ProcessErrorCodes errorCode = viewModel.getCalendarErrorCode().getValue();
+                    if (errorCode != null) {
+                        showCalendarError(errorCode);
+                    }
+                    break;
+            }
+        });
+    }
+
+    private void showCalendarError(ProcessErrorCodes errorCode) {
+        String message = "";
+        switch (errorCode){
+            case NOT_FOUND_ERROR:
+                setMonthView();
+                break;
+            case SERVICE_NOT_AVAILABLE_ERROR:
+                message = getString(R.string.login_server_error_message);
+                Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
+                break;
+            default:
+                message = getString(R.string.login_fatal_error_message);
+                Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void getCycleLogs() {
+        SessionSingleton session = SessionSingleton.getInstance();
+        String token = session.getToken();
+        int year = selectedDate.getYear();
+        int month = selectedDate.getMonthValue();
+        viewModel.getCycleLogs(token, year, month);
     }
 
     private void setUpButtons() {
@@ -95,37 +218,48 @@ public class CalendarFragment extends Fragment {
                 nextMonthAction(v);
             }
         });
+
+        binding.btnNewEntry.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LocalDate currentDate = LocalDate.now();
+                String day = currentDate.getDayOfMonth() + "";
+
+                showCycleLog(day, currentDate);
+            }
+        });
     }
 
 
     private void setMonthView() {
         monthYearText.setText(monthYearFromDate(selectedDate));
         ArrayList<String> daysInMonth = daysInMonthArray(selectedDate);
-        CalendarAdapter calendarAdapter = new CalendarAdapter(daysInMonth);
+        CalendarAdapter calendarAdapter = new CalendarAdapter(daysInMonth, cycleLogs, selectedDate, predictionResponse);
         calendarAdapter.setOnItemClickListener((position, dayText) -> {
             openCycleLog(dayText);
         });
-
-        viewModel = new ViewModelProvider(this).get(CalendarViewModel.class);
-        calendarRecyclerView.setLayoutManager(new GridLayoutManager(getContext(), 7)); // 7 columns for days of the week
+        int daysOfWeek = 7;
+        calendarRecyclerView.setLayoutManager(new GridLayoutManager(getContext(), daysOfWeek));
         calendarRecyclerView.setAdapter(calendarAdapter);
     }
 
 
     private void openCycleLog(String dayText) {
         if (!dayText.isEmpty()) {
-            showCycleLog(dayText);
+            showCycleLog(dayText, selectedDate);
         }
     }
 
-    private void showCycleLog(String dayText) {
-        int day = Integer.parseInt(dayText);
-        int month = selectedDate.getMonthValue();
-        int year = selectedDate.getYear();
+    private void showCycleLog(String dayText, LocalDate date){
+        if(viewModel.getGetCycleLogByDayStatus().getValue() != RequestStatus.LOADING){
+            int day = Integer.parseInt(dayText);
+            int month = date.getMonthValue();
+            int year = date.getYear();
 
-        SessionSingleton session = SessionSingleton.getInstance();
-        String token = session.getToken();
-        viewModel.getCycleLogByDay(token, year, month, day);
+            SessionSingleton session = SessionSingleton.getInstance();
+            String token = session.getToken();
+            viewModel.getCycleLogByDay(token, year, month, day);
+        }
     }
 
     private ArrayList<String> daysInMonthArray(LocalDate date) {
@@ -166,7 +300,7 @@ public class CalendarFragment extends Fragment {
     }
 
     private void setUpGetCycleByDayStatusListener(){
-        viewModel.getGetCycleLogByDayStatus().observe(this, requestStatus -> {
+        viewModel.getGetCycleLogByDayStatus().observe(getViewLifecycleOwner(), requestStatus -> {
             switch (requestStatus){
                 case DONE:
                     startUpdateCycleLogActivity();
@@ -189,8 +323,8 @@ public class CalendarFragment extends Fragment {
                 break;
             default:
                 message = getString(R.string.login_fatal_error_message);
+                Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
         }
-        Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
     }
 
     private void startNewCycleLogActivity() {

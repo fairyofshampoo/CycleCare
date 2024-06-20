@@ -144,7 +144,7 @@
                     android:id="@+id/tvPhaseTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="FASE LUTEAL"
+                    android:text="@string/cycle_log_no_prediction"
                     android:textSize="18sp"
                     android:textStyle="bold"
                     android:layout_gravity="center"/>
@@ -162,7 +162,7 @@
                         android:layout_height="84dp"
                         android:background="@drawable/circle"
                         android:gravity="center"
-                        android:text="10"
+                        android:text="@string/question_mark"
                         android:textColor="@android:color/white"
                         android:textSize="30sp"
                         android:textStyle="bold"/>
@@ -183,7 +183,7 @@
                     android:id="@+id/tvPhaseDescription"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="La fase lútea es el período entre la ovulación y el inicio de tu próximo período."
+                    android:text="@string/cycle_log_no_prediction_description"
                     android:textSize="14sp"
                     android:layout_marginBottom="16dp"/>
                 <Button

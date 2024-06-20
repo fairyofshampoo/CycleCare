@@ -3,6 +3,7 @@ package com.ikariscraft.cyclecare.repository;
 import com.ikariscraft.cyclecare.api.ApiClient;
 import com.ikariscraft.cyclecare.api.interfaces.ICycleService;
 import com.ikariscraft.cyclecare.api.responses.CalendarJSONResponse;
+import com.ikariscraft.cyclecare.api.responses.PredictionJSONResponse;
 import com.ikariscraft.cyclecare.model.CycleLog;
 
 import retrofit2.Call;
@@ -28,8 +29,8 @@ public class CycleLogRepository {
                     }
                 } else {
                     switch (response.code()) {
-                        case 400:
-                            listener.onError(ProcessErrorCodes.REQUEST_FORMAT_ERROR);
+                        case 404:
+                            listener.onError(ProcessErrorCodes.NOT_FOUND_ERROR);
                             break;
                         case 500:
                             listener.onError(ProcessErrorCodes.SERVICE_NOT_AVAILABLE_ERROR);
@@ -71,7 +72,7 @@ public class CycleLogRepository {
                                 response.body().getUsername(),
                                 response.body().getVaginalFlowId()
                         );
-                        listener.onSuccess(response.body());
+                        listener.onSuccess(cycleLog);
                     } else {
                         listener.onError(ProcessErrorCodes.FATAL_ERROR);
                     }
@@ -92,6 +93,44 @@ public class CycleLogRepository {
 
             @Override
             public void onFailure(Call<CycleLog> call, Throwable t) {
+                listener.onError(ProcessErrorCodes.FATAL_ERROR);
+            }
+        });
+    }
+
+    public void getCyclePrediction(String token, IProcessStatusListener listener){
+        ICycleService cycleService = ApiClient.getInstance().getCycleService();
+
+        cycleService.getPredictionCycle(token).enqueue(new Callback<PredictionJSONResponse>() {
+            @Override
+            public void onResponse(Call<PredictionJSONResponse> call, Response<PredictionJSONResponse> response) {
+                if(response.isSuccessful()){
+                    if(response.body() != null){
+                        PredictionJSONResponse predictionResponse = new PredictionJSONResponse(
+                                response.body().getNextPeriodStartDate(),
+                                response.body().getNextPeriodEndDate()
+                        );
+                        listener.onSuccess(predictionResponse);
+                    } else {
+                        listener.onError(ProcessErrorCodes.FATAL_ERROR);
+                    }
+                } else {
+                    switch (response.code()) {
+                        case 404:
+                            listener.onError(ProcessErrorCodes.NOT_FOUND_ERROR);
+                            break;
+                        case 500:
+                            listener.onError(ProcessErrorCodes.SERVICE_NOT_AVAILABLE_ERROR);
+                            break;
+                        default:
+                            listener.onError(ProcessErrorCodes.FATAL_ERROR);
+                            break;
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<PredictionJSONResponse> call, Throwable t) {
                 listener.onError(ProcessErrorCodes.FATAL_ERROR);
             }
         });

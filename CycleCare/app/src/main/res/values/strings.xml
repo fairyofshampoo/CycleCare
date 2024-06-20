@@ -99,4 +99,15 @@
     <string name="new_password_not_found_error">No se encontró usuario para cambiar la contraseña</string>
     <string name="previous_month"><![CDATA[<]]></string>
     <string name="next_month_arrow"><![CDATA[>]]></string>
+    <string name="cycle_log_no_prediction">No hay predicción</string>
+    <string name="cycle_log_no_prediction_description">No se ha podido predecir la fecha de tu próximo periodo. Por favor, registra tus ciclos para obtener una predicción más precisa.</string>
+    <string name="question_mark">\?</string>
+    <string name="menstrual_phase">Menstruación</string>
+    <string name="menstrual_phase_description">Durante la menstruación, el cuerpo de la mujer se deshace del revestimiento del útero. Esto dura de 3 a 7 días. Puedes experimentar calambres, fatiga y cambios de humor.</string>
+    <string name="follicular_phase">Folicular</string>
+    <string name="follicular_phase_description">Durante la fase folicular, los ovarios producen estrógeno, lo que ayuda a engrosar el revestimiento del útero. Te puedes sentir más energética y con mejor estado de ánimo.</string>
+    <string name="ovulation_phase">Ovulación</string>
+    <string name="ovulation_phase_description">Durante la ovulación, un óvulo es liberado de uno de los ovarios y se desplaza por las trompas de Falopio. Puedes sentir un aumento de energía, un ligero dolor abdominal y mayor libido.</string>
+    <string name="luteal_phase">Lútea</string>
+    <string name="luteal_phase_description">Durante la fase lútea, el folículo vacío que liberó el óvulo comienza a producir progesterona para preparar el útero para un posible embarazo. Puedes experimentar hinchazón, sensibilidad en los senos y cambios de humor.</string>
 </resources>
