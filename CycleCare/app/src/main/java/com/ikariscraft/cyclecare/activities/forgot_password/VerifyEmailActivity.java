@@ -50,7 +50,7 @@ public class VerifyEmailActivity extends AppCompatActivity {
     private void setupVerifyEmailButton() {
         binding.btnConfirmEmail.setOnClickListener(v -> {
             if(areFieldsValid()){
-                resetPasswordData.setToken(binding.codeEditText.getText().toString().trim();
+                resetPasswordData.setToken(binding.codeEditText.getText().toString().trim());
                 startNewPasswordActivity();
             }
 
