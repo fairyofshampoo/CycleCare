@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.ikariscraft.cyclecare.R;
+import com.ikariscraft.cyclecare.api.requests.PasswordResetRequest;
 import com.ikariscraft.cyclecare.databinding.ActivityVerifyEmailBinding;
 import com.ikariscraft.cyclecare.repository.ProcessErrorCodes;
 
@@ -15,6 +16,9 @@ public class VerifyEmailActivity extends AppCompatActivity {
 
     private ForgotPasswordViewModel viewModel;
     private ActivityVerifyEmailBinding binding;
+    public static final String EMAIL_KEY = "email_key";
+    public PasswordResetRequest resetPasswordData;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,40 +29,11 @@ public class VerifyEmailActivity extends AppCompatActivity {
 
         setupVerifyEmailButton();
         setupFieldsValidation();
-        setupVerifyEmailStatusListener();
-    }
-
-    private void setupVerifyEmailStatusListener() {
-        viewModel.getForgotPasswordRequestStatus().observe(this, requestStatus -> {
-            switch (requestStatus){
-                case DONE:
-                    startNewPasswordActivity();
-                    break;
-                case ERROR:
-                    binding.btnConfirmEmail.setEnabled(true);
-                    ProcessErrorCodes errorCode = viewModel.getForgotPasswordErrorCode().getValue();
-
-                    if(errorCode != null){
-                        showVerifyEmailError(errorCode);
-                    }
-                    break;
-            }
-        });
-    }
-
-    private void showVerifyEmailError(ProcessErrorCodes errorCode) {
-        String message = "";
-        switch (errorCode){
-            case NOT_FOUND_ERROR:
-                message = getString(R.string.email_not_found);
-                break;
-            default:
-                message = getString(R.string.login_fatal_error_message);
-        }
     }
 
     private void startNewPasswordActivity() {
         Intent intent = new Intent(this, NewPasswordActivity.class);
+        intent.putExtra(NewPasswordActivity.RESET_PASSWORD_KEY, resetPasswordData);
         startActivity(intent);
     }
 
@@ -67,12 +42,25 @@ public class VerifyEmailActivity extends AppCompatActivity {
             if(isCodeValid){
                 binding.errorCodeTextView.setVisibility(View.GONE);
             } else {
-                binding.tilCode.setError(getString(R.string.invalid_code));
+                binding.errorCodeTextView.setVisibility(View.VISIBLE);
             }
         });
     }
 
     private void setupVerifyEmailButton() {
+        binding.btnConfirmEmail.setOnClickListener(v -> {
+            if(areFieldsValid()){
+                resetPasswordData.setToken(binding.codeEditText.getText().toString().trim();
+                startNewPasswordActivity();
+            }
 
+        });
+    }
+
+    private boolean areFieldsValid() {
+        String code = binding.codeEditText.getText().toString().trim();
+        viewModel.ValidateCode(code);
+
+        return Boolean.TRUE.equals(viewModel.isCodeValid().getValue());
     }
 }

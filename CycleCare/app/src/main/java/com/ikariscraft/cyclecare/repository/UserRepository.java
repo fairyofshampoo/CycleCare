@@ -68,13 +68,16 @@ public class UserRepository {
     public void changePasswordAndVerifyCode(PasswordResetRequest passwordResetRequest, IEmptyProcessListener statusListener){
         IUserService userService = ApiClient.getInstance().getUserService();
 
-        userService.resetPassword(passwordResetRequest.getToken(), passwordResetRequest).enqueue(new Callback<Void>() {
+        userService.resetPassword(passwordResetRequest.getEmail(), passwordResetRequest).enqueue(new Callback<Void>() {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
                 if(response.isSuccessful()){
                     statusListener.onSuccess();
                 } else {
                     switch (response.code()){
+                        case 400:
+                            statusListener.onError(ProcessErrorCodes.REQUEST_FORMAT_ERROR);
+                            break;
                         case 404:
                             statusListener.onError(ProcessErrorCodes.NOT_FOUND_ERROR);
                             break;

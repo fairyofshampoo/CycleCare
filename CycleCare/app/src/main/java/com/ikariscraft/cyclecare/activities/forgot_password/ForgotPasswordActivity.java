@@ -9,6 +9,7 @@ import android.view.View;
 
 import com.ikariscraft.cyclecare.R;
 import com.ikariscraft.cyclecare.api.RequestStatus;
+import com.ikariscraft.cyclecare.api.requests.PasswordResetRequest;
 import com.ikariscraft.cyclecare.databinding.ActivityForgotPasswordBinding;
 import com.ikariscraft.cyclecare.repository.ProcessErrorCodes;
 
@@ -61,6 +62,9 @@ public class ForgotPasswordActivity extends AppCompatActivity {
 
     private void startVerifyEmailActivity() {
         Intent intent = new Intent(this, VerifyEmailActivity.class);
+        PasswordResetRequest resetPasswordData = new PasswordResetRequest();
+        resetPasswordData.setEmail(binding.emailEditText.getText().toString().trim());
+        intent.putExtra(VerifyEmailActivity.EMAIL_KEY, resetPasswordData);
         startActivity(intent);
     }
 

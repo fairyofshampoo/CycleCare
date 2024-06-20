@@ -75,6 +75,7 @@
     <string name="error_period_duration_label">La información entroducida es incorrecta</string>
     <string name="username_error_login">El nombre de usuario es incorrecto</string>
     <string name="password_error_login">Formato de contraseña inválido</string>
+    <string name="password_confirm_error">Las contraseñas no coinciden</string>
     <string name="login_invalid_credentials_message">Usuario o contraseña incorrectos. Revisa tus credenciales.</string>
     <string name="login_server_error_message">Error en el servidor. Inténtalo más tarde.</string>
     <string name="login_fatal_error_message">Error inesperado. Inténtalo más tarde.</string>
@@ -94,5 +95,7 @@
     <string name="email_not_found">No se encontró el email ingresado. Intenta nuevamente</string>
     <string name="error_title_label">El título es incorrecto</string>
     <string name="error_description_label">La descripción debe ser menor a 200 caracteres</string>
-    <string name="code_error_label">El código ingresado es incorrecto, revisa tu correo y vuelve a intentarlo.</string>
+    <string name="code_error_label">El código ingresado no cumple con las características de un código, revisa tu correo y vuelve a intentarlo.</string>
+    <string name="new_password_bad_request_error">Verifique que la contraseña cumpla con los requisitos</string>
+    <string name="new_password_not_found_error">No se encontró usuario para cambiar la contraseña</string>
 </resources>
