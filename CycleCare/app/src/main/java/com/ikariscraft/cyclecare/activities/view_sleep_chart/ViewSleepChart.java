@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.github.mikephil.charting.charts.BarChart;
@@ -98,6 +99,9 @@ public class ViewSleepChart extends Fragment {
                     barChart.setData(barData);
                     barChart.animateY(2000);
                 }else {
+                    Toast.makeText(getContext(), "No ha registrado horas de sueño", Toast.LENGTH_SHORT).show();
+                    TextView title = view.findViewById(R.id.sleepHoursTextView);
+                    title.setText("00 Horas de sueño");
                 }
             }
         });

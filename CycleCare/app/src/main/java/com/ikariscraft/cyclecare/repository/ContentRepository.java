@@ -5,6 +5,7 @@ import android.widget.Switch;
 
 import com.ikariscraft.cyclecare.api.ApiClient;
 import com.ikariscraft.cyclecare.api.Interfaces.IContentService;
+import com.ikariscraft.cyclecare.api.requests.RateInformativeContentRequest;
 import com.ikariscraft.cyclecare.api.requests.RegisterContentRequest;
 import com.ikariscraft.cyclecare.api.responses.InformativeContentJSONResponse;
 import com.ikariscraft.cyclecare.api.responses.RateContentJSONResponse;
@@ -17,7 +18,7 @@ import retrofit2.Response;
 
 public class ContentRepository {
 
-    public void RateContent(String toke,int contentId, int rating, IProcessStatusListener listener){
+    public void RateContent(String toke, int contentId, RateInformativeContentRequest rating, IProcessStatusListener listener){
 
         IContentService contentService = ApiClient.getInstance().getContentService();
 

@@ -15,6 +15,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.ikariscraft.cyclecare.R;
 import com.ikariscraft.cyclecare.activities.view_content_medic_pov.InformativeContentAdapter;
@@ -27,7 +28,7 @@ import java.util.List;
 
 public class InformativeContentFragment extends Fragment {
 
-    private InformativeContentViewModel viewModel;
+    private ViewContentViewModel viewModel;
     private FragmentInformativeContentBinding binding;
 
     private static final String ARG_PARAM1 = "param1";
@@ -67,7 +68,7 @@ public class InformativeContentFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        viewModel = new ViewModelProvider(this).get(InformativeContentViewModel.class);
+        viewModel = new ViewModelProvider(this).get(ViewContentViewModel.class);
         binding.contentRecycler.setLayoutManager(new LinearLayoutManager(getContext()));
 
         SetUpListChanges();
@@ -88,15 +89,39 @@ public class InformativeContentFragment extends Fragment {
             @Override
             public void onChanged(List<InformativeContentJSONResponse> informativeContentJSONResponses) {
                 if(informativeContentJSONResponses != null){
-                    Log.e("No es un error", "La lista no viene vacía");
                     InformativeContentAdapter adapter = new InformativeContentAdapter();
+
                     binding.contentRecycler.setAdapter(adapter);
+                    adapter.setOnItemClickListener(informativeContent -> {
+                        ShowInformativeContetData(informativeContent);
+                    });
+
                     adapter.submitList(informativeContentJSONResponses);
                 }else {
-                    Log.e("Error nulo", "La lista esta vacia");
+                    Toast.makeText(getContext(), "No hay artículos registrados", Toast.LENGTH_SHORT).show();
                 }
             }
         });
+    }
+
+    public void ShowInformativeContetData(InformativeContentJSONResponse informativeContentJSONResponse){
+        Bundle bundle = new Bundle();
+        bundle.putInt("id", informativeContentJSONResponse.getContentId());
+        bundle.putString("title", informativeContentJSONResponse.getTitle());
+        bundle.putString("description", informativeContentJSONResponse.getDescription());
+        bundle.putString("creationDate", informativeContentJSONResponse.getCreationDate());
+        bundle.putString("media", informativeContentJSONResponse.getImage());
+        bundle.putString("username", informativeContentJSONResponse.getUsername());
+        getParentFragmentManager().setFragmentResult("data", bundle);
+
+        ViewContentFragment detailFragment = new ViewContentFragment();
+        detailFragment.setArguments(bundle);
+
+        getParentFragmentManager().beginTransaction()
+                        .replace(R.id.fragment_container, detailFragment)
+                        .addToBackStack(null)
+                        .commit();
+
     }
 
 }

@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.DiffUtil;
@@ -43,9 +44,9 @@ public class InformativeContentAdapter extends ListAdapter<InformativeContentJSO
         super(DIFF_CALLBACK);
     }
 
-    private OnItemClickListener onItemClickListener;
+    public OnItemClickListener onItemClickListener;
 
-    interface OnItemClickListener{
+    public interface OnItemClickListener{
         void onItemClick(InformativeContentJSONResponse informativeContent);
     }
 
@@ -77,12 +78,18 @@ public class InformativeContentAdapter extends ListAdapter<InformativeContentJSO
             this.binding = binding;
         }
 
-        public void bind(InformativeContentJSONResponse informativeContet){
-            binding.contentTitleLabel.setText(informativeContet.getTitle());
-            binding.dateLabel.setText(informativeContet.getCreationDate());
+        public void bind(InformativeContentJSONResponse informativeContentJSONResponse){
+            binding.contentTitleLabel.setText(informativeContentJSONResponse.getTitle());
+            binding.dateLabel.setText(informativeContentJSONResponse.getCreationDate());
             ApiClient apiClient = ApiClient.getInstance();
             String baseIP = apiClient.getBaseIp();
-            Picasso.get().load(baseIP + "/images/"+ informativeContet.getImage()).into(binding.imageContent);
+            Picasso.get().load(baseIP + "/images/"+ informativeContentJSONResponse.getImage()).into(binding.imageContent);
+            binding.getRoot().setOnClickListener( v ->  {
+                if(onItemClickListener != null){
+                    onItemClickListener.onItemClick(informativeContentJSONResponse);
+                }
+            });
+            binding.executePendingBindings();
         }
 
     }

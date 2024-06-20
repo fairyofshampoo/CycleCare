@@ -3,7 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <variable
+            name="informativeContent"
+            type="com.ikariscraft.cyclecare.api.responses.InformativeContentJSONResponse" />
     </data>
 
 
@@ -31,6 +33,7 @@
                     android:src="@android:drawable/ic_menu_gallery" />
 
                 <TextView
+                    android:id="@+id/txtTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="30dp"
@@ -41,19 +44,11 @@
 
 
                 <TextView
+                    android:id="@+id/txtAuthor"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="30dp"
                     android:text="@string/author_content_label"
-                    android:textColor="@color/soft_pink94"
-                    android:textSize="12sp" />
-
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:text="@string/publish_date_label"
                     android:textColor="@color/soft_pink94"
                     android:textSize="12sp" />
 
@@ -68,6 +63,7 @@
                     android:stepSize="1" />
 
                 <TextView
+                    android:id="@+id/txtDescription"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20sp"
