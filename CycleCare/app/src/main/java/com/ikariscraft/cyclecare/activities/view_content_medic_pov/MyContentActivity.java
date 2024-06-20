@@ -1,5 +1,7 @@
 package com.ikariscraft.cyclecare.activities.view_content_medic_pov;
 
+import static com.ikariscraft.cyclecare.BR.informativeContent;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.Observer;
@@ -8,7 +10,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.ikariscraft.cyclecare.api.RequestStatus;
 import com.ikariscraft.cyclecare.api.responses.InformativeContentJSONResponse;
@@ -32,7 +36,6 @@ public class MyContentActivity extends AppCompatActivity {
         binding.contentRecycler.setLayoutManager(new LinearLayoutManager(this));
         showMyContent();
         setUpUploadArticleButton();
-        //setUpUploadVideoButton();
     }
 
     private void showMyContent(){
@@ -44,12 +47,14 @@ public class MyContentActivity extends AppCompatActivity {
                 @Override
                 public void onChanged(List<InformativeContentJSONResponse> informativeContentJSONResponses) {
                     if(informativeContentJSONResponses != null){
-                        Log.e("No es un error", "La lista no viene vacía");
                         InformativeContentAdapter adapter = new InformativeContentAdapter();
                         binding.contentRecycler.setAdapter(adapter);
+                        adapter.setOnItemClickListener(informativeContent -> {
+                            ShowInformativeContetData(informativeContent);
+                        });
                         adapter.submitList(informativeContentJSONResponses);
                     }else {
-                        Log.e("Error nulo", "La lista esta vacia");
+                        Toast.makeText(MyContentActivity.this, "No tiene articulos registrados", Toast.LENGTH_SHORT).show();
                     }
                 }
             });
@@ -61,6 +66,12 @@ public class MyContentActivity extends AppCompatActivity {
             Intent intent = new Intent(this, PublishInformativeContentActivity.class);
             startActivity(intent);
         });
+    }
+
+    private void ShowInformativeContetData(InformativeContentJSONResponse informativeContentJSONResponse){
+        Intent intent = new Intent(this, ViewContentByMedic.class);
+        intent.putExtra(ViewContentByMedic.REGISTER,  informativeContentJSONResponse);
+        startActivity(intent);
     }
 
 }
