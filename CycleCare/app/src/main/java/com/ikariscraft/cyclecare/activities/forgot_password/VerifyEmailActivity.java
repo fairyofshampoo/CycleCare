@@ -53,7 +53,6 @@ public class VerifyEmailActivity extends AppCompatActivity {
                 resetPasswordData.setToken(binding.codeEditText.getText().toString().trim());
                 startNewPasswordActivity();
             }
-
         });
     }
 
