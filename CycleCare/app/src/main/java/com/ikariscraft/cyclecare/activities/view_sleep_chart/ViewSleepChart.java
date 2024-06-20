@@ -98,7 +98,6 @@ public class ViewSleepChart extends Fragment {
                     barChart.setData(barData);
                     barChart.animateY(2000);
                 }else {
-                    
                 }
             }
         });

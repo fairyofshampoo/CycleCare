@@ -39,7 +39,7 @@ public class InformativeContentAdapter extends ListAdapter<InformativeContentJSO
                 }
             };
 
-    protected InformativeContentAdapter() {
+    public InformativeContentAdapter() {
         super(DIFF_CALLBACK);
     }
 

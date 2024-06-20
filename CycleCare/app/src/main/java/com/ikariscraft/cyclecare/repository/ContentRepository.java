@@ -72,6 +72,37 @@ public class ContentRepository {
         });
     }
 
+    public void getInformativeContent(String token, IProcessStatusListener statusListener){
+        IContentService contentService = ApiClient.getInstance().getContentService();
+
+        contentService.getInformativeContent(token).enqueue(new Callback<List<InformativeContentJSONResponse>>() {
+            @Override
+            public void onResponse(Call<List<InformativeContentJSONResponse>> call, Response<List<InformativeContentJSONResponse>> response) {
+                if(response.body() != null && response.isSuccessful()){
+                    statusListener.onSuccess(response.body());
+                } else {
+                    switch (response.code()){
+                        case 400:
+                            statusListener.onError(ProcessErrorCodes.REQUEST_FORMAT_ERROR);
+                            break;
+                        case 500:
+                            statusListener.onError(ProcessErrorCodes.SERVICE_NOT_AVAILABLE_ERROR);
+                            break;
+                        default:
+                            statusListener.onError(ProcessErrorCodes.FATAL_ERROR);
+                            break;
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<InformativeContentJSONResponse>> call, Throwable t) {
+                statusListener.onError(ProcessErrorCodes.FATAL_ERROR);
+            }
+        });
+
+    }
+
     public void getInformativeContentByUsername(String token, IProcessStatusListener statusListener){
         IContentService contentService = ApiClient.getInstance().getContentService();
         contentService.getMyContent(token).enqueue(new Callback<List<InformativeContentJSONResponse>>() {

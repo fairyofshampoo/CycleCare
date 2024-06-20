@@ -31,4 +31,7 @@ public interface IContentService {
     @GET("content/get-articles-by-medic")
     Call<List<InformativeContentJSONResponse>> getMyContent(@Header("token") String token);
 
+    @GET("content/obtain-informative-content")
+    Call<List<InformativeContentJSONResponse>> getInformativeContent(@Header("token") String token);
+
 }
