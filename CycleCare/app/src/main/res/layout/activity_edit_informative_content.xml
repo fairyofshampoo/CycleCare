@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="informativeContentEdit"
+            type="com.ikariscraft.cyclecare.api.responses.InformativeContentJSONResponse" />
+    </data>
+
+
+    <LinearLayout
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/TitleTextViewStyle"
+            android:textSize="30sp"
+            android:layout_width="400dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="5dp"
+            android:text="@string/contenido_informativo"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/light_gray" />
+
+        <TextView
+            android:textAllCaps="true"
+            android:textColor="@color/gray_blue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/tittle_label"
+            android:textSize="16sp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="40dp"/>
+
+        <EditText
+            android:id="@+id/titleEditText"
+            style="@style/EditTextStyle"
+            android:layout_width="330dp"
+            android:layout_height="wrap_content"
+            android:autofillHints=""
+            android:inputType="text"
+            android:minHeight="48dp"
+            android:textColorHint="#546E7A"
+            android:textSize="15sp"
+            android:layout_marginBottom="20dp"/>
+
+        <TextView
+            android:id="@+id/errorTitleTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/error_title_label"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            android:background="@color/soft_pink94"
+            android:textSize="12sp"
+            android:visibility="gone" />
+
+        <TextView
+            android:textAllCaps="true"
+            android:textColor="@color/gray_blue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/multimedia_content_label"
+            android:textSize="16sp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"/>
+
+        <GridLayout
+            android:id="@+id/imageLayout"
+            android:layout_height="130sp"
+            android:layout_width="330sp"
+            android:background="@drawable/rounded_background_grey"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="onClick">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:src="@drawable/upload_icon"
+                android:layout_marginBottom="10dp"
+                android:layout_marginStart="140dp"
+                android:layout_marginTop="10dp"/>
+
+            <TextView
+                android:textColor="@color/black"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:text="@string/multimedia_content_instructions_label"
+                android:textSize="12sp"
+                android:layout_marginTop="60dp"
+                android:layout_marginStart="-150dp"
+                android:textAlignment="center"/>
+
+            <TextView
+                android:textColor="@color/soft_pink94"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:text="@string/valid_format_label"
+                android:textSize="11sp"
+                android:layout_marginTop="95dp"
+                android:layout_marginStart="-250dp"/>
+        </GridLayout>
+
+        <ImageView
+            android:id="@+id/imageSelected"
+            android:layout_width="330sp"
+            android:layout_height="130sp"
+            android:visibility="gone"/>
+
+        <TextView
+            android:textAllCaps="true"
+            android:textColor="@color/gray_blue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/description_label"
+            android:textSize="16sp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"/>
+
+        <EditText
+            android:id="@+id/descriptionEditText"
+            style="@style/EditTextStyle"
+            android:layout_width="330dp"
+            android:layout_height="wrap_content"
+            android:autofillHints=""
+            android:inputType="text"
+            android:minHeight="48dp"
+            android:textColorHint="#546E7A"
+            android:textSize="15sp"
+            android:layout_marginBottom="20dp"/>
+
+        <TextView
+            android:id="@+id/errorDescriptionTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/error_description_label"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            android:background="@color/soft_pink94"
+            android:textSize="12sp"
+            android:visibility="gone" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/light_gray" />
+
+        <Button
+            android:id="@+id/btn_editArticle"
+            android:textAllCaps="false"
+            style="@style/ButtonStyle"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/white"
+            android:text="@string/btn_edit"/>
+
+    </LinearLayout>
+</layout>

@@ -94,4 +94,5 @@
     <string name="email_not_found">No se encontró el email ingresado. Intenta nuevamente</string>
     <string name="error_title_label">El título es incorrecto</string>
     <string name="error_description_label">La descripción debe ser menor a 200 caracteres</string>
+    <string name="btn_edit">Editar</string>
 </resources>

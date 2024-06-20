@@ -1,5 +1,6 @@
 package com.ikariscraft.cyclecare.api.Interfaces;
 
+import com.ikariscraft.cyclecare.api.requests.EditArticleRequest;
 import com.ikariscraft.cyclecare.api.requests.RateInformativeContentRequest;
 import com.ikariscraft.cyclecare.api.requests.RegisterContentRequest;
 import com.ikariscraft.cyclecare.api.responses.InformativeContentJSONResponse;
@@ -34,5 +35,11 @@ public interface IContentService {
 
     @GET("content/obtain-informative-content")
     Call<List<InformativeContentJSONResponse>> getInformativeContent(@Header("token") String token);
+
+    @POST("content/update-informative-content")
+    Call<RateContentJSONResponse> updateArticle (
+            @Header("token") String token,
+            @Body EditArticleRequest newArticle
+            );
 
 }

@@ -1,8 +1,11 @@
 package com.ikariscraft.cyclecare.api.responses;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.Objects;
 
-public class InformativeContentJSONResponse {
+public class InformativeContentJSONResponse implements Parcelable {
 
     private int contentId;
     private String title;
@@ -10,6 +13,42 @@ public class InformativeContentJSONResponse {
     private String creationDate;
     private String media;
     private String username;
+
+    protected InformativeContentJSONResponse(Parcel in) {
+        contentId = in.readInt();
+        title = in.readString();
+        description = in.readString();
+        creationDate = in.readString();
+        media = in.readString();
+        username = in.readString();
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(contentId);
+        dest.writeString(title);
+        dest.writeString(description);
+        dest.writeString(creationDate);
+        dest.writeString(media);
+        dest.writeString(username);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    public static final Creator<InformativeContentJSONResponse> CREATOR = new Creator<InformativeContentJSONResponse>() {
+        @Override
+        public InformativeContentJSONResponse createFromParcel(Parcel in) {
+            return new InformativeContentJSONResponse(in);
+        }
+
+        @Override
+        public InformativeContentJSONResponse[] newArray(int size) {
+            return new InformativeContentJSONResponse[size];
+        }
+    };
 
     @Override
     public boolean equals(Object o) {
