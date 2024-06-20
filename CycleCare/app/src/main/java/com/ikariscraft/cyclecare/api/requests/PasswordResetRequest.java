@@ -9,7 +9,7 @@ public class PasswordResetRequest implements Parcelable {
     private String token;
     private String email;
 
-    public PasswordResetRequest(String newPassword, String confirmPassword, String token) {
+    public PasswordResetRequest(String newPassword, String confirmPassword, String token, String email){
         this.newPassword = newPassword;
         this.confirmPassword = confirmPassword;
         this.token = token;

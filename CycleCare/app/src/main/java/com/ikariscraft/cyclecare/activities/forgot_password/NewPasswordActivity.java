@@ -15,6 +15,8 @@ import com.ikariscraft.cyclecare.api.RequestStatus;
 import com.ikariscraft.cyclecare.api.requests.PasswordResetRequest;
 import com.ikariscraft.cyclecare.databinding.ActivityNewPasswordBinding;
 import com.ikariscraft.cyclecare.repository.ProcessErrorCodes;
+import com.ikariscraft.cyclecare.utilities.PasswordUtilities;
+import com.ikariscraft.cyclecare.utilities.Validations;
 
 public class NewPasswordActivity extends AppCompatActivity {
     private ActivityNewPasswordBinding binding;
@@ -112,15 +114,15 @@ public class NewPasswordActivity extends AppCompatActivity {
     }
 
     private void completeData() {
-        String password = binding.tvNewPassword.getText().toString();
-        String passwordConfirm = binding.tvConfirmPassword.getText().toString();
-        resetPasswordData.setNewPassword(password);
-        resetPasswordData.setConfirmPassword(passwordConfirm);
+        String password = binding.newPasswordEditText.getText().toString();
+        String passwordConfirm = binding.confirmPasswordEditText.getText().toString();
+        resetPasswordData.setNewPassword(PasswordUtilities.computeSHA256Hash(password));
+        resetPasswordData.setConfirmPassword(PasswordUtilities.computeSHA256Hash(passwordConfirm));
     }
 
     private boolean areFieldsValid() {
-        String password = binding.tvNewPassword.getText().toString();
-        String passwordConfirm = binding.tvConfirmPassword.getText().toString();
+        String password = binding.newPasswordEditText.getText().toString();
+        String passwordConfirm = binding.confirmPasswordEditText.getText().toString();
 
         viewModel.ValidatePassword(password);
         viewModel.ValidatePasswordConfirmation(password, passwordConfirm);

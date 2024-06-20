@@ -6,11 +6,8 @@ import androidx.lifecycle.ViewModelProvider;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-
-import com.ikariscraft.cyclecare.R;
 import com.ikariscraft.cyclecare.api.requests.PasswordResetRequest;
 import com.ikariscraft.cyclecare.databinding.ActivityVerifyEmailBinding;
-import com.ikariscraft.cyclecare.repository.ProcessErrorCodes;
 
 public class VerifyEmailActivity extends AppCompatActivity {
 
@@ -26,6 +23,8 @@ public class VerifyEmailActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         viewModel = new ViewModelProvider(this).get(ForgotPasswordViewModel.class);
+        Bundle extras = getIntent().getExtras();
+        resetPasswordData = extras.getParcelable("email_key");
 
         setupVerifyEmailButton();
         setupFieldsValidation();
@@ -50,7 +49,8 @@ public class VerifyEmailActivity extends AppCompatActivity {
     private void setupVerifyEmailButton() {
         binding.btnConfirmEmail.setOnClickListener(v -> {
             if(areFieldsValid()){
-                resetPasswordData.setToken(binding.codeEditText.getText().toString().trim());
+                String token = binding.codeEditText.getText().toString();
+                resetPasswordData.setToken(token);
                 startNewPasswordActivity();
             }
         });
