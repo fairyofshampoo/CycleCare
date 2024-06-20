@@ -31,7 +31,7 @@
     <string name="register_account_button">Siguiente</string>
     <string name="birthday_datepicker_message">Seleccionar fecha de nacimiento</string>
     <string name="cycle_type_title_label">¿Cómo es tu ciclo?</string>
-    <string name="cycle_description_label">El ciclo menstrual es el proceso mensual del cuerpo preparándose para un posible embarazo. Se considera regular cuando la duración entre períodos es constante (aproximadamente 21-35 días). Si hay variaciones significativas, se considera irregular.</string>
+    <string name="cycle_description_label">El ciclo menstrual es el proceso mensual del cuerpo preparándose para un posible embarazo. Se considera regular cuando la duración entre períodos es constante (aproximadamente 21 a 35 días). Si hay variaciones significativas, se considera irregular.</string>
     <string name="regular_cycle_button">Regular</string>
     <string name="irregular_cycle_button">Irregular</string>
     <string name="idk_cycle_button">No lo sé</string>
@@ -49,7 +49,7 @@
     <string name="description_label">* Descripción</string>
     <string name="post_button">Publicar</string>
     <string name="post_tittle_label">Título de la publicación</string>
-    <string name="author_content_label">autor de la publicación</string>
+    <string name="author_content_label">Autor de la publicación</string>
     <string name="publish_date_label">XX/XX/XXXX</string>
     <string name="content_label">Contenido</string>
     <string name="code_verify_email_label">Código</string>
