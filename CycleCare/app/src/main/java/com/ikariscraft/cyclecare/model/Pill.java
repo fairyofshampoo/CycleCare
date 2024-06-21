@@ -13,7 +13,7 @@ public class Pill implements Parcelable {
     }
 
     protected Pill(Parcel in) {
-        pillId = in.readInt();
+        pillId = (Integer) in.readValue(Integer.class.getClassLoader());
         status = in.readString();
     }
 
@@ -52,7 +52,7 @@ public class Pill implements Parcelable {
 
     @Override
     public void writeToParcel(@NonNull Parcel dest, int flags) {
-        dest.writeInt(pillId);
+        dest.writeValue(pillId);
         dest.writeString(status);
     }
 }

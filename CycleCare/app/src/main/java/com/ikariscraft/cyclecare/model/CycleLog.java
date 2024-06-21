@@ -2,9 +2,11 @@ package com.ikariscraft.cyclecare.model;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 
+import java.io.Console;
 import java.util.List;
 
 public class CycleLog implements Parcelable {
@@ -26,27 +28,11 @@ public class CycleLog implements Parcelable {
     }
 
     protected CycleLog(Parcel in) {
-        if (in.readByte() == 0) {
-            cycleLogId = null;
-        } else {
-            cycleLogId = in.readInt();
-        }
+        cycleLogId = (Integer) in.readValue(Integer.class.getClassLoader());
         creationDate = in.readString();
-        if (in.readByte() == 0) {
-            menstrualFlowId = null;
-        } else {
-            menstrualFlowId = in.readInt();
-        }
-        if (in.readByte() == 0) {
-            vaginalFlowId = null;
-        } else {
-            vaginalFlowId = in.readInt();
-        }
-        if (in.readByte() == 0) {
-            sleepHours = null;
-        } else {
-            sleepHours = in.readInt();
-        }
+        menstrualFlowId = (Integer) in.readValue(Integer.class.getClassLoader());
+        vaginalFlowId = (Integer) in.readValue(Integer.class.getClassLoader());
+        sleepHours = (Integer) in.readValue(Integer.class.getClassLoader());
         username = in.readString();
         note = in.readString();
         symptoms = in.createTypedArrayList(Symptom.CREATOR);

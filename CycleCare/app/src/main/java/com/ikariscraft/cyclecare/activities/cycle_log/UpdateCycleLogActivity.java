@@ -573,6 +573,8 @@ public class UpdateCycleLogActivity extends AppCompatActivity {
     }
 
     private void setCycleLogData() {
+
+        binding.tvDate.setText(cycleLog.getCreationDate());
         if(cycleLog.getSleepHours() != null){
             setSleepHours(cycleLog.getSleepHours());
         }
@@ -761,7 +763,7 @@ public class UpdateCycleLogActivity extends AppCompatActivity {
     }
 
     private void setVaginalFlow(Integer vaginalFlowId) {
-        if(vaginalFlowId != null){
+        if(vaginalFlowId != null && vaginalFlowId > 0){
             vaginalFlowSelected = vaginalFlowId;
             switch (vaginalFlowId) {
                 case 1:
@@ -784,7 +786,7 @@ public class UpdateCycleLogActivity extends AppCompatActivity {
     }
 
     private void setMenstrualFlow(Integer menstrualFlowId) {
-        if(menstrualFlowId != null){
+        if(menstrualFlowId != null && menstrualFlowId > 0){
             menstrualFlowSelected = menstrualFlowId;
             switch (menstrualFlowId) {
                 case 1:

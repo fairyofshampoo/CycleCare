@@ -14,7 +14,7 @@ public class BirthControl implements Parcelable {
     }
 
     protected BirthControl(Parcel in) {
-        birthControlId = in.readInt();
+        birthControlId = (Integer) in.readValue(Integer.class.getClassLoader());
         name = in.readString();
         status = in.readString();
     }
@@ -62,7 +62,7 @@ public class BirthControl implements Parcelable {
 
     @Override
     public void writeToParcel(@NonNull Parcel dest, int flags) {
-        dest.writeInt(birthControlId);
+        dest.writeValue(birthControlId);
         dest.writeString(name);
         dest.writeString(status);
     }

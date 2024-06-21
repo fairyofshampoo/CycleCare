@@ -13,7 +13,7 @@ public class Mood implements Parcelable {
     }
 
     protected Mood(Parcel in) {
-        moodId = in.readInt();
+        moodId = (Integer) in.readValue(Integer.class.getClassLoader());
         name = in.readString();
     }
 
@@ -52,7 +52,7 @@ public class Mood implements Parcelable {
 
     @Override
     public void writeToParcel(@NonNull Parcel dest, int flags) {
-        dest.writeInt(moodId);
+        dest.writeValue(moodId);
         dest.writeString(name);
     }
 }

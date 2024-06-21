@@ -13,7 +13,7 @@ public class Symptom implements Parcelable {
     }
 
     protected Symptom(Parcel in) {
-        symptomId = in.readInt();
+        symptomId = (Integer) in.readValue(Integer.class.getClassLoader());
         name = in.readString();
     }
 
@@ -52,7 +52,7 @@ public class Symptom implements Parcelable {
 
     @Override
     public void writeToParcel(@NonNull Parcel dest, int flags) {
-        dest.writeInt(this.symptomId);
+        dest.writeValue(this.symptomId);
         dest.writeString(this.name);
     }
 }
