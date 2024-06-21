@@ -59,21 +59,7 @@ public class CycleLogRepository {
             public void onResponse(Call<CycleLog> call, Response<CycleLog> response) {
                 if(response.isSuccessful()){
                     if(response.body() != null){
-                        CycleLog cycleLog = new CycleLog(
-                                response.body().getCycleLogId(),
-                                response.body().getCreationDate(),
-                                response.body().getBirthControl(),
-                                response.body().getMedications(),
-                                response.body().getSymptoms(),
-                                response.body().getMoods(),
-                                response.body().getMenstrualFlowId(),
-                                response.body().getNote(),
-                                response.body().getPills(),
-                                response.body().getSleepHours(),
-                                response.body().getUsername(),
-                                response.body().getVaginalFlowId()
-                        );
-                        listener.onSuccess(cycleLog);
+                        listener.onSuccess(response.body());
                     } else {
                         listener.onError(ProcessErrorCodes.FATAL_ERROR);
                     }
@@ -147,6 +133,36 @@ public class CycleLogRepository {
                     listener.onSuccess();
                 } else {
                     switch (response.code()) {
+                        case 500:
+                            listener.onError(ProcessErrorCodes.SERVICE_NOT_AVAILABLE_ERROR);
+                            break;
+                        default:
+                            listener.onError(ProcessErrorCodes.FATAL_ERROR);
+                            break;
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Void> call, Throwable t) {
+                listener.onError(ProcessErrorCodes.FATAL_ERROR);
+            }
+        });
+    }
+
+    public void updateCycleLog(String token, NewCycleLogBody cycleLogToUpdate, IEmptyProcessListener listener){
+        ICycleService cycleService = ApiClient.getInstance().getCycleService();
+
+        cycleService.updateCycleLog(cycleLogToUpdate.getCycleLogId(), token, cycleLogToUpdate).enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(Call<Void> call, Response<Void> response) {
+                if(response.isSuccessful()){
+                    listener.onSuccess();
+                } else {
+                    switch (response.code()) {
+                        case 404:
+                            listener.onError(ProcessErrorCodes.NOT_FOUND_ERROR);
+                            break;
                         case 500:
                             listener.onError(ProcessErrorCodes.SERVICE_NOT_AVAILABLE_ERROR);
                             break;

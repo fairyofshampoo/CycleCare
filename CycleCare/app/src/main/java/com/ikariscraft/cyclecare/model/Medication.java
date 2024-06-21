@@ -1,17 +1,39 @@
 package com.ikariscraft.cyclecare.model;
 
-public class Medication {
-    private int medicationId;
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import androidx.annotation.NonNull;
+
+public class Medication implements Parcelable {
+    private Integer medicationId;
     private String name;
 
     public Medication() {
     }
 
-    public int getMedicationId() {
+    protected Medication(Parcel in) {
+        medicationId = in.readInt();
+        name = in.readString();
+    }
+
+    public static final Creator<Medication> CREATOR = new Creator<Medication>() {
+        @Override
+        public Medication createFromParcel(Parcel in) {
+            return new Medication(in);
+        }
+
+        @Override
+        public Medication[] newArray(int size) {
+            return new Medication[size];
+        }
+    };
+
+    public Integer getMedicationId() {
         return medicationId;
     }
 
-    public void setMedicationId(int medicationId) {
+    public void setMedicationId(Integer medicationId) {
         this.medicationId = medicationId;
     }
 
@@ -21,5 +43,16 @@ public class Medication {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(@NonNull Parcel dest, int flags) {
+        dest.writeInt(medicationId);
+        dest.writeString(name);
     }
 }

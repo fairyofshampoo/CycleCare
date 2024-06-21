@@ -6,13 +6,13 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.ikariscraft.cyclecare.R;
-import com.ikariscraft.cyclecare.activities.forgot_password.NewPasswordActivity;
 import com.ikariscraft.cyclecare.api.RequestStatus;
 import com.ikariscraft.cyclecare.api.responses.PredictionJSONResponse;
 import com.ikariscraft.cyclecare.databinding.FragmentCalendarBinding;
@@ -32,6 +32,7 @@ public class CalendarFragment extends Fragment {
     private FragmentCalendarBinding binding;
     private TextView monthYearText;
     private RecyclerView calendarRecyclerView;
+    private LocalDate currentDate;
     private LocalDate selectedDate;
     private List<CycleLog> cycleLogs = new ArrayList<>();
     private PredictionJSONResponse predictionResponse;
@@ -62,7 +63,7 @@ public class CalendarFragment extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
 
-        selectedDate = LocalDate.now();
+        currentDate = LocalDate.now();
     }
 
     @Override
@@ -80,10 +81,10 @@ public class CalendarFragment extends Fragment {
         monthYearText = binding.monthYearTV;
         calendarRecyclerView = binding.calendarRecyclerView;
         viewModel = new ViewModelProvider(this).get(CalendarViewModel.class);
-        setUpButtons();
         setUpPredictionRequestStatusListener();
-        setPrediction();
         setUpCalendarRequestStatusListener();
+        setPrediction();
+        setUpButtons();
         getCycleLogs();
         setUpGetCycleByDayStatusListener();
     }
@@ -202,8 +203,8 @@ public class CalendarFragment extends Fragment {
     private void getCycleLogs() {
         SessionSingleton session = SessionSingleton.getInstance();
         String token = session.getToken();
-        int year = selectedDate.getYear();
-        int month = selectedDate.getMonthValue();
+        int year = currentDate.getYear();
+        int month = currentDate.getMonthValue();
         viewModel.getCycleLogs(token, year, month);
     }
 
@@ -225,19 +226,22 @@ public class CalendarFragment extends Fragment {
         binding.btnNewEntry.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                LocalDate currentDate = LocalDate.now();
-                String day = currentDate.getDayOfMonth() + "";
+                if(viewModel.getGetCycleLogByDayStatus().getValue() != RequestStatus.LOADING){
 
-                showCycleLog(day, currentDate);
+                    LocalDate currentDate = LocalDate.now();
+                    String day = currentDate.getDayOfMonth() + "";
+
+                    showCycleLog(day, currentDate);
+                }
             }
         });
     }
 
 
     private void setMonthView() {
-        monthYearText.setText(monthYearFromDate(selectedDate));
-        ArrayList<String> daysInMonth = daysInMonthArray(selectedDate);
-        CalendarAdapter calendarAdapter = new CalendarAdapter(daysInMonth, cycleLogs, selectedDate, predictionResponse);
+        monthYearText.setText(monthYearFromDate(currentDate));
+        ArrayList<String> daysInMonth = daysInMonthArray(currentDate);
+        CalendarAdapter calendarAdapter = new CalendarAdapter(daysInMonth, cycleLogs, currentDate, predictionResponse);
         calendarAdapter.setOnItemClickListener((position, dayText) -> {
             openCycleLog(dayText);
         });
@@ -249,7 +253,9 @@ public class CalendarFragment extends Fragment {
 
     private void openCycleLog(String dayText) {
         if (!dayText.isEmpty()) {
-            showCycleLog(dayText, selectedDate);
+            if(viewModel.getGetCycleLogByDayStatus().getValue() != RequestStatus.LOADING){
+                showCycleLog(dayText, currentDate);
+            }
         }
     }
 
@@ -258,7 +264,7 @@ public class CalendarFragment extends Fragment {
             int day = Integer.parseInt(dayText);
             int month = date.getMonthValue();
             int year = date.getYear();
-
+            selectedDate = LocalDate.of(year, month, day);
             SessionSingleton session = SessionSingleton.getInstance();
             String token = session.getToken();
             viewModel.getCycleLogByDay(token, year, month, day);
@@ -271,7 +277,7 @@ public class CalendarFragment extends Fragment {
 
         int daysInMonth = yearMonth.lengthOfMonth();
 
-        LocalDate firstOfMonth = selectedDate.withDayOfMonth(1);
+        LocalDate firstOfMonth = currentDate.withDayOfMonth(1);
         int dayOfWeek = firstOfMonth.getDayOfWeek().getValue();
 
         for (int i = 1; i <= 42; i++) {
@@ -292,13 +298,13 @@ public class CalendarFragment extends Fragment {
 
     public void previousMonthAction(View view)
     {
-        selectedDate = selectedDate.minusMonths(1);
+        currentDate = currentDate.minusMonths(1);
         setMonthView();
     }
 
     public void nextMonthAction(View view)
     {
-        selectedDate = selectedDate.plusMonths(1);
+        currentDate = currentDate.plusMonths(1);
         setMonthView();
     }
 
@@ -306,7 +312,7 @@ public class CalendarFragment extends Fragment {
         viewModel.getGetCycleLogByDayStatus().observe(getViewLifecycleOwner(), requestStatus -> {
             switch (requestStatus){
                 case DONE:
-                    startUpdateCycleLogActivity();
+                    startUpdateCycleLogActivity(viewModel.getCycleLog().getValue());
                     break;
                 case ERROR:
                     ProcessErrorCodes errorCode = viewModel.getCycleLogErrorCode().getValue();
@@ -336,7 +342,12 @@ public class CalendarFragment extends Fragment {
         startActivity(intent);
     }
 
-    private void startUpdateCycleLogActivity() {
+    private void startUpdateCycleLogActivity(CycleLog cycleLog) {
+        if(cycleLog != null){
+            Intent intent = new Intent(requireActivity(), UpdateCycleLogActivity.class);
+            intent.putExtra(UpdateCycleLogActivity.CYCLE_LOG_KEY, cycleLog);
+            startActivity(intent);
+        }
 
     }
 }

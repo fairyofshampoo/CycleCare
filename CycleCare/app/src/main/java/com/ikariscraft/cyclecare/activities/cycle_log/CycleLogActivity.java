@@ -3,6 +3,7 @@ package com.ikariscraft.cyclecare.activities.cycle_log;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.CheckBox;
 import android.widget.RadioButton;
@@ -10,6 +11,7 @@ import android.widget.Toast;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.ikariscraft.cyclecare.R;
+import com.ikariscraft.cyclecare.activities.main_screen.PrincipalScreen;
 import com.ikariscraft.cyclecare.api.RequestStatus;
 import com.ikariscraft.cyclecare.api.requests.NewCycleLogBody;
 import com.ikariscraft.cyclecare.databinding.ActivityCycleLogBinding;
@@ -56,7 +58,8 @@ public class CycleLogActivity extends AppCompatActivity {
             if (requestStatus == RequestStatus.DONE) {
                 Toast.makeText(this, "Se ha registrado el ciclo",
                         Toast.LENGTH_SHORT).show();
-                finish();
+                Intent intent = new Intent(this, PrincipalScreen.class);
+                startActivity(intent);
             }
 
             if (requestStatus == RequestStatus.ERROR) {

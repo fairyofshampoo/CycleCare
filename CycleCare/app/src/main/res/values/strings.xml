@@ -112,4 +112,5 @@
     <string name="luteal_phase">Lútea</string>
     <string name="luteal_phase_description">Durante la fase lútea, el folículo vacío que liberó el óvulo comienza a producir progesterona para preparar el útero para un posible embarazo. Puedes experimentar hinchazón, sensibilidad en los senos y cambios de humor.</string>
     <string name="abdominal_pain">Dolor abdominal</string>
+    <string name="cycle_log_not_found">No se ha encontrado el registro del ciclo</string>
 </resources>

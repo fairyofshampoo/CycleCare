@@ -1,14 +1,19 @@
 package com.ikariscraft.cyclecare.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import androidx.annotation.NonNull;
+
 import java.util.List;
 
-public class CycleLog {
+public class CycleLog implements Parcelable {
 
-    private int cycleLogId;
+    private Integer cycleLogId;
     private String creationDate;
     private Integer menstrualFlowId;
     private Integer vaginalFlowId;
-    private int sleepHours;
+    private Integer sleepHours;
     private String username;
     private String note;
     private List<Symptom> symptoms;
@@ -20,14 +25,54 @@ public class CycleLog {
     public CycleLog() {
     }
 
-    public CycleLog(int cycleLogId, String creationDate, List<BirthControl> birthControl, List<Medication> medications, List<Symptom> symptoms, List<Mood> moods, Integer menstrualFlowId, String note, List<Pill> pills, int sleepHours, String username, Integer vaginalFlowId) {
+    protected CycleLog(Parcel in) {
+        if (in.readByte() == 0) {
+            cycleLogId = null;
+        } else {
+            cycleLogId = in.readInt();
+        }
+        creationDate = in.readString();
+        if (in.readByte() == 0) {
+            menstrualFlowId = null;
+        } else {
+            menstrualFlowId = in.readInt();
+        }
+        if (in.readByte() == 0) {
+            vaginalFlowId = null;
+        } else {
+            vaginalFlowId = in.readInt();
+        }
+        if (in.readByte() == 0) {
+            sleepHours = null;
+        } else {
+            sleepHours = in.readInt();
+        }
+        username = in.readString();
+        note = in.readString();
+        symptoms = in.createTypedArrayList(Symptom.CREATOR);
+        moods = in.createTypedArrayList(Mood.CREATOR);
+        medications = in.createTypedArrayList(Medication.CREATOR);
+        pills = in.createTypedArrayList(Pill.CREATOR);
+        birthControl = in.createTypedArrayList(BirthControl.CREATOR);
     }
 
-    public int getCycleLogId() {
+    public static final Creator<CycleLog> CREATOR = new Creator<CycleLog>() {
+        @Override
+        public CycleLog createFromParcel(Parcel in) {
+            return new CycleLog(in);
+        }
+
+        @Override
+        public CycleLog[] newArray(int size) {
+            return new CycleLog[size];
+        }
+    };
+
+    public Integer getCycleLogId() {
         return cycleLogId;
     }
 
-    public void setCycleLogId(int cycleLogId) {
+    public void setCycleLogId(Integer cycleLogId) {
         this.cycleLogId = cycleLogId;
     }
 
@@ -55,11 +100,11 @@ public class CycleLog {
         this.vaginalFlowId = vaginalFlowId;
     }
 
-    public int getSleepHours() {
+    public Integer getSleepHours() {
         return sleepHours;
     }
 
-    public void setSleepHours(int sleepHours) {
+    public void setSleepHours(Integer sleepHours) {
         this.sleepHours = sleepHours;
     }
 
@@ -117,5 +162,41 @@ public class CycleLog {
 
     public void setBirthControl(List<BirthControl> birthControl) {
         this.birthControl = birthControl;
+    }
+
+    public CycleLog(Integer cycleLogId, String creationDate, Integer menstrualFlowId, Integer vaginalFlowId, Integer sleepHours, String username, String note, List<Symptom> symptoms, List<Mood> moods, List<Medication> medications, List<Pill> pills, List<BirthControl> birthControl) {
+        this.cycleLogId = cycleLogId;
+        this.creationDate = creationDate;
+        this.menstrualFlowId = menstrualFlowId;
+        this.vaginalFlowId = vaginalFlowId;
+        this.sleepHours = sleepHours;
+        this.username = username;
+        this.note = note;
+        this.symptoms = symptoms;
+        this.moods = moods;
+        this.medications = medications;
+        this.pills = pills;
+        this.birthControl = birthControl;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(@NonNull Parcel dest, int flags) {
+        dest.writeValue(this.cycleLogId);
+        dest.writeString(this.creationDate);
+        dest.writeValue(this.menstrualFlowId);
+        dest.writeValue(this.vaginalFlowId);
+        dest.writeValue(this.sleepHours);
+        dest.writeString(this.username);
+        dest.writeString(this.note);
+        dest.writeTypedList(this.symptoms);
+        dest.writeTypedList(this.moods);
+        dest.writeTypedList(this.medications);
+        dest.writeTypedList(this.pills);
+        dest.writeTypedList(this.birthControl);
     }
 }

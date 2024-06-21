@@ -182,6 +182,7 @@
                     android:hint="Añade una nota"
                     android:background="@null"
                     android:padding="8dp"
+                    android:maxLength="50"
                     android:textColor="@color/dark_gray"
                     android:inputType="textMultiLine" />
 
