@@ -9,8 +9,8 @@ The CycleCare Android App is designed to offer a seamless experience for users t
 ## Key Features
 
 - **Intuitive User Interface:** Easy cycle tracking and management.
-- **Customizable Notifications:** Cycle reminders and health tips.
-- **Predictive Algorithms:** Forecasting menstrual periods and fertile days.
+- **Customizable Notifications:** Cycle reminders.
+- **Predictive Algorithms:** Forecasting menstrual periods.
 - **Secure Data Storage:** Protects user information.
 - **Integration with CycleCare API:** Seamless data synchronization and analysis.
 
@@ -18,7 +18,6 @@ The CycleCare Android App is designed to offer a seamless experience for users t
 
 - **Programming Language:** Java
 - **Framework:** Android SDK
-- **Database:** SQLite
 - **API Integration:** Retrofit
 
 ## Installation
