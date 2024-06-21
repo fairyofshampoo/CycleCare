@@ -86,7 +86,7 @@ public class Validations {
         boolean isDescriptionValid = false;
 
         if(text != null) {
-            String descriptionPattern = "^(?!\\s)[\\s\\S]{1,198}$";
+            String descriptionPattern = "^(?!\\s)[\\s\\S]{1,190}$";
             Pattern pattern = Pattern.compile(descriptionPattern);
             Matcher matcher = pattern.matcher(text);
 
@@ -109,5 +109,19 @@ public class Validations {
         }
 
         return isValidCode;
+    }
+
+    public static boolean isTitleValid(String title) {
+        boolean isTitleValid = false;
+
+        if (title != null) {
+            String titlePattern = "^(?!\\s)([\\s\\S]{1,65})$";
+            Pattern pattern = Pattern.compile(titlePattern);
+            Matcher matcher = pattern.matcher(title);
+
+            isTitleValid = matcher.matches();
+        }
+
+        return isTitleValid;
     }
 }

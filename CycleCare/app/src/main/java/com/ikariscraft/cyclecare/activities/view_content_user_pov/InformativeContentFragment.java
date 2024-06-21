@@ -77,7 +77,7 @@ public class InformativeContentFragment extends Fragment {
         if(viewModel.getInformativeContentRequestStatus().getValue() != RequestStatus.LOADING) {
             SessionSingleton session = SessionSingleton.getInstance();
             String token = session.getToken();
-            viewModel.GetInformativeContent(token);
+            viewModel.getInformativeContent(token);
         }
     }
 
@@ -90,7 +90,7 @@ public class InformativeContentFragment extends Fragment {
 
                     binding.contentRecycler.setAdapter(adapter);
                     adapter.setOnItemClickListener(informativeContent -> {
-                        ShowInformativeContentData(informativeContent);
+                        showInformativeContentData(informativeContent);
                     });
 
                     adapter.submitList(informativeContentJSONResponses);
@@ -101,7 +101,7 @@ public class InformativeContentFragment extends Fragment {
         });
     }
 
-    public void ShowInformativeContentData(InformativeContentJSONResponse informativeContentJSONResponse){
+    public void showInformativeContentData(InformativeContentJSONResponse informativeContentJSONResponse){
         Bundle bundle = new Bundle();
         bundle.putInt("id", informativeContentJSONResponse.getContentId());
         bundle.putString("title", informativeContentJSONResponse.getTitle());

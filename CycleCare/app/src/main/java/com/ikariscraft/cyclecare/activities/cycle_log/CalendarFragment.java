@@ -27,7 +27,6 @@ import java.util.List;
 import java.util.Objects;
 
 public class CalendarFragment extends Fragment {
-    private static final String TAG = "CalendarFragment"; // Add this for logging
     private CalendarViewModel viewModel;
     private FragmentCalendarBinding binding;
     private TextView monthYearText;

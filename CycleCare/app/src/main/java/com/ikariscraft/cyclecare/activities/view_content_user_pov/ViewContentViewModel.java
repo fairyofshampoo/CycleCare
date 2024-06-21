@@ -79,7 +79,7 @@ public class ViewContentViewModel extends ViewModel {
 
     public LiveData<ProcessErrorCodes> getInformativeContentErrorCode() {return informativeContentErrorCode;}
 
-    public void GetInformativeContent(String token){
+    public void getInformativeContent(String token){
         informativeContentStatus.setValue(RequestStatus.LOADING);
 
         new ContentRepository().getInformativeContent(

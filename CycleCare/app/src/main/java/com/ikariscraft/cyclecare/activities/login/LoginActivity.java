@@ -15,7 +15,6 @@ import com.ikariscraft.cyclecare.activities.forgot_password.ForgotPasswordActivi
 import com.ikariscraft.cyclecare.activities.main_screen.PrincipalScreen;
 import com.ikariscraft.cyclecare.activities.register_account.RegisterAccountActivity;
 import com.ikariscraft.cyclecare.activities.view_content_medic_pov.MyContentActivity;
-import com.ikariscraft.cyclecare.activities.view_content_medic_pov.PublishInformativeContentActivity;
 import com.ikariscraft.cyclecare.api.RequestStatus;
 import com.ikariscraft.cyclecare.databinding.ActivityLoginBinding;
 import com.ikariscraft.cyclecare.repository.ProcessErrorCodes;
@@ -40,7 +39,7 @@ public class    LoginActivity extends AppCompatActivity {
         setupFieldsValidations();
         setupLoginStatusListener();
         setUpForgotPasswordLabel();
-        setUpCreatAccountLabel();
+        setUpCreateAccountLabel();
     }
 
     private void setupFieldsValidations() {
@@ -150,7 +149,7 @@ public class    LoginActivity extends AppCompatActivity {
         });
     }
 
-    private void setUpCreatAccountLabel(){
+    private void setUpCreateAccountLabel(){
         binding.creatAccountTextView.setOnClickListener(v -> {
             Intent intent = new Intent(this, RegisterAccountActivity.class);
             startActivity(intent);
