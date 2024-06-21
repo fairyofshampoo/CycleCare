@@ -10,6 +10,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.data.BarData;
@@ -50,8 +52,6 @@ public class ViewSleepChart extends Fragment {
         super.onCreate(savedInstanceState);
         binding = FragmentViewSleepChartBinding.inflate(getLayoutInflater());
         viewModel = new ViewModelProvider(this).get(ViewSleepChartViewModel.class);
-        Log.e("Creación de la pantalla", "Se ha creado el fragmento");
-
 
 
         if (getArguments() != null) {
@@ -68,7 +68,7 @@ public class ViewSleepChart extends Fragment {
 
         if(viewModel.getSleepChartRequestStatus().getValue() != RequestStatus.LOADING) {
             SessionSingleton sessionSingleton = SessionSingleton.getInstance();
-            viewModel.getSleepHoursChart("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImZhaXJ5MGZTaGFtcG9vIiwiaWF0IjoxNzE2NTAyNTYyLCJleHAiOjE3MTY1MDYxNjJ9.jn--f6jysjwAkwA8pXNBfZuN7qifBj80BOFgaJe4mRo");
+            viewModel.getSleepHoursChart(sessionSingleton.getToken());
         }
         viewModel.getSleepHours().observe(getViewLifecycleOwner(), new Observer<List<SleepHoursInformation>>() {
             @Override
@@ -88,7 +88,7 @@ public class ViewSleepChart extends Fragment {
                     String[] labels = new String[sleepHoursInformations.size()];
 
                     for (int i = 0; i < sleepHoursInformations.size(); i++) {
-                        labels[i] = sleepHoursInformations.get(i).getDayOfWeek(); // Reemplaza con tus etiquetas reales
+                        labels[i] = sleepHoursInformations.get(i).getDayOfWeek();
                     }
 
                     MyValueFormatter formatter = new MyValueFormatter(labels);
@@ -99,13 +99,12 @@ public class ViewSleepChart extends Fragment {
                     barChart.setData(barData);
                     barChart.animateY(2000);
                 }else {
-                    Log.e("Error nulo", "La lista está vacía");
+                    Toast.makeText(getContext(), "No ha registrado horas de sueño", Toast.LENGTH_SHORT).show();
+                    TextView title = view.findViewById(R.id.sleepHoursTextView);
+                    title.setText("00 Horas de sueño");
                 }
             }
         });
-
-
-        Log.e("Creación de la tabla", "Se debió haber creado la estadística");
         return view;
     }
 }

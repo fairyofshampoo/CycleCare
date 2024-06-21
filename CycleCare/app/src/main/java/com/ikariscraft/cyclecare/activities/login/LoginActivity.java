@@ -6,11 +6,15 @@ import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.ikariscraft.cyclecare.R;
+import com.ikariscraft.cyclecare.activities.forgot_password.ForgotPasswordActivity;
 import com.ikariscraft.cyclecare.activities.main_screen.PrincipalScreen;
+import com.ikariscraft.cyclecare.activities.register_account.RegisterAccountActivity;
+import com.ikariscraft.cyclecare.activities.view_content_medic_pov.MyContentActivity;
 import com.ikariscraft.cyclecare.api.RequestStatus;
 import com.ikariscraft.cyclecare.databinding.ActivityLoginBinding;
 import com.ikariscraft.cyclecare.repository.ProcessErrorCodes;
@@ -21,6 +25,7 @@ import com.ikariscraft.cyclecare.utilities.SessionSingleton;
 public class    LoginActivity extends AppCompatActivity {
     private ActivityLoginBinding binding;
     private LoginViewModel viewModel;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +38,8 @@ public class    LoginActivity extends AppCompatActivity {
         setUpLoginButtonClick();
         setupFieldsValidations();
         setupLoginStatusListener();
+        setUpForgotPasswordLabel();
+        setUpCreateAccountLabel();
     }
 
     private void setupFieldsValidations() {
@@ -124,13 +131,29 @@ public class    LoginActivity extends AppCompatActivity {
                 break;
             }
             case MEDIC: {
-                Toast.makeText(this, "Pantalla de médico", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(this, MyContentActivity.class);
+                startActivity(intent);
                 break;
             }
             default: {
                 Toast.makeText(this, R.string.role_not_supported, Toast.LENGTH_SHORT).show();
             }
         }
+    }
+
+    private void setUpForgotPasswordLabel(){
+        TextView forgotPasswordTextView = binding.forgotPasswordTextView;
+        forgotPasswordTextView.setOnClickListener(v -> {
+            Intent intent = new Intent(this, ForgotPasswordActivity.class);
+            startActivity(intent);
+        });
+    }
+
+    private void setUpCreateAccountLabel(){
+        binding.creatAccountTextView.setOnClickListener(v -> {
+            Intent intent = new Intent(this, RegisterAccountActivity.class);
+            startActivity(intent);
+        });
     }
 
 }

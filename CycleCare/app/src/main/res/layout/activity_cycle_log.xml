@@ -92,6 +92,7 @@
 
                 <!-- Opciones de flujo menstrual -->
                 <LinearLayout
+                    android:id="@+id/lightFlow"
                     android:layout_width="100dp"
                     android:layout_height="90dp"
                     android:orientation="vertical"
@@ -114,6 +115,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/mediumFlow"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
@@ -136,6 +138,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/heavyFlow"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
@@ -172,12 +175,14 @@
                     android:src="@drawable/ic_note"/>
 
                 <EditText
+                    android:id="@+id/noteEditText"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:hint="Añade una nota"
                     android:background="@null"
                     android:padding="8dp"
+                    android:maxLength="50"
                     android:textColor="@color/dark_gray"
                     android:inputType="textMultiLine" />
 
@@ -204,16 +209,20 @@
                 android:layout_height="wrap_content"
                 app:flexWrap="wrap">
 
-                <TextView
+                <CheckBox
+                    android:id="@+id/abdominalPainCheckBox"
+                    android:tag="1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Dolor abdominal"
+                    android:text="@string/abdominal_pain"
                     android:padding="8dp"
                     android:background="@drawable/symptom_background"
                     android:layout_margin="4dp"
                     android:gravity="center"
                     android:textColor="@color/dark_gray" />
-                <TextView
+                <CheckBox
+                    android:id="@+id/breastTendernessCheckBox"
+                    android:tag="2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Sensibilidad en los senos"
@@ -222,7 +231,9 @@
                     android:layout_margin="4dp"
                     android:gravity="center"
                     android:textColor="@color/dark_gray" />
-                <TextView
+                <CheckBox
+                    android:id="@+id/acneCheckBox"
+                    android:tag="3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Acné"
@@ -231,7 +242,9 @@
                     android:layout_margin="4dp"
                     android:gravity="center"
                     android:textColor="@color/dark_gray" />
-                <TextView
+                <CheckBox
+                    android:id="@+id/bloatingCheckBox"
+                    android:tag="4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Hinchazón abdominal"
@@ -240,7 +253,9 @@
                     android:layout_margin="4dp"
                     android:gravity="center"
                     android:textColor="@color/dark_gray" />
-                <TextView
+                <CheckBox
+                    android:id="@+id/fatigueCheckBox"
+                    android:tag="5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Fatiga"
@@ -249,7 +264,9 @@
                     android:layout_margin="4dp"
                     android:gravity="center"
                     android:textColor="@color/dark_gray" />
-                <TextView
+                <CheckBox
+                    android:id="@+id/headacheCheckBox"
+                    android:tag="6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Dolor de cabeza"
@@ -258,7 +275,9 @@
                     android:layout_margin="4dp"
                     android:gravity="center"
                     android:textColor="@color/dark_gray" />
-                <TextView
+                <CheckBox
+                    android:id="@+id/nauseaCheckBox"
+                    android:tag="7"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Náuseas"
@@ -267,7 +286,9 @@
                     android:layout_margin="4dp"
                     android:gravity="center"
                     android:textColor="@color/dark_gray" />
-                <TextView
+                <CheckBox
+                    android:id="@+id/dizzinessCheckBox"
+                    android:tag="8"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Mareos"
@@ -276,7 +297,9 @@
                     android:layout_margin="4dp"
                     android:gravity="center"
                     android:textColor="@color/dark_gray" />
-                <TextView
+                <CheckBox
+                    android:id="@+id/cravingsCheckBox"
+                    android:tag="9"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Antojos"
@@ -285,7 +308,9 @@
                     android:layout_margin="4dp"
                     android:gravity="center"
                     android:textColor="@color/dark_gray" />
-                <TextView
+                <CheckBox
+                    android:id="@+id/constipationCheckBox"
+                    android:tag="10"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Estreñimiento"
@@ -294,7 +319,9 @@
                     android:layout_margin="4dp"
                     android:gravity="center"
                     android:textColor="@color/dark_gray" />
-                <TextView
+                <CheckBox
+                    android:id="@+id/diarrheaCheckBox"
+                    android:tag="11"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Diarrea"
@@ -303,7 +330,9 @@
                     android:layout_margin="4dp"
                     android:gravity="center"
                     android:textColor="@color/dark_gray" />
-                <TextView
+                <CheckBox
+                    android:id="@+id/insomniaCheckBox"
+                    android:tag="11"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Insomnio"
@@ -312,7 +341,9 @@
                     android:layout_margin="4dp"
                     android:gravity="center"
                     android:textColor="@color/dark_gray" />
-                <TextView
+                <CheckBox
+                    android:id="@+id/vaginalItchingCheckBox"
+                    android:tag="12"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Picazón vaginal"
@@ -321,7 +352,9 @@
                     android:layout_margin="4dp"
                     android:gravity="center"
                     android:textColor="@color/dark_gray" />
-                <TextView
+                <CheckBox
+                    android:id="@+id/vulvaPainCheckBox"
+                    android:tag="13"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Dolor en vulva"
@@ -331,37 +364,6 @@
                     android:gravity="center"
                     android:textColor="@color/dark_gray" />
             </com.google.android.flexbox.FlexboxLayout>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Actividad Sexual"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:textAllCaps="true"
-                android:textColor="@color/gray_blue"
-                android:layout_marginTop="16dp"/>
-
-            <RadioGroup
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginStart="20dp">
-
-                <RadioButton
-                    android:id="@+id/rbProtectedSex"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Sexo con protección"
-                    android:buttonTint="@color/light_gray" />
-
-                <RadioButton
-                    android:id="@+id/rbUnprotectedSex"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Sexo sin protección"
-                    android:buttonTint="@color/light_gray" />
-            </RadioGroup>
 
             <!-- Sección de flujo vaginal -->
             <TextView
@@ -387,6 +389,7 @@
 
                     <!-- Opciones de flujo vaginal -->
                     <LinearLayout
+                        android:id="@+id/dryFlow"
                         android:layout_width="100dp"
                         android:layout_height="90dp"
                         android:orientation="vertical"
@@ -409,6 +412,7 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/stickyFlow"
                         android:layout_width="100dp"
                         android:layout_height="90dp"
                         android:orientation="vertical"
@@ -431,6 +435,7 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/creamyFlow"
                         android:layout_width="100dp"
                         android:layout_height="90dp"
                         android:orientation="vertical"
@@ -452,6 +457,7 @@
                             android:textSize="14sp"/>
                     </LinearLayout>
                     <LinearLayout
+                        android:id="@+id/aqueousFlow"
                         android:layout_width="100dp"
                         android:layout_height="90dp"
                         android:orientation="vertical"
@@ -473,6 +479,7 @@
                             android:textSize="14sp"/>
                     </LinearLayout>
                     <LinearLayout
+                        android:id="@+id/elasticFlow"
                         android:layout_width="100dp"
                         android:layout_height="90dp"
                         android:orientation="vertical"
@@ -518,6 +525,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
                     <LinearLayout
+                        android:id="@+id/happyMood"
                         android:layout_width="100dp"
                         android:layout_height="90dp"
                         android:orientation="vertical"
@@ -540,6 +548,7 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/sadMood"
                         android:layout_width="100dp"
                         android:layout_height="90dp"
                         android:orientation="vertical"
@@ -562,6 +571,7 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/anxiousMood"
                         android:layout_width="100dp"
                         android:layout_height="90dp"
                         android:orientation="vertical"
@@ -583,6 +593,7 @@
                             android:textSize="14sp"/>
                     </LinearLayout>
                     <LinearLayout
+                        android:id="@+id/angryMood"
                         android:layout_width="100dp"
                         android:layout_height="90dp"
                         android:orientation="vertical"
@@ -604,6 +615,7 @@
                             android:textSize="14sp"/>
                     </LinearLayout>
                     <LinearLayout
+                        android:id="@+id/tiredMood"
                         android:layout_width="100dp"
                         android:layout_height="90dp"
                         android:orientation="vertical"
@@ -625,6 +637,7 @@
                             android:textSize="14sp"/>
                     </LinearLayout>
                     <LinearLayout
+                        android:id="@+id/energeticMood"
                         android:layout_width="100dp"
                         android:layout_height="90dp"
                         android:orientation="vertical"
@@ -646,6 +659,7 @@
                             android:textSize="14sp"/>
                     </LinearLayout>
                     <LinearLayout
+                        android:id="@+id/relaxedMood"
                         android:layout_width="100dp"
                         android:layout_height="90dp"
                         android:orientation="vertical"
@@ -667,6 +681,7 @@
                             android:textSize="14sp"/>
                     </LinearLayout>
                     <LinearLayout
+                        android:id="@+id/focusedMood"
                         android:layout_width="100dp"
                         android:layout_height="90dp"
                         android:orientation="vertical"
@@ -688,6 +703,7 @@
                             android:textSize="14sp"/>
                     </LinearLayout>
                     <LinearLayout
+                        android:id="@+id/stressedMood"
                         android:layout_width="100dp"
                         android:layout_height="90dp"
                         android:orientation="vertical"
@@ -709,6 +725,7 @@
                             android:textSize="14sp"/>
                     </LinearLayout>
                     <LinearLayout
+                        android:id="@+id/irritableMood"
                         android:layout_width="100dp"
                         android:layout_height="90dp"
                         android:orientation="vertical"
@@ -747,7 +764,9 @@
                 android:layout_height="wrap_content"
                 app:flexWrap="wrap">
 
-                <TextView
+                <CheckBox
+                    android:id="@+id/hormoneTherapyCheckBox"
+                    android:tag="1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Terapía hormonal"
@@ -756,7 +775,9 @@
                     android:layout_margin="4dp"
                     android:gravity="center"
                     android:textColor="@color/dark_gray" />
-                <TextView
+                <CheckBox
+                    android:tag="2"
+                    android:id="@+id/emergencyPillCheckBox"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Pastilla de emergencia"
@@ -765,7 +786,9 @@
                     android:layout_margin="4dp"
                     android:gravity="center"
                     android:textColor="@color/dark_gray" />
-                <TextView
+                <CheckBox
+                    android:tag="3"
+                    android:id="@+id/painkillersCheckBox"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Analgésicos"
@@ -774,7 +797,9 @@
                     android:layout_margin="4dp"
                     android:gravity="center"
                     android:textColor="@color/dark_gray" />
-                <TextView
+                <CheckBox
+                    android:tag="4"
+                    android:id="@+id/antidepressantsCheckBox"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Antidepresivos"
@@ -783,7 +808,9 @@
                     android:layout_margin="4dp"
                     android:gravity="center"
                     android:textColor="@color/dark_gray" />
-                <TextView
+                <CheckBox
+                    android:tag="5"
+                    android:id="@+id/antibioticsCheckBox"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Antibióticos"
@@ -792,7 +819,9 @@
                     android:layout_margin="4dp"
                     android:gravity="center"
                     android:textColor="@color/dark_gray" />
-                <TextView
+                <CheckBox
+                    android:tag="6"
+                    android:id="@+id/antihistaminesCheckBox"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Antihistamínicos"
@@ -818,7 +847,9 @@
                 android:layout_height="wrap_content"
                 app:flexWrap="wrap">
 
-                <TextView
+                <CheckBox
+                    android:tag="1"
+                    android:id="@+id/pillTakenCheckBox"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Tomada"
@@ -827,7 +858,9 @@
                     android:layout_margin="4dp"
                     android:gravity="center"
                     android:textColor="@color/dark_gray" />
-                <TextView
+                <CheckBox
+                    android:tag="2"
+                    android:id="@+id/pillForgottenCheckBox"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Olvidada"
@@ -836,7 +869,9 @@
                     android:layout_margin="4dp"
                     android:gravity="center"
                     android:textColor="@color/dark_gray" />
-                <TextView
+                <CheckBox
+                    android:tag="3"
+                    android:id="@+id/doubleDoseCheckBox"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Dosis doble"
@@ -845,7 +880,9 @@
                     android:layout_margin="4dp"
                     android:gravity="center"
                     android:textColor="@color/dark_gray" />
-                <TextView
+                <CheckBox
+                    android:tag="4"
+                    android:id="@+id/noDoseCheckBox"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Sin dosis"
@@ -854,7 +891,9 @@
                     android:layout_margin="4dp"
                     android:gravity="center"
                     android:textColor="@color/dark_gray" />
-                <TextView
+                <CheckBox
+                    android:tag="5"
+                    android:id="@+id/lateDoseCheckBox"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Tarde"
@@ -888,26 +927,12 @@
                     android:gravity="center"
                     android:layout_marginTop="8dp">
 
-                    <NumberPicker
-                        android:id="@+id/np_hours"
-                        android:layout_width="wrap_content"
+                    <Spinner
+                        android:id="@+id/sleep_hours"
+                        android:layout_width="70dp"
                         android:layout_height="50dp"
-                        android:background="@drawable/selector_background"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text=":"
-                        android:textSize="24sp"
-                        android:textColor="@android:color/black"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginEnd="8dp"/>
-
-                    <NumberPicker
-                        android:id="@+id/np_minutes"
-                        android:layout_width="wrap_content"
-                        android:layout_height="50dp"
-                        android:background="@drawable/selector_background"/>
+                        android:background="@drawable/selector_background"
+                        android:entries="@array/numbers_array"/>
                 </LinearLayout>
             </LinearLayout>
 
@@ -936,6 +961,7 @@
                     android:layout_marginTop="8dp">
 
                     <RadioButton
+                        android:tag="1"
                         android:id="@+id/rb_inserted"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -944,6 +970,7 @@
                         android:gravity="center"/>
 
                     <RadioButton
+                        android:tag="2"
                         android:id="@+id/rb_removed"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"

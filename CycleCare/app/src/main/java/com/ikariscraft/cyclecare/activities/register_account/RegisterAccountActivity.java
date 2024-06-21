@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import com.ikariscraft.cyclecare.api.requests.UserRegisterData;
 import com.ikariscraft.cyclecare.databinding.ActivityRegisterAccountBinding;
+import com.ikariscraft.cyclecare.utilities.PasswordUtilities;
 import com.ikariscraft.cyclecare.utilities.Role;
 
 public class RegisterAccountActivity extends AppCompatActivity {
@@ -125,7 +126,8 @@ public class RegisterAccountActivity extends AppCompatActivity {
         registerData.setEmail(binding.emailEditText.getText().toString().trim());
         registerData.setRole(Role.USER.name());
         registerData.setUsername(binding.userEditText.getText().toString().trim());
-        registerData.setPassword(binding.passwordEditText.getText().toString().trim());
+        String password = PasswordUtilities.computeSHA256Hash(binding.passwordEditText.getText().toString().trim());
+        registerData.setPassword(password);
         return registerData;
     }
 

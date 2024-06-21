@@ -20,7 +20,7 @@
             <androidx.fragment.app.FragmentContainerView
                 android:id="@+id/fragment_container"
                 android:layout_width="match_parent"
-                android:layout_height="630dp" />
+                android:layout_height="650dp" />
 
         </RelativeLayout>
 
@@ -32,6 +32,7 @@
         android:background="@color/strong_pink">
 
         <ImageButton
+            android:id="@+id/btn_notification"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:src="@drawable/notification_icon"
@@ -42,6 +43,7 @@
             android:background="@color/strong_pink"/>
 
         <ImageButton
+            android:id="@+id/btn_calendar"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:src="@drawable/calendar_icon"
@@ -52,6 +54,7 @@
 
 
         <ImageButton
+            android:id="@+id/btn_informativeContent"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:src="@drawable/content_icon"
@@ -61,6 +64,7 @@
             android:background="@color/strong_pink"/>
 
         <ImageButton
+            android:id="@+id/btn_sleepChart"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:src="@drawable/chart_icon"

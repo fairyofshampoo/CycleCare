@@ -1,4 +1,4 @@
-package com.ikariscraft.cyclecare.api.interfaces;
+package com.ikariscraft.cyclecare.api.Interfaces;
 
 import com.ikariscraft.cyclecare.model.SleepHoursInformation;
 

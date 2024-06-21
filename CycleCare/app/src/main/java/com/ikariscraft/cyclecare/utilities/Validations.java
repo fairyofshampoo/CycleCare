@@ -1,5 +1,10 @@
 package com.ikariscraft.cyclecare.utilities;
 
+import android.database.Cursor;
+import android.net.Uri;
+import android.service.autofill.FieldClassification;
+import androidx.appcompat.app.AppCompatActivity;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -9,7 +14,12 @@ public class Validations {
         boolean isValidPassword = false;
 
         if (password != null) {
-            isValidPassword = !password.isEmpty() && password.matches("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,20}$\n");
+            String passwordPattern = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,20}$";
+
+            Pattern pattern = Pattern.compile(passwordPattern);
+            Matcher matcher = pattern.matcher(password);
+
+            isValidPassword = matcher.matches();
         }
         return isValidPassword;
     }
@@ -58,4 +68,60 @@ public class Validations {
         return isValidEmail;
     }
 
+    public static boolean isValidTitle(String text) {
+        boolean isValidTitle = false;
+
+        if(text != null) {
+            String titlePattern = "^(?! )[^\\s].{1,60}$";
+
+            Pattern pattern = Pattern.compile(titlePattern);
+            Matcher matcher = pattern.matcher(text);
+
+            isValidTitle = matcher.matches();
+        }
+        return isValidTitle;
+    }
+
+    public static boolean isDescriptionValid(String text) {
+        boolean isDescriptionValid = false;
+
+        if(text != null) {
+            String descriptionPattern = "^(?!\\s)[\\s\\S]{1,190}$";
+            Pattern pattern = Pattern.compile(descriptionPattern);
+            Matcher matcher = pattern.matcher(text);
+
+            isDescriptionValid = matcher.matches();
+        }
+
+
+        return isDescriptionValid;
+    }
+
+    public static boolean isValidCode(String code) {
+        boolean isValidCode = false;
+
+        if (code != null) {
+            String codePattern = "^[a-fA-F0-9]{8}$";
+            Pattern pattern = Pattern.compile(codePattern);
+            Matcher matcher = pattern.matcher(code);
+
+            isValidCode = matcher.matches();
+        }
+
+        return isValidCode;
+    }
+
+    public static boolean isTitleValid(String title) {
+        boolean isTitleValid = false;
+
+        if (title != null) {
+            String titlePattern = "^(?!\\s)([\\s\\S]{1,65})$";
+            Pattern pattern = Pattern.compile(titlePattern);
+            Matcher matcher = pattern.matcher(title);
+
+            isTitleValid = matcher.matches();
+        }
+
+        return isTitleValid;
+    }
 }

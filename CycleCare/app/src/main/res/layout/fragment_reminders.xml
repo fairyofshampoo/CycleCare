@@ -45,8 +45,15 @@
                 android:id="@+id/reminders_recycler"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:itemCount="15"
+                tools:itemCount="3"
                 tools:listitem="@layout/reminder_list_item" />
+
+            <TextView
+                android:id="@+id/remindersNotFoundTV"
+                android:visibility="visible"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="No hay recordatorios registrados" />
 
         </LinearLayout>
     </ScrollView>

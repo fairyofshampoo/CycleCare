@@ -31,7 +31,7 @@
     <string name="register_account_button">Siguiente</string>
     <string name="birthday_datepicker_message">Seleccionar fecha de nacimiento</string>
     <string name="cycle_type_title_label">¿Cómo es tu ciclo?</string>
-    <string name="cycle_description_label">El ciclo menstrual es el proceso mensual del cuerpo preparándose para un posible embarazo. Se considera regular cuando la duración entre períodos es constante (aproximadamente 21-35 días). Si hay variaciones significativas, se considera irregular.</string>
+    <string name="cycle_description_label">El ciclo menstrual es el proceso mensual del cuerpo preparándose para un posible embarazo. Se considera regular cuando la duración entre períodos es constante (aproximadamente 21 a 35 días). Si hay variaciones significativas, se considera irregular.</string>
     <string name="regular_cycle_button">Regular</string>
     <string name="irregular_cycle_button">Irregular</string>
     <string name="idk_cycle_button">No lo sé</string>
@@ -49,14 +49,14 @@
     <string name="description_label">* Descripción</string>
     <string name="post_button">Publicar</string>
     <string name="post_tittle_label">Título de la publicación</string>
-    <string name="author_content_label">autor de la publicación</string>
+    <string name="author_content_label">Autor de la publicación</string>
     <string name="publish_date_label">XX/XX/XXXX</string>
     <string name="content_label">Contenido</string>
     <string name="code_verify_email_label">Código</string>
     <string name="confirm_code_button">Confirmar correo</string>
     <string name="resend_code_label"><u>Reenviar código</u></string>
     <string name="reminder_tittle_label">* Título del recordatorio</string>
-    <string name="reminder_description_label">Descripción del recordatorio</string>
+    <string name="reminder_description_label">* Descripción del recordatorio</string>
     <string name="reminder_date_label">* Fecha del recordatorio</string>
     <string name="reminder_time_label">* Hora del recordatorio</string>
     <string name="save_reminder_button">Guardar recordatorio</string>
@@ -75,10 +75,10 @@
     <string name="error_period_duration_label">La información entroducida es incorrecta</string>
     <string name="username_error_login">El nombre de usuario es incorrecto</string>
     <string name="password_error_login">Formato de contraseña inválido</string>
+    <string name="password_confirm_error">Las contraseñas no coinciden</string>
     <string name="login_invalid_credentials_message">Usuario o contraseña incorrectos. Revisa tus credenciales.</string>
     <string name="login_server_error_message">Error en el servidor. Inténtalo más tarde.</string>
     <string name="login_fatal_error_message">Error inesperado. Inténtalo más tarde.</string>
-    <string name="next_month">Siguiente mes</string>
     <string name="prev_month">Mes anterior\n</string>
     <string name="new_register_btn">Nuevo registro</string>
     <string name="days_for_next_label">Días para tu próximo período</string>
@@ -92,4 +92,27 @@
     <string name="lbl_new_password">Nueva contraseña</string>
     <string name="new_password_description">La contraseña debe tener al menos 8 caracteres e incluir al menos una mayúscula, una minúscula, un número y un carácter especial.</string>
     <string name="email_not_found">No se encontró el email ingresado. Intenta nuevamente</string>
+    <string name="error_title_label">El título es incorrecto</string>
+    <string name="error_description_label">La descripción debe ser menor a 200 caracteres</string>
+    <string name="btn_edit">Editar</string>
+    <string name="code_error_label">El código ingresado no cumple con las características de un código, revisa tu correo y vuelve a intentarlo.</string>
+    <string name="new_password_bad_request_error">Verifique que la contraseña cumpla con los requisitos</string>
+    <string name="new_password_not_found_error">No se encontró usuario para cambiar la contraseña</string>
+    <string name="previous_month"><![CDATA[<]]></string>
+    <string name="next_month_arrow"><![CDATA[>]]></string>
+    <string name="cycle_log_no_prediction">No hay predicción</string>
+    <string name="cycle_log_no_prediction_description">No se ha podido predecir la fecha de tu próximo periodo. Por favor, registra tus ciclos para obtener una predicción más precisa.</string>
+    <string name="question_mark">\?</string>
+    <string name="menstrual_phase">Menstruación</string>
+    <string name="menstrual_phase_description">Durante la menstruación, el cuerpo de la mujer se deshace del revestimiento del útero. Esto dura de 3 a 7 días. Puedes experimentar calambres, fatiga y cambios de humor.</string>
+    <string name="follicular_phase">Folicular</string>
+    <string name="follicular_phase_description">Durante la fase folicular, los ovarios producen estrógeno, lo que ayuda a engrosar el revestimiento del útero. Te puedes sentir más energética y con mejor estado de ánimo.</string>
+    <string name="ovulation_phase">Ovulación</string>
+    <string name="ovulation_phase_description">Durante la ovulación, un óvulo es liberado de uno de los ovarios y se desplaza por las trompas de Falopio. Puedes sentir un aumento de energía, un ligero dolor abdominal y mayor libido.</string>
+    <string name="luteal_phase">Lútea</string>
+    <string name="luteal_phase_description">Durante la fase lútea, el folículo vacío que liberó el óvulo comienza a producir progesterona para preparar el útero para un posible embarazo. Puedes experimentar hinchazón, sensibilidad en los senos y cambios de humor.</string>
+    <string name="abdominal_pain">Dolor abdominal</string>
+    <string name="cycle_log_not_found">No se ha encontrado el registro del ciclo</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
