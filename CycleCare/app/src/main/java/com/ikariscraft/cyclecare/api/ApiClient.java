@@ -2,6 +2,7 @@ package com.ikariscraft.cyclecare.api;
 
 import com.ikariscraft.cyclecare.api.Interfaces.IChartService;
 import com.ikariscraft.cyclecare.api.Interfaces.IContentService;
+import com.ikariscraft.cyclecare.api.Interfaces.IReminderService;
 import com.ikariscraft.cyclecare.api.Interfaces.IUserService;
 import com.ikariscraft.cyclecare.api.interfaces.ICycleService;
 
@@ -16,6 +17,7 @@ public class ApiClient {
     private IChartService chartService;
     private IContentService contentService;
     private ICycleService cycleService;
+    private IReminderService reminderService;
 
     private String baseIp = "http://192.168.100.152:8085";
 
@@ -56,6 +58,13 @@ public class ApiClient {
             cycleService = retrofit.create(ICycleService.class);
         }
         return cycleService;
+    }
+
+    public IReminderService getReminderService(){
+        if(reminderService == null){
+            reminderService = retrofit.create(IReminderService.class);
+        }
+        return reminderService;
     }
 
     public String getBaseIp(){
