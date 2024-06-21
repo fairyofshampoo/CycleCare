@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/TitleTextViewStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="@string/register_new_account_title" />
+
+            <TextView
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/register_account_instruction"
+                android:textColor="@color/gray_blue"
+                android:textSize="20sp"
+                android:layout_marginBottom="10dp"/>
+
+            <GridLayout
+                android:background="@drawable/rounded_background"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:layout_marginBottom="20dp"
+                android:orientation="vertical">
+
+
+                <!-- Nombre -->
+                <TextView
+                    android:textAllCaps="true"
+                    android:textColor="@color/gray_blue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/name_register_account_label"
+                    android:textSize="16sp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"/>
+
+                <EditText
+                    android:id="@+id/nameEditText"
+                    style="@style/EditTextStyle"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:autofillHints=""
+                    android:inputType="text"
+                    android:minHeight="40dp"
+                    android:textColorHint="#546E7A"
+                    android:layout_marginStart="20dp"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/errorNameTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/error_name_register_account_label"
+                    android:textAllCaps="true"
+                    android:textColor="@color/gray_blue"
+                    android:textSize="12sp"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:textAllCaps="true"
+                    android:textColor="@color/gray_blue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/first_last_name_label"
+                    android:textSize="16sp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"/>
+
+                <EditText
+                    android:id="@+id/firstLastNameEditText"
+                    style="@style/EditTextStyle"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:autofillHints=""
+                    android:inputType="text"
+                    android:minHeight="40dp"
+                    android:textColorHint="#546E7A"
+                    android:layout_marginStart="20dp"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/errorFirstLastNameTextView"
+                    android:textAllCaps="true"
+                    android:textColor="@color/gray_blue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/error_second_last_name_label"
+                    android:textSize="12sp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="5dp"
+                    android:visibility="gone"/>
+
+                <TextView
+                    android:textAllCaps="true"
+                    android:textColor="@color/gray_blue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/second_last_name_label"
+                    android:textSize="16sp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"/>
+
+                <EditText
+                    android:id="@+id/secondLastNameEditText"
+                    style="@style/EditTextStyle"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:autofillHints=""
+                    android:inputType="text"
+                    android:minHeight="40dp"
+                    android:textColorHint="#546E7A"
+                    android:layout_marginStart="20dp"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/errorSecondLastNameTextView"
+                    android:textAllCaps="true"
+                    android:textColor="@color/gray_blue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/error_second_last_name_label"
+                    android:textSize="12sp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="5dp"
+                    android:visibility="gone"/>
+
+                <!-- Correo electrónico -->
+
+                <TextView
+                    android:textAllCaps="true"
+                    android:textColor="@color/gray_blue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/email_register_account_label"
+                    android:textSize="16sp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"/>
+
+                <EditText
+                    android:id="@+id/emailEditText"
+                    style="@style/EditTextStyle"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:autofillHints=""
+                    android:inputType="text"
+                    android:minHeight="40dp"
+                    android:textColorHint="#546E7A"
+                    android:layout_marginStart="20dp"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/errorEmailTextView"
+                    android:textAllCaps="true"
+                    android:textColor="@color/gray_blue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/email_error_register_account_label"
+                    android:textSize="12sp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="5dp"
+                    android:visibility="gone"/>
+
+                <!-- Usuario -->
+
+                <TextView
+                    android:textAllCaps="true"
+                    android:textColor="@color/gray_blue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/user_register_account_label"
+                    android:textSize="16sp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"/>
+
+                <EditText
+                    android:id="@+id/userEditText"
+                    style="@style/EditTextStyle"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:autofillHints=""
+                    android:inputType="text"
+                    android:minHeight="40dp"
+                    android:textColorHint="#546E7A"
+                    android:layout_marginStart="20dp"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/errorUserNameTextView"
+                    android:textAllCaps="true"
+                    android:textColor="@color/gray_blue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/error_user_register_account_label"
+                    android:textSize="12sp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="5dp"
+                    android:visibility="gone"/>
+
+                <!-- Contraseña -->
+
+                <TextView
+                    android:textAllCaps="true"
+                    android:textColor="@color/gray_blue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/password_register_account_label"
+                    android:textSize="16sp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"/>
+
+                <EditText
+                    android:id="@+id/passwordEditText"
+                    style="@style/EditTextStyle"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:autofillHints=""
+                    android:inputType="text"
+                    android:minHeight="40dp"
+                    android:textColorHint="#546E7A"
+                    android:layout_marginStart="20dp"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/errorPasswordTextView"
+                    android:textAllCaps="true"
+                    android:textColor="@color/gray_blue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/error_password_register_account_label"
+                    android:textSize="12sp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="5dp"
+                    android:visibility="gone"/>
+
+                <Button
+                    android:id="@+id/nextBtn"
+                    android:textAllCaps="false"
+                    style="@style/ButtonStyle"
+                    android:layout_marginStart="70dp"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30sp"
+                    android:layout_marginBottom="30sp"
+                    android:textColor="@color/white"
+                    android:text="@string/register_account_button"/>
+            </GridLayout>
+        </LinearLayout>
+    </ScrollView>
+</layout>

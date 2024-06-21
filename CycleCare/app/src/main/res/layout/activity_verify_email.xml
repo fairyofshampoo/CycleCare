@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/TitleTextViewStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="@string/verify_email_title" />
+
+        <TextView
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/check_your_mailbox_instruction"
+            android:textColor="@color/gray_blue"
+            android:textSize="20sp"
+            android:layout_marginBottom="30dp"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="150dp"
+            android:src="@drawable/email_circle"
+            android:scaleType="centerInside"/>
+
+        <TextView
+            android:layout_marginTop="5dp"
+            android:layout_width="290dp"
+            android:layout_height="wrap_content"
+            android:text="@string/restore_password_instruction"
+            android:textAlignment="center"
+            android:textSize="16sp"
+            android:textColor="@color/dark_gray"
+            android:layout_marginBottom="30dp"/>
+
+        <TextView
+            android:textAllCaps="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/code_verify_email_label"
+            android:textColor="@color/gray_blue"
+            android:layout_marginStart="20dp"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/codeEditText"
+            style="@style/EditTextStyle"
+            android:layout_width="330dp"
+            android:layout_height="wrap_content"
+            android:autofillHints=""
+            android:inputType="text"
+            android:minHeight="48dp"
+            android:textSize="15sp"/>
+
+        <TextView
+            android:id="@+id/errorCodeTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:visibility="gone"
+            android:text="@string/code_error_label"
+            android:textColor="@color/strong_pink" />
+
+        <Button
+            android:id="@+id/btn_confirm_email"
+            android:textAllCaps="false"
+            style="@style/ButtonStyle"
+            android:layout_width="240dp"
+            android:layout_marginTop="40dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:text="@string/confirm_code_button"
+            android:layout_gravity="center"/>
+
+        <TextView
+            android:layout_width="140sp"
+            android:layout_height="wrap_content"
+            android:text="@string/resend_code_label"
+            android:textColor="@color/soft_pink94"
+            android:layout_marginTop="20dp"
+            android:textSize="16sp"
+            android:clickable="true"
+            android:textStyle="italic"
+            android:onClick="onClick"
+            android:layout_gravity="center"/>
+
+    </LinearLayout>
+</layout>

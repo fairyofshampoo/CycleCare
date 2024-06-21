@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".activities.cycle_log.CalendarFragment">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="650dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <Button
+                        android:id="@+id/previousMonthBtn"
+                        android:layout_width="10dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@android:color/transparent"
+                        android:text="@string/previous_month"
+                        android:textColor="@color/dark_gray"
+                        android:textStyle="bold"
+                        android:textSize="20sp"/>
+
+                    <TextView
+                        android:id="@+id/monthYearTV"
+                        android:layout_width="0dp"
+                        android:layout_weight="2"
+                        android:layout_height="wrap_content"
+                        android:text="Junio 2024"
+                        android:textSize="20sp"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"/>
+
+                    <Button
+                        android:id="@+id/nextMonthBtn"
+                        android:layout_width="10dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/next_month_arrow"
+                        android:textColor="@color/dark_gray"
+                        android:background="@android:color/transparent"
+                        android:textStyle="bold"
+                        android:textSize="20sp"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="DO"
+                        android:textColor="@color/dark_gray"
+                        android:textAlignment="center"
+                        android:textSize="16sp"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="LU"
+                        android:textColor="@color/dark_gray"
+                        android:textAlignment="center"
+                        android:textSize="16sp"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="MA"
+                        android:textColor="@color/dark_gray"
+                        android:textAlignment="center"
+                        android:textSize="16sp"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="MI"
+                        android:textColor="@color/dark_gray"
+                        android:textAlignment="center"
+                        android:textSize="16sp"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="JU"
+                        android:textColor="@color/dark_gray"
+                        android:textAlignment="center"
+                        android:textSize="16sp"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="VI"
+                        android:textColor="@color/dark_gray"
+                        android:textAlignment="center"
+                        android:textSize="16sp"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="SA"
+                        android:textColor="@color/dark_gray"
+                        android:textAlignment="center"
+                        android:textSize="16sp"/>
+
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/calendarRecyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+
+                <!-- Línea divisora -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@android:color/darker_gray"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"/>
+
+                <!-- Título de la fase del ciclo -->
+                <TextView
+                    android:id="@+id/tvPhaseTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cycle_log_no_prediction"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:layout_gravity="center"/>
+
+                <!-- Círculo con el número de días para el próximo período -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginBottom="8dp">
+
+                    <TextView
+                        android:id="@+id/tvDaysToPeriod"
+                        android:layout_width="84dp"
+                        android:layout_height="84dp"
+                        android:background="@drawable/circle"
+                        android:gravity="center"
+                        android:text="@string/question_mark"
+                        android:textColor="@android:color/white"
+                        android:textSize="30sp"
+                        android:textStyle="bold"/>
+                </LinearLayout>
+
+                <!-- Texto centrado "Días para tu próximo período" -->
+                <TextView
+                    android:id="@+id/tvDaysLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/days_for_next_label"
+                    android:layout_gravity="center"
+                    android:textSize="16sp"
+                    android:layout_marginBottom="5dp"/>
+
+                <!-- Texto breve explicando la fase -->
+                <TextView
+                    android:id="@+id/tvPhaseDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cycle_log_no_prediction_description"
+                    android:textSize="14sp"
+                    android:layout_marginBottom="16dp"/>
+                <Button
+                    android:id="@+id/btnNewEntry"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/new_register_btn"
+                    style="@style/ButtonStyle"
+                    android:textAllCaps="false"
+                    android:layout_gravity="center"/>
+            </LinearLayout>
+        </ScrollView>
+    </FrameLayout>
+</layout>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="informativeContent"
+            type="com.ikariscraft.cyclecare.api.responses.InformativeContentJSONResponse" />
+    </data>
+
+
+    <ScrollView
+        android:layout_width="410dp"
+        android:layout_height="737dp"
+        android:layout_marginBottom="40dp"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:context=".activities.view_content_user_pov.ViewContentFragment">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <!-- TODO: Update blank fragment layout -->
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:src="@android:drawable/ic_menu_gallery" />
+
+                <TextView
+                    android:id="@+id/txtTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:text="@string/post_tittle_label"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
+
+
+                <TextView
+                    android:id="@+id/txtAuthor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:text="@string/author_content_label"
+                    android:textColor="@color/soft_pink94"
+                    android:textSize="12sp" />
+
+                <RatingBar
+                    android:id="@+id/starsRatingBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_marginEnd="20sp"
+                    android:numStars="5"
+                    android:rating="0"
+                    android:stepSize="1" />
+
+                <TextView
+                    android:id="@+id/txtDescription"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20sp"
+                    android:layout_marginTop="30dp"
+                    android:text="@string/content_label"
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
+
+            </LinearLayout>
+        </FrameLayout>
+    </ScrollView>
+</layout>

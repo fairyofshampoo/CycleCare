@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
 
     <application
         android:allowBackup="true"
@@ -10,12 +12,62 @@
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:hardwareAccelerated="false"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CycleCare"
+        android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".LoginActivity"
+            android:name=".activities.cycle_log.UpdateCycleLogActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.view_content_medic_pov.EditInformativeContentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.forgot_password.NewPasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.register_reminder.RemindersFragment"
+            android:exported="false" />
+        <activity
+            android:name=".activities.cycle_log.CycleLogActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.cycle_log.CalendarFragment"
+            android:exported="false" />
+        <activity
+            android:name=".activities.view_content_medic_pov.ViewContentByMedic"
+            android:exported="false" />
+        <activity
+            android:name=".activities.view_content_medic_pov.MyContentActivity"
+            android:exported="false"/>
+        <activity
+            android:name=".activities.register_reminder.RegisterReminder"
+            android:exported="false" />
+        <activity
+            android:name=".activities.main_screen.PrincipalScreen"
+            android:exported="false"/>
+        <activity
+            android:name=".activities.view_content_medic_pov.PublishInformativeContentActivity"
+            android:exported="false"/>
+        <activity
+            android:name=".activities.register_account.PeriodInformationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.register_account.CycleTypeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.register_account.RegisterAccountActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.forgot_password.VerifyEmailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.forgot_password.ForgotPasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.login.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

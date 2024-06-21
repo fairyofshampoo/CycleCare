@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".activities.register_reminder.RegisterReminder">
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="20dp"
+                        android:text="@string/reminder_fragment_tittle"
+                        android:layout_marginStart="130dp"
+                        android:layout_marginBottom="30dp"
+                        android:textColor="@color/black"
+                        android:textSize="20sp"/>
+
+                </LinearLayout>
+
+                <TextView
+                    android:textAllCaps="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/reminder_tittle_label"
+                    android:textColor="@color/gray_blue"
+                    android:layout_marginStart="20dp"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/titleEditText"
+                    style="@style/EditTextStyle"
+                    android:layout_width="330dp"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:textSize="15sp"
+                    android:layout_gravity="center"/>
+                <TextView
+                    android:id="@+id/errorTitleTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="5dp"
+                    android:text="El título es incorrecto"
+                    android:textAllCaps="false"
+                    android:textColor="@color/strong_pink"
+                    android:textSize="12sp"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:layout_marginTop="20dp"
+                    android:textAllCaps="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/reminder_description_label"
+                    android:textColor="@color/gray_blue"
+                    android:layout_marginStart="20dp"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/descriptionEditText"
+                    style="@style/EditTextForDescriptionStyle"
+                    android:layout_width="330dp"
+                    android:layout_height="150dp"
+                    android:inputType="text"
+                    android:textSize="15sp"
+                    android:layout_gravity="center"/>
+
+                <TextView
+                    android:id="@+id/errorDescriptionTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="5dp"
+                    android:text="La descripción es incorrecta"
+                    android:textAllCaps="false"
+                    android:textColor="@color/strong_pink"
+                    android:textSize="12sp"
+                    android:visibility="gone" />
+                <TextView
+                    android:textAllCaps="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/reminder_date_label"
+                    android:textColor="@color/gray_blue"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:textSize="16sp" />
+
+                <DatePicker
+                    android:id="@+id/datePicker"
+                    android:datePickerMode="spinner"
+                    android:calendarViewShown="false"
+                    android:layout_width="330dp"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:textSize="15sp"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="20dp"/>
+                <TextView
+                    android:id="@+id/errorDateTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="5dp"
+                    android:text="La fecha es incorrecta"
+                    android:textAllCaps="false"
+                    android:textColor="@color/strong_pink"
+                    android:textSize="12sp"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:textAllCaps="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/reminder_time_label"
+                    android:textColor="@color/gray_blue"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:textSize="16sp" />
+
+                <TimePicker
+                    android:id="@+id/timePicker"
+                    android:timePickerMode="spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:textSize="15sp"/>
+
+                <TextView
+                    android:id="@+id/errorTimeTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="5dp"
+                    android:text="La hora es incorrecta"
+                    android:textAllCaps="false"
+                    android:textColor="@color/strong_pink"
+                    android:textSize="12sp"
+                    android:visibility="gone" />
+
+                <Button
+                    android:id="@+id/btn_saveReminder"
+                    android:textAllCaps="false"
+                    style="@style/ButtonStyle"
+                    android:layout_width="240dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:text="@string/save_reminder_button"
+                    android:layout_gravity="center"/>
+
+            </LinearLayout>
+
+        </ScrollView>
+    </FrameLayout>
+</layout>
