@@ -264,9 +264,13 @@ public class CalendarFragment extends Fragment {
             int month = date.getMonthValue();
             int year = date.getYear();
             selectedDate = LocalDate.of(year, month, day);
-            SessionSingleton session = SessionSingleton.getInstance();
-            String token = session.getToken();
-            viewModel.getCycleLogByDay(token, year, month, day);
+            if(selectedDate.isAfter(LocalDate.now())) {
+                Toast.makeText(getContext(), "No se pueden hacer registros a futuro", Toast.LENGTH_SHORT).show();
+            } else {
+                SessionSingleton session = SessionSingleton.getInstance();
+                String token = session.getToken();
+                viewModel.getCycleLogByDay(token, year, month, day);
+            }
         }
     }
 
@@ -298,12 +302,14 @@ public class CalendarFragment extends Fragment {
     public void previousMonthAction(View view)
     {
         currentDate = currentDate.minusMonths(1);
+        getCycleLogs();
         setMonthView();
     }
 
     public void nextMonthAction(View view)
     {
         currentDate = currentDate.plusMonths(1);
+        getCycleLogs();
         setMonthView();
     }
 
