@@ -1,5 +1,7 @@
 package com.ikariscraft.cyclecare.activities.view_content_user_pov;
 
+import android.util.Log;
+
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
@@ -9,6 +11,7 @@ import com.ikariscraft.cyclecare.api.requests.RateInformativeContentRequest;
 import com.ikariscraft.cyclecare.api.responses.InformativeContentJSONResponse;
 import com.ikariscraft.cyclecare.api.responses.RateContentJSONResponse;
 import com.ikariscraft.cyclecare.repository.ContentRepository;
+import com.ikariscraft.cyclecare.repository.IEmptyProcessListener;
 import com.ikariscraft.cyclecare.repository.IProcessStatusListener;
 import com.ikariscraft.cyclecare.repository.ProcessErrorCodes;
 
@@ -19,11 +22,15 @@ public class ViewContentViewModel extends ViewModel {
     private final MutableLiveData<Boolean> isErrorLiveData = new MutableLiveData<>();
     private final MutableLiveData<String> statusCodeLiveData = new MutableLiveData<>();
 
+    private final MutableLiveData<Integer> rate = new MutableLiveData<>();
+
     private final MutableLiveData<String> detailsLiveData = new MutableLiveData<>();
 
     private final MutableLiveData<RequestStatus> rateContentRequestStatus = new MutableLiveData<>();
 
     private final MutableLiveData<ProcessErrorCodes> rateContentErrorCode = new MutableLiveData<>();
+
+    private final MutableLiveData<RequestStatus> existingRateContentRequestStatus = new MutableLiveData<>();
 
     public ViewContentViewModel(){
 
@@ -35,25 +42,25 @@ public class ViewContentViewModel extends ViewModel {
 
     public LiveData<RequestStatus> getRateContentRequestStatus() {return  rateContentRequestStatus;}
 
+
+    public LiveData<RequestStatus> getExistingRateContentRequestStatus() {return  existingRateContentRequestStatus;}
+
     public LiveData<String> getDetails(){return detailsLiveData;}
 
     public LiveData<ProcessErrorCodes> getRateContentErrorCode() {return rateContentErrorCode;}
 
+    public LiveData<Integer> getRate (){return  rate;}
+
 
     public void rateContent(String token, int contentId, RateInformativeContentRequest rating){
         rateContentRequestStatus.setValue(RequestStatus.LOADING);
-
         new ContentRepository().RateContent(
                 token,
                 contentId,
                 rating,
-                new IProcessStatusListener() {
+                new IEmptyProcessListener() {
                     @Override
-                    public void onSuccess(Object data) {
-                        RateContentJSONResponse response = (RateContentJSONResponse) data;
-                        isErrorLiveData.setValue(response.getError());
-                        statusCodeLiveData.setValue(response.getStatusCode());
-                        detailsLiveData.setValue(response.getDetails());
+                    public void onSuccess() {
                         rateContentRequestStatus.setValue(RequestStatus.DONE);
                     }
 
@@ -66,6 +73,55 @@ public class ViewContentViewModel extends ViewModel {
         );
 
     }
+
+    public void UpdateRateContent(String token, int contentId, RateInformativeContentRequest rating){
+        rateContentRequestStatus.setValue(RequestStatus.LOADING);
+        new ContentRepository().UpdateRateContent(
+                token,
+                contentId,
+                rating,
+                new IEmptyProcessListener() {
+                    @Override
+                    public void onSuccess() {
+                        rateContentRequestStatus.setValue(RequestStatus.DONE);
+                    }
+
+                    @Override
+                    public void onError(ProcessErrorCodes errorCode) {
+                        rateContentErrorCode.setValue(errorCode);
+                        rateContentRequestStatus.setValue(RequestStatus.ERROR);
+                    }
+                }
+        );
+
+    }
+
+    public void GetRateContent(String token, int contentId){
+        rateContentRequestStatus.setValue(RequestStatus.LOADING);
+        new ContentRepository().GetRateContent(
+                token,
+                contentId,
+                new IProcessStatusListener() {
+
+                    @Override
+                    public void onSuccess(Object data) {
+                        rate.setValue((Integer) data);
+                        existingRateContentRequestStatus.setValue(RequestStatus.DONE);
+                        rateContentRequestStatus.setValue(RequestStatus.DONE);
+                    }
+
+                    @Override
+                    public void onError(ProcessErrorCodes errorCode) {
+                        rateContentErrorCode.setValue(errorCode);
+                        existingRateContentRequestStatus.setValue(RequestStatus.ERROR);
+                        rateContentRequestStatus.setValue(RequestStatus.ERROR);
+                    }
+                }
+        );
+
+    }
+
+
 
     private final MutableLiveData<RequestStatus> informativeContentStatus = new MutableLiveData<>();
 

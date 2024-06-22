@@ -8,10 +8,12 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentResultListener;
+import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.se.omapi.Session;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,6 +35,8 @@ public class ViewContentFragment extends Fragment {
     private ViewContentViewModel viewModel;
     private FragmentViewContentBinding binding;
     private InformativeContentJSONResponse informativeContent;
+
+    private float rate = -1;
 
     TextView txtTitle, txtDescription, txtUser;
 
@@ -100,6 +104,9 @@ public class ViewContentFragment extends Fragment {
                 String creationDate = bundle.getString("creationDate");
                 String username = bundle.getString("username");
 
+                SessionSingleton sessionSingleton = SessionSingleton.getInstance();
+                String token = sessionSingleton.getToken();
+
                 txtTitle.setText(title);
                 txtDescription.setText(description);
                 txtUser.setText("Publicado por: " + username);
@@ -114,26 +121,48 @@ public class ViewContentFragment extends Fragment {
                 informativeContent.setCreationDate(creationDate);
                 informativeContent.setUsername(username);
 
+                viewModel.GetRateContent(token, informativeContent.getContentId());
+
             }
         });
-
         startRating.setOnRatingBarChangeListener((ratingBar, rating, fromUser) -> {
             if (viewModel.getRateContentRequestStatus().getValue() != RequestStatus.LOADING) {
+                int starsRating = (int) rating;
                 SessionSingleton sessionSingleton = SessionSingleton.getInstance();
                 String token = sessionSingleton.getToken();
-                int starsRating = (int) rating;
-                RateInformativeContentRequest rateInformativeContentRequest = new RateInformativeContentRequest(starsRating);
-                viewModel.rateContent(token, informativeContent.getContentId(), rateInformativeContentRequest);
+                if (viewModel.getRateContentRequestStatus().getValue() == RequestStatus.DONE ) {
+                    Log.e("Token", "token en edición: " + token);
+                    RateInformativeContentRequest rateInformativeContentRequest = new RateInformativeContentRequest(starsRating);
+                    viewModel.UpdateRateContent(token, informativeContent.getContentId(), rateInformativeContentRequest);
+                } else{
+                    Log.e("Token", "token: " + token);
+                    RateInformativeContentRequest rateInformativeContentRequest = new RateInformativeContentRequest(starsRating);
+                    viewModel.rateContent(token, informativeContent.getContentId(), rateInformativeContentRequest);
+                }
             }
-            startRating.setIsIndicator(true);
         });
 
         viewModel.getRateContentRequestStatus().observe(getViewLifecycleOwner(), requestStatus -> {
-            if (requestStatus == RequestStatus.DONE) {
-                Toast.makeText(getContext(), "Se ha calificado el contenido", Toast.LENGTH_SHORT).show();
-            } else {
+            if (requestStatus == RequestStatus.ERROR) {
+                Toast.makeText(getContext(), "Error al calificar el contenido", Toast.LENGTH_SHORT).show();
+            } else{
                 Toast.makeText(getContext(), "Se ha calificado el contenido", Toast.LENGTH_SHORT).show();
             }
         });
+
+        viewModel.getExistingRateContentRequestStatus().observe(getViewLifecycleOwner(), requestStatus -> {
+
+            if(requestStatus == RequestStatus.DONE) {
+                viewModel.getRate().observe(getViewLifecycleOwner(), new Observer<Integer>() {
+                    @Override
+                    public void onChanged(Integer integer) {
+                        Log.e("Error", "Valor obtenido: " + integer.toString());
+                            startRating.setRating((float)integer);
+                            rate = (float) integer;
+                    }
+                });
+            }
+        });
+
     }
 }

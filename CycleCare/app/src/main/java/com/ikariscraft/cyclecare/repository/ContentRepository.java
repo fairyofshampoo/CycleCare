@@ -9,10 +9,12 @@ import com.ikariscraft.cyclecare.api.interfaces.IContentService;
 import com.ikariscraft.cyclecare.api.requests.EditArticleRequest;
 import com.ikariscraft.cyclecare.api.requests.RateInformativeContentRequest;
 import com.ikariscraft.cyclecare.api.requests.RegisterContentRequest;
+import com.ikariscraft.cyclecare.api.responses.GetRateJSONResponse;
 import com.ikariscraft.cyclecare.api.responses.InformativeContentJSONResponse;
 import com.ikariscraft.cyclecare.api.responses.RateContentJSONResponse;
 import com.ikariscraft.cyclecare.api.responses.RatingAverageJSONResponse;
 
+import java.io.IOException;
 import java.util.List;
 
 import retrofit2.Call;
@@ -21,21 +23,53 @@ import retrofit2.Response;
 
 public class ContentRepository {
 
-    public void RateContent(String toke, int contentId, RateInformativeContentRequest rating, IProcessStatusListener listener){
+    public void RateContent(String token, int contentId, RateInformativeContentRequest rating, IEmptyProcessListener listener){
 
         IContentService contentService = ApiClient.getInstance().getContentService();
-
-        contentService.rateInformativeContent(toke, contentId, rating).enqueue(new Callback<RateContentJSONResponse>() {
+        Log.e("Token 2", "Token en repository " + token);
+        contentService.rateInformativeContent(token, contentId, rating).enqueue(new Callback<RateContentJSONResponse>() {
             @Override
             public void onResponse(Call<RateContentJSONResponse> call, Response<RateContentJSONResponse> response) {
-                if(response.body() != null && response.isSuccessful()) {
-                    RateContentJSONResponse contentResponse = new RateContentJSONResponse(
-                            response.body().getError(),
-                            response.body().getStatusCode(),
-                            response.body().getDetails()
-                    );
-                    listener.onSuccess(contentResponse);
+                if(response.isSuccessful()) {
+                    listener.onSuccess();
                 }else{
+                    switch (response.code()){
+                        case 404:
+                            listener.onError(ProcessErrorCodes.NOT_FOUND_ERROR);
+                            break;
+                        case 500:
+                            listener.onError(ProcessErrorCodes.SERVICE_NOT_AVAILABLE_ERROR);
+                            break;
+                        default:
+                            listener.onError(ProcessErrorCodes.FATAL_ERROR);
+                            break;
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<RateContentJSONResponse> call, Throwable t) {
+                listener.onError(ProcessErrorCodes.FATAL_ERROR);
+            }
+        });
+
+    }
+
+    public void UpdateRateContent(String token, int contentId, RateInformativeContentRequest rating, IEmptyProcessListener listener){
+
+        IContentService contentService = ApiClient.getInstance().getContentService();
+        Log.e("Token 2", "Token en edición de repository " + token);
+        contentService.updateRateInformativeContent(token, contentId, rating).enqueue(new Callback<RateContentJSONResponse>() {
+            @Override
+            public void onResponse(Call<RateContentJSONResponse> call, Response<RateContentJSONResponse> response) {
+                if(response.isSuccessful()) {
+                    listener.onSuccess();
+                }else{
+                    try {
+                        Log.e("API_ERROR", "Response error: " + response.errorBody().string());
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                     listener.onError(ProcessErrorCodes.FATAL_ERROR);
                 }
             }
@@ -72,12 +106,37 @@ public class ContentRepository {
                     }
                 }
             }
-
+                    
             @Override
             public void onFailure(Call<RatingAverageJSONResponse> call, Throwable t) {
                 statusListener.onError(ProcessErrorCodes.FATAL_ERROR);
             }
         });
+    }
+
+    public void GetRateContent(String token, int contentId, IProcessStatusListener listener){
+        IContentService contentService = ApiClient.getInstance().getContentService();
+        contentService.getRate(token, contentId).enqueue(new Callback<GetRateJSONResponse>() {
+            @Override
+            public void onResponse(Call<GetRateJSONResponse> call, Response<GetRateJSONResponse> response) {
+                if(response.isSuccessful()) {
+                    listener.onSuccess(response.body().getValue());
+                }else{
+                    try {
+                        Log.e("API_ERROR", "Response error: " + response.errorBody().string());
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    listener.onError(ProcessErrorCodes.FATAL_ERROR);
+                }
+            }
+            
+            @Override
+            public void onFailure(Call<GetRateJSONResponse> call, Throwable t) {
+                listener.onError(ProcessErrorCodes.FATAL_ERROR);
+            }
+        });
+
     }
 
     public void publishNewArticle(String toke, RegisterContentRequest article, IEmptyProcessListener statusListener) {
