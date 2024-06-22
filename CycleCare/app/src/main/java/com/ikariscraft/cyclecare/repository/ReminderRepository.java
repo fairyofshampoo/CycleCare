@@ -1,7 +1,7 @@
 package com.ikariscraft.cyclecare.repository;
 
 import com.ikariscraft.cyclecare.api.ApiClient;
-import com.ikariscraft.cyclecare.api.Interfaces.IReminderService;
+import com.ikariscraft.cyclecare.api.interfaces.IReminderService;
 import com.ikariscraft.cyclecare.api.requests.CreateReminderRequest;
 import com.ikariscraft.cyclecare.api.requests.UpdateReminderRequest;
 import com.ikariscraft.cyclecare.api.responses.UserRemindersResponse;

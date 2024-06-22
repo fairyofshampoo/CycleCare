@@ -1,4 +1,4 @@
-package com.ikariscraft.cyclecare.api.Interfaces;
+package com.ikariscraft.cyclecare.api.interfaces;
 
 import com.ikariscraft.cyclecare.api.requests.CreateReminderRequest;
 import com.ikariscraft.cyclecare.api.requests.UpdateReminderRequest;

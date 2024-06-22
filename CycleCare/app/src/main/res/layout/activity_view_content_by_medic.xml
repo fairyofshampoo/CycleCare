@@ -38,20 +38,31 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="30dp"
+                        android:textStyle="bold"
                     android:text="@string/post_tittle_label"
                     android:textAlignment="center"
                     android:textColor="@color/black"
                     android:textSize="20sp" />
 
+                    <TextView
+                        android:id="@+id/txtAuthor"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:textStyle="bold"
+                        android:text="@string/author_content_label"
+                        android:textColor="@color/soft_pink94"
+                        android:textSize="12sp" />
 
-                <TextView
-                    android:id="@+id/txtAuthor"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="30dp"
-                    android:text="@string/author_content_label"
-                    android:textColor="@color/soft_pink94"
-                    android:textSize="12sp" />
+                    <TextView
+                        android:id="@+id/txtRateAverage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:textStyle="italic"
+                        android:text="Calificación promedio: 0"
+                        android:textColor="@color/soft_pink94"
+                        android:textSize="12sp" />
 
                 <TextView
                     android:id="@+id/txtContent"
