@@ -1,10 +1,11 @@
-package com.ikariscraft.cyclecare.api.Interfaces;
+package com.ikariscraft.cyclecare.api.interfaces;
 
 import com.ikariscraft.cyclecare.api.requests.EditArticleRequest;
 import com.ikariscraft.cyclecare.api.requests.RateInformativeContentRequest;
 import com.ikariscraft.cyclecare.api.requests.RegisterContentRequest;
 import com.ikariscraft.cyclecare.api.responses.InformativeContentJSONResponse;
 import com.ikariscraft.cyclecare.api.responses.RateContentJSONResponse;
+import com.ikariscraft.cyclecare.api.responses.RatingAverageJSONResponse;
 
 import java.util.List;
 
@@ -28,6 +29,12 @@ public interface IContentService {
     Call<RateContentJSONResponse> publishArticle(
             @Header("token") String token,
             @Body RegisterContentRequest article
+    );
+
+    @GET("content/get-average-by-content/{contentId}")
+    Call<RatingAverageJSONResponse> getAverageRating(
+            @Header("token") String token,
+            @Path("contentId") int contentId
     );
 
     @GET("content/get-articles-by-medic")
