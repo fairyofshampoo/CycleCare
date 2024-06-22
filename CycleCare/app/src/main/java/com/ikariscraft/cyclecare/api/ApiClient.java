@@ -19,7 +19,7 @@ public class ApiClient {
     private ICycleService cycleService;
     private IReminderService reminderService;
 
-    private String baseIp = "http://192.168.100.152:8085";
+    private String baseIp = "http://192.168.188.221:8085";
 
     public static  ApiClient getInstance(){
         return apiClient;
