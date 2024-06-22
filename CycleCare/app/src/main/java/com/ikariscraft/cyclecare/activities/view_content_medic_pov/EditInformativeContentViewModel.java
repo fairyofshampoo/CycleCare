@@ -8,7 +8,6 @@ import androidx.lifecycle.ViewModel;
 
 import com.ikariscraft.cyclecare.api.RequestStatus;
 import com.ikariscraft.cyclecare.api.requests.EditArticleRequest;
-import com.ikariscraft.cyclecare.api.requests.RegisterContentRequest;
 import com.ikariscraft.cyclecare.repository.ContentRepository;
 import com.ikariscraft.cyclecare.repository.IEmptyProcessListener;
 import com.ikariscraft.cyclecare.repository.ProcessErrorCodes;
@@ -54,7 +53,7 @@ public class EditInformativeContentViewModel extends ViewModel {
         publishArticleRequestStatus.setValue(RequestStatus.LOADING);
         Log.e("Cargando publishArticlee", "se ha llamado el método publishArticle");
 
-        new ContentRepository().EditExistingArticle(
+        new ContentRepository().editExistingArticle(
                 token,
                 article,
                 new IEmptyProcessListener() {
