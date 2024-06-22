@@ -1,7 +1,5 @@
 package com.ikariscraft.cyclecare.activities.view_content_user_pov;
 
-import android.util.Log;
-
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
@@ -9,7 +7,6 @@ import androidx.lifecycle.ViewModel;
 import com.ikariscraft.cyclecare.api.RequestStatus;
 import com.ikariscraft.cyclecare.api.requests.RateInformativeContentRequest;
 import com.ikariscraft.cyclecare.api.responses.InformativeContentJSONResponse;
-import com.ikariscraft.cyclecare.api.responses.RateContentJSONResponse;
 import com.ikariscraft.cyclecare.repository.ContentRepository;
 import com.ikariscraft.cyclecare.repository.IEmptyProcessListener;
 import com.ikariscraft.cyclecare.repository.IProcessStatusListener;
@@ -54,7 +51,7 @@ public class ViewContentViewModel extends ViewModel {
 
     public void rateContent(String token, int contentId, RateInformativeContentRequest rating){
         rateContentRequestStatus.setValue(RequestStatus.LOADING);
-        new ContentRepository().RateContent(
+        new ContentRepository().rateContent(
                 token,
                 contentId,
                 rating,
@@ -76,7 +73,7 @@ public class ViewContentViewModel extends ViewModel {
 
     public void UpdateRateContent(String token, int contentId, RateInformativeContentRequest rating){
         rateContentRequestStatus.setValue(RequestStatus.LOADING);
-        new ContentRepository().UpdateRateContent(
+        new ContentRepository().updateRateContent(
                 token,
                 contentId,
                 rating,
@@ -98,7 +95,7 @@ public class ViewContentViewModel extends ViewModel {
 
     public void GetRateContent(String token, int contentId){
         rateContentRequestStatus.setValue(RequestStatus.LOADING);
-        new ContentRepository().GetRateContent(
+        new ContentRepository().getRateContent(
                 token,
                 contentId,
                 new IProcessStatusListener() {

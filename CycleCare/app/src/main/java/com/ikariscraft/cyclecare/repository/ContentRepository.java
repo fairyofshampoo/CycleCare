@@ -1,9 +1,7 @@
 package com.ikariscraft.cyclecare.repository;
 
 import android.util.Log;
-import android.widget.Switch;
 
-import com.ikariscraft.cyclecare.activities.view_content_medic_pov.EditInformativeContentActivity;
 import com.ikariscraft.cyclecare.api.ApiClient;
 import com.ikariscraft.cyclecare.api.interfaces.IContentService;
 import com.ikariscraft.cyclecare.api.requests.EditArticleRequest;
@@ -23,10 +21,9 @@ import retrofit2.Response;
 
 public class ContentRepository {
 
-    public void RateContent(String token, int contentId, RateInformativeContentRequest rating, IEmptyProcessListener listener){
+    public void rateContent(String token, int contentId, RateInformativeContentRequest rating, IEmptyProcessListener listener){
 
         IContentService contentService = ApiClient.getInstance().getContentService();
-        Log.e("Token 2", "Token en repository " + token);
         contentService.rateInformativeContent(token, contentId, rating).enqueue(new Callback<RateContentJSONResponse>() {
             @Override
             public void onResponse(Call<RateContentJSONResponse> call, Response<RateContentJSONResponse> response) {
@@ -55,7 +52,7 @@ public class ContentRepository {
 
     }
 
-    public void UpdateRateContent(String token, int contentId, RateInformativeContentRequest rating, IEmptyProcessListener listener){
+    public void updateRateContent(String token, int contentId, RateInformativeContentRequest rating, IEmptyProcessListener listener){
 
         IContentService contentService = ApiClient.getInstance().getContentService();
         Log.e("Token 2", "Token en edición de repository " + token);
@@ -114,7 +111,7 @@ public class ContentRepository {
         });
     }
 
-    public void GetRateContent(String token, int contentId, IProcessStatusListener listener){
+    public void getRateContent(String token, int contentId, IProcessStatusListener listener){
         IContentService contentService = ApiClient.getInstance().getContentService();
         contentService.getRate(token, contentId).enqueue(new Callback<GetRateJSONResponse>() {
             @Override
@@ -167,7 +164,7 @@ public class ContentRepository {
         });
     }
 
-    public void EditExistingArticle(String toke, EditArticleRequest article, IEmptyProcessListener statusListener) {
+    public void editExistingArticle(String toke, EditArticleRequest article, IEmptyProcessListener statusListener) {
         IContentService contentService = ApiClient.getInstance().getContentService();
         contentService.updateArticle(toke, article).enqueue(new Callback<RateContentJSONResponse>() {
             @Override

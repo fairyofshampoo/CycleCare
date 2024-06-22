@@ -131,11 +131,9 @@ public class ViewContentFragment extends Fragment {
                 SessionSingleton sessionSingleton = SessionSingleton.getInstance();
                 String token = sessionSingleton.getToken();
                 if (viewModel.getRateContentRequestStatus().getValue() == RequestStatus.DONE ) {
-                    Log.e("Token", "token en edición: " + token);
                     RateInformativeContentRequest rateInformativeContentRequest = new RateInformativeContentRequest(starsRating);
                     viewModel.UpdateRateContent(token, informativeContent.getContentId(), rateInformativeContentRequest);
                 } else{
-                    Log.e("Token", "token: " + token);
                     RateInformativeContentRequest rateInformativeContentRequest = new RateInformativeContentRequest(starsRating);
                     viewModel.rateContent(token, informativeContent.getContentId(), rateInformativeContentRequest);
                 }
@@ -156,7 +154,6 @@ public class ViewContentFragment extends Fragment {
                 viewModel.getRate().observe(getViewLifecycleOwner(), new Observer<Integer>() {
                     @Override
                     public void onChanged(Integer integer) {
-                        Log.e("Error", "Valor obtenido: " + integer.toString());
                             startRating.setRating((float)integer);
                             rate = (float) integer;
                     }
