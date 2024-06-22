@@ -3,6 +3,7 @@ package com.ikariscraft.cyclecare.api.interfaces;
 import com.ikariscraft.cyclecare.api.requests.EditArticleRequest;
 import com.ikariscraft.cyclecare.api.requests.RateInformativeContentRequest;
 import com.ikariscraft.cyclecare.api.requests.RegisterContentRequest;
+import com.ikariscraft.cyclecare.api.responses.GetRateJSONResponse;
 import com.ikariscraft.cyclecare.api.responses.InformativeContentJSONResponse;
 import com.ikariscraft.cyclecare.api.responses.RateContentJSONResponse;
 import com.ikariscraft.cyclecare.api.responses.RatingAverageJSONResponse;
@@ -20,9 +21,22 @@ public interface IContentService {
 
     @POST("content/create-rating/{id}")
     Call<RateContentJSONResponse> rateInformativeContent(
-            @Header("toke") String token,
+            @Header("token") String token,
             @Path("id") int contentId,
             @Body RateInformativeContentRequest rating
+    );
+
+    @POST("content/update-rate/{id}")
+    Call<RateContentJSONResponse> updateRateInformativeContent(
+            @Header("token") String token,
+            @Path("id") int contentId,
+            @Body RateInformativeContentRequest rating
+    );
+
+    @GET("content/get-rate/{id}")
+    Call<GetRateJSONResponse> getRate(
+            @Header("token") String token,
+            @Path("id") int contentId
     );
 
     @POST("content/publish-article")

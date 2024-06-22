@@ -98,6 +98,10 @@ public class ViewSleepChart extends Fragment {
                     barChart.setFitBars(true);
                     barChart.setData(barData);
                     barChart.animateY(2000);
+                   float avg  =  CalculateAVG(sleepHoursInformations);
+                   TextView title = view.findViewById(R.id.sleepHoursTextView);
+                   String prom = String.valueOf(avg);
+                   title.setText(prom + " Horas de sueño");
                 }else {
                     Toast.makeText(getContext(), "No ha registrado horas de sueño", Toast.LENGTH_SHORT).show();
                     TextView title = view.findViewById(R.id.sleepHoursTextView);
@@ -107,4 +111,14 @@ public class ViewSleepChart extends Fragment {
         });
         return view;
     }
+
+    private float CalculateAVG(List<SleepHoursInformation> sleepHoursInformations){
+        int count = sleepHoursInformations.size();
+        int sum = 0;
+        for (int index = 0; index < count; index ++ ){
+            sum = sum + sleepHoursInformations.get(index).getTotalSleepHours();
+        }
+        return (float) sum /count;
+    }
+
 }
