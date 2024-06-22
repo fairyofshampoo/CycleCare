@@ -144,7 +144,6 @@ public class CalendarFragment extends Fragment {
                 daysToPeriod = (int) currentDate.until(nextPeriodStartDate).getDays();
             }
         }
-        
         showDaysToPeriod(daysToPeriod);
     }
 
