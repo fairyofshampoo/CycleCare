@@ -1,7 +1,7 @@
 package com.ikariscraft.cyclecare.repository;
 
 import com.ikariscraft.cyclecare.api.ApiClient;
-import com.ikariscraft.cyclecare.api.Interfaces.IChartService;
+import com.ikariscraft.cyclecare.api.interfaces.IChartService;
 import com.ikariscraft.cyclecare.model.SleepHoursInformation;
 
 import java.util.List;

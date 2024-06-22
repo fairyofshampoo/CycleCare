@@ -26,7 +26,7 @@ public class MyContentViewModel extends ViewModel {
 
     public LiveData<RequestStatus> getMyContentRequestStatus() {return myContentRequestStatus;}
 
-    public LiveData<ProcessErrorCodes> getMyContentetErrorCode(){return myContentErrorCode;}
+    public LiveData<ProcessErrorCodes> getMyContentErrorCode(){return myContentErrorCode;}
 
     public LiveData<List<InformativeContentJSONResponse>> getMyInformativeContent() {return myInformativeContent;}
 
